@@ -195,14 +195,6 @@
 
 </section>
 
-<div class="pagination">
-  <button id="prevBtn"><<</button>
-  <span id="pageInfo"></span>
-  <button id="nextBtn">>></button>
-
-  <div id="pageNumbers" class="page-numbers"></div>
-</div>
-
 </main>
 
 <!-- FOOTER -->
@@ -282,57 +274,8 @@ filter.addEventListener('change', () => {
 });
 </script>
 
-<script>
-const itemsPerPage = 10;
-const items = document.querySelectorAll(".latihan-item");
-
-const prevBtn = document.getElementById("prevBtn");
-const nextBtn = document.getElementById("nextBtn");
-const pageInfo = document.getElementById("pageInfo");
-const pageNumbers = document.getElementById("pageNumbers");
-
-let currentPage = 1;
-const totalPages = Math.ceil(items.length / itemsPerPage);
-
-function showPage(page) {
-  if (page < 1 || page > totalPages) return;
-  currentPage = page;
-
-  items.forEach((item, index) => {
-    item.style.display =
-      index >= (page - 1) * itemsPerPage &&
-      index < page * itemsPerPage
-        ? "block"
-        : "none";
-  });
-
-  renderPagination();
-}
-
-function renderPagination() {
-  // Info tengah (untuk HP)
-  pageInfo.textContent = `${currentPage} / ${totalPages}`;
-
-  // Nomor halaman (desktop)
-  pageNumbers.innerHTML = "";
-  for (let i = 1; i <= totalPages; i++) {
-    const btn = document.createElement("button");
-    btn.textContent = i;
-    if (i === currentPage) btn.classList.add("active");
-    btn.onclick = () => showPage(i);
-    pageNumbers.appendChild(btn);
-  }
-
-  prevBtn.disabled = currentPage === 1;
-  nextBtn.disabled = currentPage === totalPages;
-}
-
-prevBtn.onclick = () => showPage(currentPage - 1);
-nextBtn.onclick = () => showPage(currentPage + 1);
-
-showPage(1);
-</script>
 
 </body>
 </html>
+
 
