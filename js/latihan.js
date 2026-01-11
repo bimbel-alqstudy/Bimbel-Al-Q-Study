@@ -2,6 +2,7 @@ const API_URL = "https://script.google.com/macros/s/AKfycbxYPhQxThs9qcs8YqqQVOw5
 const container = document.getElementById("latihanList");
 const filter = document.getElementById("mapel");
 const pagination = document.getElementById("pagination");
+const searchInput = document.getElementById("search");
 
 const ITEMS_PER_PAGE = 10;
 
@@ -91,19 +92,27 @@ function renderPagination() {
 }
 
 // FILTER
-filter.addEventListener("change", () => {
-  const value = filter.value;
+function applyFilterAndSearch() {
+  const mapel = filter.value;
+  const keyword = searchInput.value.toLowerCase();
 
-  filteredItems =
-    value === "all"
-      ? [...allItems]
-      : allItems.filter(item =>
-          item.mata_pelajaran.toLowerCase() === value
-        );
+  filteredItems = allItems.filter(item => {
+    const cocokMapel =
+      mapel === "all" ||
+      item.mata_pelajaran.toLowerCase() === mapel;
+
+    const cocokSearch =
+      item.mata_pelajaran.toLowerCase().includes(keyword) ||
+      item.materi.toLowerCase().includes(keyword);
+
+    return cocokMapel && cocokSearch;
+  });
 
   currentPage = 1;
   render();
-});
+}
+filter.addEventListener("change", applyFilterAndSearch);
+searchInput.addEventListener("input", applyFilterAndSearch);
 
 function formatTanggal(tgl) {
   return new Date(tgl).toLocaleDateString("id-ID", {
