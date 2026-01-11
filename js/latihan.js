@@ -10,6 +10,22 @@ let allItems = [];
 let filteredItems = [];
 let currentPage = 1;
 
+function formatTanggal(tgl) {
+  return new Date(tgl).toLocaleDateString("id-ID", {
+    day: "numeric",
+    month: "long",
+    year: "numeric"
+  });
+}
+function normalizeText(text) {
+  return text
+    .toLowerCase()
+    .normalize("NFD")                 // normalisasi unicode
+    .replace(/[\u0300-\u036f]/g, "")  // hapus karakter aneh
+    .replace(/\s+/g, " ")             // spasi ganda → tunggal
+    .trim();
+}
+
 fetch(API_URL)
   .then(res => res.json())
   .then(data => {
@@ -94,16 +110,19 @@ function renderPagination() {
 // FILTER
 function applyFilterAndSearch() {
   const mapel = filter.value;
-  const keyword = searchInput.value.toLowerCase();
+  const keyword = normalizeText(searchInput.value);
 
   filteredItems = allItems.filter(item => {
+    const mapelText = normalizeText(item.mata_pelajaran);
+    const materiText = normalizeText(item.materi);
+    const judulText = normalizeText(item.judul);
     const cocokMapel =
-      mapel === "all" ||
-      item.mata_pelajaran.toLowerCase() === mapel;
+      mapel === "all" || mapelText === mapel;
 
     const cocokSearch =
-      item.mata_pelajaran.toLowerCase().includes(keyword) ||
-      item.materi.toLowerCase().includes(keyword);
+      materiText.includes(keyword) ||
+      mapelText.includes(keyword) ||
+      judulText.includes(keyword);
 
     return cocokMapel && cocokSearch;
   });
@@ -111,13 +130,7 @@ function applyFilterAndSearch() {
   currentPage = 1;
   render();
 }
+
 filter.addEventListener("change", applyFilterAndSearch);
 searchInput.addEventListener("input", applyFilterAndSearch);
 
-function formatTanggal(tgl) {
-  return new Date(tgl).toLocaleDateString("id-ID", {
-    day: "numeric",
-    month: "long",
-    year: "numeric"
-  });
-}
