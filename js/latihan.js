@@ -1,4 +1,3 @@
-<script>
 const API_URL = "https://script.google.com/macros/s/AKfycbxYPhQxThs9qcs8YqqQVOw5Xrt6b7kHDeyRc9da0-iXiBLGVDJt8OtHgLUXiW2FDjJJ9w/exec";
 const container = document.getElementById("latihanList");
 const filter = document.getElementById("mapel");
@@ -52,4 +51,3 @@ function formatTanggal(tgl) {
   const opsi = { day: 'numeric', month: 'long', year: 'numeric' };
   return new Date(tgl).toLocaleDateString('id-ID', opsi);
 }
-</script>
