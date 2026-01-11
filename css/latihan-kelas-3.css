@@ -553,21 +553,25 @@ body {
 }
 
 .pagination {
-  margin: 24px 0;
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 8px;
+  gap: 6px;
+  margin: 20px 0;
   flex-wrap: wrap;
 }
 
 .pagination button {
-  padding: 10px 14px;
+  padding: 6px 12px;
   border: none;
-  border-radius: 8px;
-  background: #e0f2f1;
-  font-size: 16px;
+  background: #e0e0e0;
+  border-radius: 6px;
   cursor: pointer;
+}
+
+.pagination button.active {
+  background: #1e88e5;
+  color: white;
+  font-weight: bold;
 }
 
 .pagination button:disabled {
@@ -575,32 +579,3 @@ body {
   cursor: not-allowed;
 }
 
-.page-numbers button.active {
-  background: #2e7d32;
-  color: white;
-}
-
-#pageInfo {
-  font-weight: 600;
-  min-width: 60px;
-  text-align: center;
-}
-
-/* ===== MODE HP ===== */
-@media (max-width: 600px) {
-  .page-numbers {
-    display: none; /* sembunyikan nomor halaman */
-  }
-
-  .pagination button {
-    flex: 1;
-    max-width: 80px;
-  }
-}
-
-/* ===== MODE DESKTOP ===== */
-@media (min-width: 601px) {
-  #pageInfo {
-    display: none; /* sembunyikan 1/5 */
-  }
-}
