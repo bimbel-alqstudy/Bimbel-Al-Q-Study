@@ -184,7 +184,7 @@
       <option value="all">Semua</option>
       <option value="matematika">Matematika</option>
       <option value="ipas">IPAS</option>
-      <option value="bahasa">Bahasa Indonesia</option>
+      <option value="bahasa indonesia">Bahasa Indonesia</option>
       <option value="lain">Mata Pelajaran Lain</option>
 
     </select>
@@ -258,24 +258,10 @@
   });
 </script>
 
-<script>
-const filter = document.getElementById('mapel');
-const items = document.querySelectorAll('.latihan-item');
-
-filter.addEventListener('change', () => {
-  const value = filter.value;
-  items.forEach(item => {
-    item.style.display =
-      value === 'all' || item.dataset.mapel === value
-        ? 'flex'
-        : 'none';
-  });
-});
-</script>
-
 <script src="js/latihan.js" defer></script>
 </body>
 </html>
+
 
 
 
