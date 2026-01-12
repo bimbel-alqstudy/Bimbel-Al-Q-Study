@@ -55,7 +55,6 @@ function renderItems() {
   pageItems.forEach(item => {
     const a = document.createElement("a");
     a.href = item.file_pdf;
-    a.target = "_blank";
     a.className = "latihan-item";
     a.dataset.mapel = item.mata_pelajaran.toLowerCase();
 
