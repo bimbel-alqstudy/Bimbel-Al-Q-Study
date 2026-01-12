@@ -8,7 +8,7 @@
 <link rel="shortcut icon" href="gambar/logo.png" type="image/x-icon">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <link rel="stylesheet" href="css/latihan-kelas-3.css">
+  <link rel="stylesheet" href="css/latihan.css">
 </head>
 <body>
 
@@ -155,54 +155,73 @@
 </div>
 
 <!-- HEADER HALAMAN -->
-<header class="page-header">
-  <h1>Soal Latihan Kelas 3</h1>
-  <p>
-    Kumpulan latihan soal Kelas 3 dalam bentuk PDF yang dapat dibuka
-    langsung dan diunduh untuk belajar mandiri di rumah.
-  </p>
-</header>
+<section class="page-header">
+<div class="container">
 
-<!-- BREADCRUMB -->
+
+<!-- Breadcrumb -->
 <nav class="breadcrumb">
-  <a href="index.html">Beranda</a>
-  <span>-></span>
-  <a href="#">SD</a>
-  <span>-></span>
-  <a href="#">Latihan</a>
-  <span>-></span>
-  <span class="current">Kelas 3</span>
+<a href="index.html">Beranda</a> &raquo;
+<span id="jenjangText">Latihan</span> &raquo;
+<span id="breadcrumbKelas">Kelas</span>
 </nav>
 
-<!-- KONTEN -->
-<main class="container">
 
-  <!-- Filter -->
-  <div class="filter-bar">
-    <label for="mapel">Mata Pelajaran:</label>
-    <select id="mapel">
-      <option value="all">Semua</option>
-      <option value="matematika">Matematika</option>
-      <option value="ipas">IPAS</option>
-      <option value="bahasa indonesia">Bahasa Indonesia</option>
-      <option value="lain">Mata Pelajaran Lain</option>
-    </select>
-  </div>
-<input
-  type="text"
-  id="search"
-  placeholder="Cari materi atau pelajaran..."
-  autocomplete="off"
-/>
+<!-- Judul -->
+<h1 id="judulKelas">Latihan Soal</h1>
 
-  <!-- Daftar Latihan -->
-<section class="latihan-list" id="latihanList">
+
+<!-- Deskripsi -->
+<p class="page-desc">
+Kumpulan latihan soal dalam bentuk PDF. Klik judul latihan untuk membuka file.
+</p>
+
+
+</div>
 </section>
+
+
+<!-- FILTER & SEARCH -->
+<section class="filter-section">
+<div class="container">
+
+
+<div class="filter-group">
+<label for="filterMapel">Mata Pelajaran</label>
+<select id="filterMapel">
+<option value="all">Semua</option>
+</select>
+</div>
+
+
+<div class="filter-group">
+<label for="searchInput">Pencarian</label>
+<input type="text" id="searchInput" placeholder="Cari judul latihan...">
+</div>
+
+
+</div>
+</section>
+
+
+<!-- DAFTAR LATIHAN -->
+<section class="latihan-section">
+<div class="container">
+
+
+<div id="latihanList" class="latihan-list">
+<!-- Data latihan di-render oleh JavaScript -->
+</div>
+
+
+<!-- Pagination -->
 <div id="pagination" class="pagination"></div>
 
-</main>
 
-<!-- FOOTER -->
+</div>
+</section>
+
+  <!-- FOOTER -->
 <footer class="footer">
   <div class="footer-container">
 
@@ -266,6 +285,7 @@
 <script src="js/latihan.js" defer></script>
 </body>
 </html>
+
 
 
 
