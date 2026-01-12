@@ -47,7 +47,9 @@ kelas: parseInt(item.kelas),
 mapel: normalize(item.mapel),
 judul: item.judul,
 file: item.file
+tanggal: new Date(item.tanggal)
 }));
+DATA_LATIHAN.sort((a, b) => b.tanggal - a.tanggal);
 
 initFilterMapel();
 applyFilter();
