@@ -51,8 +51,8 @@ tanggal: new Date(item.tanggal)
 }));
 DATA_LATIHAN.sort((a, b) => b.tanggal - a.tanggal);
 
-initFilterMapel();
-applyFilter();
+//initFilterMapel();
+//applyFilter();
 })
 .catch(err => {
 latihanList.innerHTML = "<p class='empty'>Gagal memuat data.</p>";
