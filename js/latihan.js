@@ -1,21 +1,8 @@
 const API_URL = "https://script.google.com/macros/s/AKfycbxYPhQxThs9qcs8YqqQVOw5Xrt6b7kHDeyRc9da0-iXiBLGVDJt8OtHgLUXiW2FDjJJ9w/exec";
 
-document.addEventListener("DOMContentLoaded", () => {
-
-  console.log("1. Halaman sudah dimuat");
-
-  console.log("2. URL:", window.location.href);
-
-  const params = new URLSearchParams(window.location.search);
-  const kelasAktif = params.get("kelas");
-
-  console.log("3. Parameter kelas:", kelasAktif);
-
-});
-
 // ===== AMBIL PARAMETER KELAS =====
-//const params = new URLSearchParams(window.location.search);
-//const kelasAktif = parseInt(params.get("kelas"));
+const params = new URLSearchParams(window.location.search);
+const kelasAktif = parseInt(params.get("kelas"));
 // ===== ELEMEN DOM =====
 const judulKelas = document.getElementById("judulKelas");
 const breadcrumbKelas = document.getElementById("breadcrumbKelas");
