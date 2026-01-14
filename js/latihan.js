@@ -59,7 +59,7 @@ DATA_LATIHAN = data.map(item => ({
 kelas: parseInt(item.kelas),
 mapel: normalize(item.mapel),
 judul: item.judul,
-file: item.file
+file: item.file,
 tanggal: new Date(item.tanggal)
 }));
 DATA_LATIHAN.sort((a, b) => b.tanggal - a.tanggal);
