@@ -59,7 +59,7 @@ console.table(DATA_LATIHAN);
 
 DATA_LATIHAN.sort((a, b) => b.tanggal - a.tanggal);
 
-initFilterMapel();
+//initFilterMapel();
 applyFilter();
 })
 .catch(err => {
