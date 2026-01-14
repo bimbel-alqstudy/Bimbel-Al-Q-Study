@@ -3,6 +3,8 @@ const API_URL = "https://script.google.com/macros/s/AKfycbxYPhQxThs9qcs8YqqQVOw5
 // ===== AMBIL PARAMETER KELAS =====
 const params = new URLSearchParams(window.location.search);
 const kelasAktif = parseInt(params.get("kelas"));
+console.log("kelasAktif =", kelasAktif);
+
 // ===== ELEMEN DOM =====
 const judulKelas = document.getElementById("judulKelas");
 const breadcrumbKelas = document.getElementById("breadcrumbKelas");
@@ -42,6 +44,9 @@ breadcrumbKelas.textContent = kelasAktif ? `Kelas ${kelasAktif}` : "Latihan";
 fetch(API_URL)
 .then(res => res.json())
 .then(data => {
+console.log("DATA RAW DARI API:");
+console.table(data);
+
 DATA_LATIHAN = data.map(item => ({
 kelas: parseInt(item.kelas),
 mapel: normalize(item.mapel),
