@@ -54,10 +54,13 @@ judul: item.judul,
 file: item.file,
 tanggal: new Date(item.tanggal)
 }));
+console.log("DATA SETELAH DIPARSE:");
+console.table(DATA_LATIHAN);
+
 DATA_LATIHAN.sort((a, b) => b.tanggal - a.tanggal);
 
-//initFilterMapel();
-//applyFilter();
+initFilterMapel();
+applyFilter();
 })
 .catch(err => {
 latihanList.innerHTML = "<p class='empty'>Gagal memuat data.</p>";
@@ -65,6 +68,15 @@ console.error(err);
 });
 
 // ===== INISIALISASI FILTER MAPEL =====
+function applyFilter() {
+  filteredData = DATA_LATIHAN.filter(item => item.kelas === kelasAktif);
+
+  console.log("HASIL FILTER KELAS:");
+  console.table(filteredData);
+
+  render();
+}
+
 // ===== RENDER LIST =====
 function renderList() {
 latihanList.innerHTML = "";
