@@ -74,7 +74,7 @@ function applyFilter() {
   console.log("HASIL FILTER KELAS:");
   console.table(filteredData);
 
-  render();
+  renderList();
 }
 
 // ===== RENDER LIST =====
