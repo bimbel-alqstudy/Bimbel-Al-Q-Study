@@ -7,7 +7,6 @@ console.log("kelasAktif =", kelasAktif);
 
 // ===== ELEMEN DOM =====
 const judulKelas = document.getElementById("judulKelas");
-const breadcrumbKelas = document.getElementById("breadcrumbKelas");
 const latihanList = document.getElementById("latihanList");
 const paginationEl = document.getElementById("pagination");
 const filterMapel = document.getElementById("filterMapel");
@@ -39,7 +38,6 @@ function normalize(text) {
 
 // ===== INIT TEKS HALAMAN =====
 judulKelas.textContent = kelasAktif ? `Latihan Kelas ${kelasAktif}` : "Latihan Soal";
-breadcrumbKelas.textContent = kelasAktif ? `Kelas ${kelasAktif}` : "Latihan";
 
 // ===== FETCH DATA DARI SPREADSHEET =====
 fetch(API_URL)
