@@ -578,11 +578,12 @@ text-decoration: underline;
 }
 
 #search {
-  padding: 8px 12px;
+  padding: 10px 12px;
   border: 1px solid #ccc;
   border-radius: 6px;
   width: 100%;
   max-width: 300px;
 }
+
 
 
