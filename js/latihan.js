@@ -19,6 +19,7 @@ const ITEMS_PER_PAGE = 10;
 let DATA_LATIHAN = [];
 let filteredData = [];
 let currentPage = 1;
+let searchQuery = "";
 
 function formatTanggal(tgl) {
   return new Date(tgl).toLocaleDateString("id-ID", {
@@ -50,7 +51,9 @@ console.table(data);
 DATA_LATIHAN = data.map(item => ({
 kelas: parseInt(item.kelas),
 mapel: normalize(item.mapel),
+mapelLabel: item.mapel,
 judul: item.judul,
+judulNorm: normalize(item.judul),
 file: item.file,
 tanggal: new Date(item.tanggal)
 }));
@@ -59,8 +62,8 @@ console.table(DATA_LATIHAN);
 
 DATA_LATIHAN.sort((a, b) => b.tanggal - a.tanggal);
 
-//initFilterMapel();
-applyFilter();
+initFilterMapel();
+applyAllFilters();
 })
 .catch(err => {
 latihanList.innerHTML = "<p class='empty'>Gagal memuat data.</p>";
@@ -68,13 +71,55 @@ console.error(err);
 });
 
 // ===== INISIALISASI FILTER MAPEL =====
-function applyFilter() {
-  filteredData = DATA_LATIHAN.filter(item => item.kelas === kelasAktif);
+function initFilterMapel() {
+  const mapelMap = new Map();
 
-  console.log("HASIL FILTER KELAS:");
-  console.table(filteredData);
+  DATA_LATIHAN.forEach(item => {
+    if (item.kelas === kelasAktif) {
+      mapelMap.set(
+        item.mapel,        // normalized (value)
+        item.mapelLabel    // asli (label)
+      );
+    }
+  });
 
-  renderList();
+  filterMapel.innerHTML = `<option value="all">Semua Mata Pelajaran</option>`;
+
+  mapelMap.forEach((label, value) => {
+    const opt = document.createElement("option");
+    opt.value = value;       // normalized
+    opt.textContent = label; // tampil rapi
+    filterMapel.appendChild(opt);
+  });
+}
+
+filterMapel.addEventListener("change", () => {
+  applyAllFilters();
+});
+
+searchInput.addEventListener("input", () => {
+  searchQuery = normalize(searchInput.value);
+  applyAllFilters();
+});
+
+function applyAllFilters() {
+  const selectedMapel = filterMapel.value;
+
+  filteredData = DATA_LATIHAN.filter(item => {
+    const matchKelas = item.kelas === kelasAktif;
+    const matchMapel =
+      selectedMapel === "all" || item.mapel === selectedMapel;
+
+    const matchSearch =
+      !searchQuery ||
+      item.judulNorm.includes(searchQuery) ||
+      item.mapel.includes(searchQuery);
+
+    return matchKelas && matchMapel && matchSearch;
+  });
+
+  currentPage = 1;
+  render();
 }
 
 // ===== RENDER LIST =====
@@ -102,7 +147,7 @@ a.innerHTML = `
 <img src="gambar/pdf.png" class="pdf-icon" alt="PDF">
 <div class="latihan-info">
 <h3>${item.judul}</h3>
-<span class="mapel">${item.mapel}</span>
+<span class="mapel">${item.mapelLabel}</span>
 </div>
 `;
 latihanList.appendChild(a);
@@ -125,7 +170,6 @@ prev.disabled = currentPage === 1;
 prev.onclick = () => { currentPage--; render(); };
 paginationEl.appendChild(prev);
 
-
 for (let i = 1; i <= totalPages; i++) {
 const btn = document.createElement("button");
 btn.textContent = i;
@@ -134,10 +178,14 @@ btn.onclick = () => { currentPage = i; render(); };
 paginationEl.appendChild(btn);
 }
 
-
 const next = document.createElement("button");
 next.textContent = "›";
 next.disabled = currentPage === totalPages;
 next.onclick = () => { currentPage++; render(); };
 paginationEl.appendChild(next);
+}
+
+function render() {
+  renderList();
+  renderPagination();
 }
