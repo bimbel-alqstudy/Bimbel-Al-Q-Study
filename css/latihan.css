@@ -324,7 +324,7 @@ body {
 /* HEADER HALAMAN */
 .page-header {
   background: var(--abu);
-  padding: 30px 20px;
+  padding: 8px 20px;
   text-align: center;
 }
 
@@ -344,21 +344,21 @@ body {
 .container {
   max-width: 900px;
   margin: auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 /* FILTER */
-.filter-bar {
-  margin-bottom: 20px;
+.filter-group {
+  margin-bottom: 25px;
 }
 
-.filter-bar label {
+.filter-group label {
   font-weight: bold;
   margin-right: 10px;
   color: var(--hijau);
 }
 
-.filter-bar select {
+.filter-group select {
   padding: 6px 10px;
 }
 
@@ -584,6 +584,7 @@ text-decoration: underline;
   width: 100%;
   max-width: 300px;
 }
+
 
 
 
