@@ -527,29 +527,27 @@ body {
 
 /* BREADCRUMB */
 .breadcrumb {
-  max-width: 900px;
-  margin: 12px auto 0;
-  padding: 0 20px;
-  font-size: 13px;
-  color: #666;
+  margin: 15px  0;
+  font-size: 14px;
 }
 
 .breadcrumb a {
   text-decoration: none;
-  color: var(--biru);
+  color: #1e88e5;
 }
 
 .breadcrumb a:hover {
-  color: var(--emas);
+text-decoration: underline;
 }
 
 .breadcrumb span {
+ color: #777;
   margin: 0 6px;
 }
 
-.breadcrumb .current {
-  color: var(--hijau);
-  font-weight: bold;
+.breadcrumb .active {
+  color: #555;
+  font-weight: 500;
 }
 
 .pagination {
@@ -586,4 +584,5 @@ body {
   width: 100%;
   max-width: 300px;
 }
+
 
