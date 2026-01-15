@@ -1,6 +1,6 @@
 // ===== AMBIL PARAMETER KELAS =====
-const params = new URLSearchParams(window.location.search);
-const kelas = parseInt(params.get("kelas"));
+const urlparams = new URLSearchParams(window.location.search);
+const kelas = parseInt(urlparams.get("kelas"));
 
 // ===== TENTUKAN JENJANG =====
 function getJenjangByKelas(kelas) {
