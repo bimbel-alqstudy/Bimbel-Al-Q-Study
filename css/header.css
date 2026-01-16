@@ -4,7 +4,7 @@
   align-items:center;
   justify-content:space-between;
   padding:14px 24px;
-  background:rgba(255,255,255,.18);
+  background:var(--blue);
   backdrop-filter:blur(8px);
 }
 
