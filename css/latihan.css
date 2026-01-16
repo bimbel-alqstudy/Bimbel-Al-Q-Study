@@ -348,19 +348,32 @@ body {
 }
 
 /* FILTER */
+.filter-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
 .filter-group {
-  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .filter-group label {
-  font-weight: bold;
-  margin-right: 10px;
-  color: var(--hijau);
+  font-size: 13px;
+  color: #555;
 }
 
-.filter-group select {
-  padding: 6px 10px;
+.filter-group select,
+.filter-group input {
+  height: 38px;
+  max-width: 300px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
 }
+
 
 /* LIST LATIHAN */
 .latihan-list {
@@ -578,12 +591,10 @@ text-decoration: underline;
 }
 
 #search {
-  padding: 10px 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
   width: 100%;
   max-width: 300px;
 }
+
 
 
 
