@@ -173,28 +173,22 @@ Kumpulan latihan soal dalam bentuk PDF. Klik judul latihan untuk membuka file.
 
 
 <!-- FILTER & SEARCH -->
-<section class="filter-section">
-<div class="container">
+<div class="filter-wrapper">
+  <div class="filter-group">
+    <label for="filterMapel">Mata Pelajaran</label>
+    <select id="filterMapel">
+      <option value="all">Semua Mapel</option>
+    </select>
+  </div>
 
-
-<div class="filter-group">
-<label for="filterMapel">Mata Pelajaran</label>
-<select id="filterMapel">
-<option value="all">Semua</option>
-</select>
-</div>
-
-
-<div class="filter-group">
-<label for="searchInput">Pencarian</label>
-<input type="text" id="searchInput" placeholder="Cari judul latihan...">
-</div>
-
+  <div class="filter-group">
+    <label for="searchInput">Cari Latihan</label>
+    <input type="text" id="searchInput" placeholder="Ketik judul latihan...">
+  </div>
 
 </div>
-</section>
 
-
+  
 <!-- DAFTAR LATIHAN -->
 <section class="latihan-section">
 <div class="container">
@@ -276,6 +270,7 @@ Kumpulan latihan soal dalam bentuk PDF. Klik judul latihan untuk membuka file.
 <script src="js/latihan.js" defer></script>
 </body>
 </html>
+
 
 
 
