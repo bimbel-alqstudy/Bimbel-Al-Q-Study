@@ -145,8 +145,8 @@ a.className = "latihan-item";
 a.innerHTML = `
 <img src="gambar/pdf.png" class="pdf-icon" alt="PDF">
 <div class="latihan-info">
-<h4 class="mapel">${item.mapelLabel} - ${item.judul}</h4>
-<span class="tanggal">${item.tanggalLabel}</span>
+<h4 class="judul">${item.mapelLabel} - ${item.judul}</h4>
+<span class="tanggal">${formatTanggal(item.tanggal)}</span>
 </div>
 `;
 latihanList.appendChild(a);
