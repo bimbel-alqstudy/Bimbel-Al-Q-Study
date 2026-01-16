@@ -65,10 +65,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const hamburger = document.getElementById("hamburger");
   const navMenu = document.getElementById("navMenu");
+hamburger?.addEventListener("click", () => {
+    navMenu.classList.toggle("show");
+  });
 
-  hamburger.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-    hamburger.classList.toggle("active");
+  document.querySelectorAll(".drop-btn").forEach(btn => {
+    btn.addEventListener("click", e => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        btn.parentElement.classList.toggle("active");
+      }
+    });
   });
 });
 
