@@ -95,6 +95,17 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
         </div>
 
+        <div class="small-dropdown">
+<a href="#" class="drop-btn">Media Edukasi <span class="arrow">^</span></a>
+        <div class="dropdown-menu">
+        <div class="game-menu">
+        <a href="#">Game Edukasi</a>
+        <a href="#">Video Edukasi</a>
+        <a href="#">Laboratorium Virtual</a>
+                
+        </div>
+        </div>
+        </div>
         <a href="#">Tentang Kami</a>
       </nav>
     </div>
