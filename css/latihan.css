@@ -312,7 +312,7 @@ body {
     background:rgba(255,255,255,.06);
   }
 }
-  @media(max-width:900px){
+  @media(max-width:768px){
    .navbar{flex-direction:column; gap:10px;}
    .nav-menu{display:none;  }
   .hero-container{
@@ -377,23 +377,23 @@ body {
 
 /* LIST LATIHAN */
 .latihan-list {
-  margin-top: 15px;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 10px;
 }
 
 .latihan-item {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 14px 18px;
+  gap: 10px;
+  padding: 10px 14px;
   background: #ffffff;
-  border-left: 5px solid #1e88e5; /* biru */
+  border-left: 4px solid #1e88e5; /* biru */
   border-radius: 8px;
   text-decoration: none;
   color: #222;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
   transition: all 0.3s ease;
 }
 
@@ -405,19 +405,32 @@ body {
 }
 
 .pdf-icon {
-  width: 34px;
+  width: 28px;
   height: auto;
 }
-
+.latihan-info {
+  flex: 1;
+  min-width: 0;
+}
 .latihan-info h4 {
   margin: 0;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
+line-height: 1.25;
 }
 
 .latihan-info span {
   font-size: 12px;
-  color: #666;
+  color: #777;
+}
+@media (max-width: 768px) {
+  .latihan-item {
+    padding: 9px 12px;
+  }
+
+  .pdf-icon {
+    width: 26px;
+  }
 }
 
 
@@ -594,6 +607,7 @@ text-decoration: underline;
   width: 100%;
   max-width: 300px;
 }
+
 
 
 
