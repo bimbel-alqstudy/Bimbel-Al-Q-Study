@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
 
       <nav class="nav-menu" id="navMenu">
-        <a href="#" class="active">Beranda</a>
+        <a href="index.html" >Beranda</a>
 
         <!-- MATERI -->
         <div class="dropdown">
@@ -40,6 +40,23 @@ document.addEventListener("DOMContentLoaded", () => {
                 <a href="#">Kelas 6</a>
               </div>
             </div>
+            <div class="submenu">
+              <span class="submenu-title">SMP</span>
+              <div class="submenu-list">
+                <a href="#">Kelas 7</a>
+                <a href="#">Kelas 8</a>
+                <a href="#">Kelas 9</a>
+              </div>
+            </div>
+            <div class="submenu">
+              <span class="submenu-title">SMA</span>
+              <div class="submenu-list">
+                <a href="#">Kelas 10</a>
+                <a href="#">Kelas 11</a>
+                <a href="#">Kelas 12</a>
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -53,8 +70,28 @@ document.addEventListener("DOMContentLoaded", () => {
                 <a href="latihan.html?kelas=1">Kelas 1</a>
                 <a href="latihan.html?kelas=2">Kelas 2</a>
                 <a href="latihan.html?kelas=3">Kelas 3</a>
+                <a href="latihan.html?kelas=4">Kelas 4</a>
+                <a href="latihan.html?kelas=5">Kelas 5</a>
+                <a href="latihan.html?kelas=6">Kelas 6</a>
               </div>
             </div>
+            <div class="submenu">
+              <span class="submenu-title">SMP</span>
+              <div class="submenu-list">
+                <a href="latihan.html?kelas=7">Kelas 7</a>
+                <a href="latihan.html?kelas=8">Kelas 8</a>
+                <a href="latihan.html?kelas=9">Kelas 9</a>
+              </div>
+            </div>
+            <div class="submenu">
+              <span class="submenu-title">SMA</span>
+              <div class="submenu-list">
+                <a href="latihan.html?kelas=10">Kelas 10</a>
+                <a href="latihan.html?kelas=11">Kelas 11</a>
+                <a href="latihan.html?kelas=12">Kelas 12</a>
+              </div>
+            </div>
+            
           </div>
         </div>
 
