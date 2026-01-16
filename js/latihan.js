@@ -140,12 +140,13 @@ pageItems.forEach(item => {
 const a = document.createElement("a");
 a.href = item.file;
 a.target = "_blank";
+  a.rel = "noopener noreferrer";
 a.className = "latihan-item";
 a.innerHTML = `
 <img src="gambar/pdf.png" class="pdf-icon" alt="PDF">
 <div class="latihan-info">
-<h3>${item.judul}</h3>
-<span class="mapel">${item.mapelLabel}</span>
+<h4 class="mapel">${item.mapelLabel} - ${item.judul}</h4>
+<span class="tanggal">${item.tanggalLabel}</span>
 </div>
 `;
 latihanList.appendChild(a);
