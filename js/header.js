@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <!-- LATIHAN -->
         <div class="dropdown">
-          <a href="#" class="drop-btn">Latihan <span class="arrow">^</span></a>
+          <a href="#" class="drop-btn">Soal-Soal <span class="arrow">^</span></a>
           <div class="dropdown-menu">
             <div class="submenu">
               <span class="submenu-title">SD</span>
@@ -94,9 +94,45 @@ document.addEventListener("DOMContentLoaded", () => {
             
           </div>
         </div>
+        <!-- LATIHAN ONLINE -->
+        <div class="dropdown">
+          <a href="#" class="drop-btn">Latihan Online <span class="arrow">^</span></a>
+          <div class="dropdown-menu">
+            <!-- SD -->
+            <div class="submenu">
+              <span class="submenu-title">SD</span>
+              <div class="submenu-list">
+                <a href="#">Kelas 1</a>
+                <a href="#">Kelas 2</a>
+                <a href="#">Kelas 3</a>
+                <a href="#">Kelas 4</a>
+                <a href="#">Kelas 5</a>
+                <a href="#">Kelas 6</a>
+              </div>
+            </div>
+            <div class="submenu">
+              <span class="submenu-title">SMP</span>
+              <div class="submenu-list">
+                <a href="#">Kelas 7</a>
+                <a href="#">Kelas 8</a>
+                <a href="#">Kelas 9</a>
+              </div>
+            </div>
+            <div class="submenu">
+              <span class="submenu-title">SMA</span>
+              <div class="submenu-list">
+                <a href="#">Kelas 10</a>
+                <a href="#">Kelas 11</a>
+                <a href="#">Kelas 12</a>
+              </div>
+            </div>
 
+          </div>
+        </div>
+
+        <!-- MEDIA EDUKASI -->
         <div class="dropdown small-dropdown">
-<a href="#" class="drop-btn">Media Edukasi <span class="arrow">^</span></a>
+        <a href="#" class="drop-btn">Media Edukasi <span class="arrow">^</span></a>
         <div class="dropdown-menu game-menu">
         <a href="#">Game Edukasi</a>
         <a href="#">Video Edukasi</a>
