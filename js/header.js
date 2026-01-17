@@ -95,15 +95,12 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
         </div>
 
-        <div class="small-dropdown">
+        <div class="dropdown small-dropdown">
 <a href="#" class="drop-btn">Media Edukasi <span class="arrow">^</span></a>
-        <div class="dropdown-menu">
-        <div class="game-menu">
+        <div class="dropdown-menu game-menu">
         <a href="#">Game Edukasi</a>
         <a href="#">Video Edukasi</a>
         <a href="#">Laboratorium Virtual</a>
-                
-        </div>
         </div>
         </div>
         <a href="#">Tentang Kami</a>
@@ -117,13 +114,32 @@ hamburger?.addEventListener("click", () => {
     navMenu.classList.toggle("show");
   });
 
-  document.querySelectorAll(".drop-btn").forEach(btn => {
-    btn.addEventListener("click", e => {
-      if (window.innerWidth <= 768) {
-        e.preventDefault();
-        btn.parentElement.classList.toggle("active");
-      }
-    });
+// ===== DROPDOWN (LATIHAN & MEDIA EDUKASI) =====
+const dropdowns = document.querySelectorAll(".dropdown");
+
+dropdowns.forEach(dropdown => {
+  const btn = dropdown.querySelector(".drop-btn");
+
+  btn.addEventListener("click", (e) => {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+
+      dropdown.classList.toggle("active");
+
+      // tutup dropdown lain
+      dropdowns.forEach(d => {
+        if (d !== dropdown) d.classList.remove("active");
+      });
+    }
   });
 });
 
+// ===== TUTUP MENU SAAT LINK DIKLIK (MOBILE) =====
+document.querySelectorAll(".dropdown-menu a").forEach(link => {
+  link.addEventListener("click", () => {
+    if (window.innerWidth <= 768) {
+      navMenu.classList.remove("show");
+      dropdowns.forEach(d => d.classList.remove("active"));
+    }
+  });
+});
