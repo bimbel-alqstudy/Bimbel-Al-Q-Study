@@ -143,31 +143,5 @@ document.querySelectorAll(".dropdown-menu a").forEach(link => {
     }
   });
 });
-
-// ===== MENU ACTIVE STATE =====
-const currentPage = window.location.pathname.split("/").pop();
-
-document.querySelectorAll(".nav-menu a").forEach(link => {
-  const href = link.getAttribute("href");
-  if (!href || href === "#") return;
-
-  if (href === currentPage) {
-    link.classList.add("active");
-  }
-});
-
-// ===== AKTIFKAN DROPDOWN JIKA ANAKNYA AKTIF =====
-document.querySelectorAll(".dropdown").forEach(dropdown => {
-  const links = dropdown.querySelectorAll(".dropdown-menu a");
-
-  links.forEach(link => {
-    const href = link.getAttribute("href");
-    if (!href) return;
-
-    if (window.location.href.includes(href)) {
-      dropdown.querySelector(".drop-btn").classList.add("active");
-    }
-  });
-});
   
 });
