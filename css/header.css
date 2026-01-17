@@ -94,14 +94,6 @@
   width:100%;
 }
 
-.nav-menu a.active {
-  color: var(--gold);
-}
-.drop-btn.active {
-  color: var(--gold);
-}
-
-
 /* DROPDOWN */
 .dropdown{
   position:relative;
