@@ -345,16 +345,16 @@ box-shadow:0 14px 34px rgba(242,201,76,.45);
     justify-content:center;
   }
         .hero-title .line1{
-  font-size:12px;
+  font-size:17px;
 }
 .hero-title .line2{
-  font-size:20px;
+  font-size:30px;
 }
 .hero-title .line3{
-  font-size:12px;
+  font-size:17px;
 }
 .hero-desc{
-  font-size:10px;
+  font-size:15px;
 }
 
   .hero-actions{
@@ -374,6 +374,7 @@ box-shadow:0 14px 34px rgba(242,201,76,.45);
   }
 
 }
+
 
 
 
