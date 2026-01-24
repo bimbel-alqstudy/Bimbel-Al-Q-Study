@@ -344,6 +344,19 @@ box-shadow:0 14px 34px rgba(242,201,76,.45);
   .hero-brand{
     justify-content:center;
   }
+        .hero-title .line1{
+  font-size:12px;
+}
+.hero-title .line2{
+  font-size:20px;
+}
+.hero-title .line3{
+  font-size:12px;
+}
+.hero-desc{
+  font-size:10px;
+}
+
   .hero-actions{
     justify-content:center;
     flex-wrap:wrap;
@@ -361,6 +374,7 @@ box-shadow:0 14px 34px rgba(242,201,76,.45);
   }
 
 }
+
 
 
 
