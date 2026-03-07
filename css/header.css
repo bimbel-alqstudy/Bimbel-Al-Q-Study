@@ -87,10 +87,11 @@ position:relative; /* tambahkan ini */
 .nav-menu a{
   color:#fff;
   text-decoration:none;
-  font-size:14px;
+  font-size:16px;
   font-weight:600;
   opacity:.95;
   position:relative;
+padding:10px 0;    
 }
 
 .nav-menu a::after{
@@ -200,7 +201,20 @@ position:relative; /* tambahkan ini */
 .game-menu a:hover{
   background:rgba(255,255,255,.08);
 }
+.menu-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.45);
+  opacity:0;
+  visibility:hidden;
+  transition:.3s;
+  z-index:1500;
+}
 
+.menu-overlay.show{
+  opacity:1;
+  visibility:visible;
+}
 /* MOBILE */
 @media(max-width:768px){
 .navbar{
@@ -214,26 +228,25 @@ position:relative; /* tambahkan ini */
 
   .nav-menu{
     position:fixed;
-    top:64px;
-    right:20px;
+    top:0;
+    right:-260px;
     background:#0b3d2e;
     flex-direction:column;
-    gap:14px;
-    padding:16px 18px;
+    gap:16px;
+    padding:80px 20px 20px;
     border-radius:12px;
-    width:200px;
-box-shadow:0 10px 25px rgba(0,0,0,0.25);
+    width:260px;
+      height:100vh;
+box-shadow: -5px 0 20px rgba(0,0,0,0.25);
     opacity:0;
     transform:translateY(-15px) scale(0.96);
     pointer-events:none;
-    transition:all .35s ease;
+    transition:right .35s ease;
       z-index:2000;
   }
 
   .nav-menu.show{
-    opacity:1;
-    transform:translateY(0) scale(1);
-    pointer-events:auto;
+ right:0;
   }
 
   .nav-menu a{
