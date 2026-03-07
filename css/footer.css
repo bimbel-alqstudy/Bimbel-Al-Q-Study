@@ -32,12 +32,14 @@
   margin: 0;
   font-size: 1.2rem;
   font-weight: 700;
+  line-height: 1.2;
 }
 
 .footer-motto p {
-  margin: 4px 0;
+  margin: 2px 0;
   font-size: 0.95rem;
   opacity: 0.9;
+  line-height: 1.2;
 }
 
 /* KONTAK */
@@ -98,5 +100,14 @@
 
   .footer-contact {
     margin-top: 20px;
+  }
+  .footer-motto h3{
+    font-size: 1.1rem;
+  }
+  .footer-motto p{
+    font-size: 0.9rem;
+  }
+.footer-logo{
+    width:70px;
   }
 }
