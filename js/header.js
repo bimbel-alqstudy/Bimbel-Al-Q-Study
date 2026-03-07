@@ -143,13 +143,21 @@ document.addEventListener("DOMContentLoaded", () => {
       </nav>
     </div>
   `;
+<div class="menu-overlay" id="menuOverlay"></div>
 
   const hamburger = document.getElementById("hamburger");
   const navMenu = document.getElementById("navMenu");
+const overlay = document.getElementById("menuOverlay");
 hamburger?.addEventListener("click", () => {
+  hamburger.classList.toggle("active");
     navMenu.classList.toggle("show");
+  overlay.classList.toggle("show");
   });
-
+overlay.addEventListener("click", () => {
+  hamburger.classList.remove("active");
+  navMenu.classList.remove("show");
+  overlay.classList.remove("show");
+});
 // ===== DROPDOWN (LATIHAN & MEDIA EDUKASI) =====
 const dropdowns = document.querySelectorAll(".dropdown");
 
@@ -176,6 +184,15 @@ document.querySelectorAll(".dropdown-menu a").forEach(link => {
     if (window.innerWidth <= 768) {
       navMenu.classList.remove("show");
       dropdowns.forEach(d => d.classList.remove("active"));
+      hamburger.classList.remove("active");
+    }
+  });
+});
+  document.querySelectorAll(".nav-menu > a").forEach(link=>{
+  link.addEventListener("click",()=>{
+    if(window.innerWidth <= 768){
+      navMenu.classList.remove("show");
+      hamburger.classList.remove("active");
     }
   });
 });
