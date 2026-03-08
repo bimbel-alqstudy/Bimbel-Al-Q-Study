@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <a href="#">Tentang Kami</a>
       </nav>
     </div>
-  `;
+  `
 <div class="menu-overlay" id="menuOverlay"></div>
 
   const hamburger = document.getElementById("hamburger");
