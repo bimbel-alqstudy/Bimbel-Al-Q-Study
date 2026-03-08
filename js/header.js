@@ -145,61 +145,58 @@ document.addEventListener("DOMContentLoaded", () => {
   <div class="menu-overlay" id="menuOverlay"></div>
 `;
 
-const hamburger = document.getElementById("hamburger");
-const navMenu = document.getElementById("navMenu");
-const overlay = document.getElementById("menuOverlay");
-const dropdowns = document.querySelectorAll(".dropdown");
 
-/* ===== HAMBURGER ===== */
+  const hamburger = document.getElementById("hamburger");
+  const navMenu = document.getElementById("navMenu");
+const overlay = document.getElementById("menuOverlay");
 hamburger?.addEventListener("click", () => {
   hamburger.classList.toggle("active");
-  navMenu.classList.toggle("show");
+    navMenu.classList.toggle("show");
   overlay.classList.toggle("show");
-});
-
-/* ===== OVERLAY MENUTUP MENU ===== */
+  });
 overlay?.addEventListener("click", () => {
-  closeMenu();
+  hamburger.classList.remove("active");
+  navMenu.classList.remove("show");
+  overlay.classList.remove("show");
 });
+// ===== DROPDOWN (LATIHAN & MEDIA EDUKASI) =====
+const dropdowns = document.querySelectorAll(".dropdown");
 
-/* ===== DROPDOWN MOBILE ===== */
 dropdowns.forEach(dropdown => {
   const btn = dropdown.querySelector(".drop-btn");
 
   btn.addEventListener("click", (e) => {
-
     if (window.innerWidth <= 768) {
       e.preventDefault();
 
-      const isActive = dropdown.classList.contains("active");
+      dropdown.classList.toggle("active");
 
-      // tutup semua dropdown
-      dropdowns.forEach(d => d.classList.remove("active"));
-
-      // buka dropdown yang diklik
-      if (!isActive) {
-        dropdown.classList.add("active");
-      }
+      // tutup dropdown lain
+      dropdowns.forEach(d => {
+        if (d !== dropdown) d.classList.remove("active");
+      });
     }
-
   });
 });
 
-/* ===== TUTUP MENU SAAT LINK DIKLIK ===== */
-document.querySelectorAll(".nav-menu a:not(.drop-btn)").forEach(link => {
+// ===== TUTUP MENU SAAT LINK DIKLIK (MOBILE) =====
+document.querySelectorAll(".dropdown-menu a").forEach(link => {
   link.addEventListener("click", () => {
     if (window.innerWidth <= 768) {
-      closeMenu();
+      navMenu.classList.remove("show");
+      dropdowns.forEach(d => d.classList.remove("active"));
+      hamburger.classList.remove("active");
     }
   });
 });
-
-/* ===== FUNCTION TUTUP MENU ===== */
-function closeMenu(){
-  hamburger.classList.remove("active");
-  navMenu.classList.remove("show");
-  overlay.classList.remove("show");
-
-  dropdowns.forEach(d => d.classList.remove("active"));
-}  
+  document.querySelectorAll(".nav-menu > a:not(.drop-btn)").forEach(link=>{
+  link.addEventListener("click",()=>{
+    if(window.innerWidth <= 768){
+      navMenu.classList.remove("show");
+      hamburger.classList.remove("active");
+    }
+  });
+});
+  
+});  
 });
