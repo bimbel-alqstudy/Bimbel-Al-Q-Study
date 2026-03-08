@@ -202,3 +202,4 @@ function closeMenu(){
 
   dropdowns.forEach(d => d.classList.remove("active"));
 }  
+});
