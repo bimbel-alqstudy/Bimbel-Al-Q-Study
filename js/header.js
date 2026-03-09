@@ -167,6 +167,7 @@ dropdowns.forEach(dropdown => {
 
   btn.addEventListener("click", (e) => {
     if (window.innerWidth <= 768) {
+      e.stopPropagation();
       dropdown.classList.toggle("active");
 
       // tutup dropdown lain
@@ -176,7 +177,11 @@ dropdowns.forEach(dropdown => {
     }
   });
 });
-
+document.querySelectorAll(".dropdown-menu").forEach(menu=>{
+  menu.addEventListener("click",(e)=>{
+    e.stopPropagation();
+  });
+});
 // ===== TUTUP MENU SAAT LINK DIKLIK (MOBILE) =====
 document.querySelectorAll(".dropdown-menu a").forEach(link => {
   link.addEventListener("click", () => {
