@@ -84,7 +84,8 @@ position:relative; /* tambahkan ini */
   gap:22px;
 }
 
-.nav-menu a{
+.nav-menu a,
+.nav-menu button{
   color:#fff;
   text-decoration:none;
   font-size:16px;
@@ -94,7 +95,8 @@ position:relative; /* tambahkan ini */
 padding:10px 0;    
 }
 
-.nav-menu a::after{
+.nav-menu a::after,
+.nav-menu button::after{
   content:'';
   position:absolute;
   left:0;
@@ -105,7 +107,8 @@ padding:10px 0;
    background:var(--gold);
 }
 
-.nav-menu a:hover::after{
+.nav-menu a:hover::after,
+.nav-menu button:hover::after{
   width:100%;
 }
 
@@ -115,16 +118,20 @@ padding:10px 0;
 }
 
 .drop-btn{
-  display:flex;
+background:none;
+  border:none;
+  padding:0;
+  margin:0;
+  font:inherit;
+  color:inherit;
+  cursor:pointer;
+  display:inline-flex;
   align-items:center;
   gap:4px;
-    background:none;
-  border:none;
-  color:inherit;
-  font:inherit;
-  cursor:pointer;
 }
-
+.drop-btn:focus{
+  outline:none;
+}
 /* MENU DROPDOWN */
 .dropdown-menu{
   position:absolute;
