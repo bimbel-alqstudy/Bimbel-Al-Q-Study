@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <!-- MATERI -->
         <div class="dropdown">
-          <a href="#" class="drop-btn">Materi <span class="arrow">^</span></a>
+          <button class="drop-btn">Materi <span class="arrow">^</span></button>
           <div class="dropdown-menu">
             <!-- SD -->
             <div class="submenu">
@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <!-- LATIHAN -->
         <div class="dropdown">
-          <a href="#" class="drop-btn">Soal-Soal <span class="arrow">^</span></a>
+          <button class="drop-btn">Soal-Soal <span class="arrow">^</span></button>
           <div class="dropdown-menu">
             <div class="submenu">
               <span class="submenu-title">SD</span>
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <!-- LATIHAN ONLINE -->
         <div class="dropdown">
-          <a href="#" class="drop-btn">Latihan Online <span class="arrow">^</span></a>
+          <button class="drop-btn">Latihan Online <span class="arrow">^</span></button>
           <div class="dropdown-menu">
             <!-- SD -->
             <div class="submenu">
@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <!-- MEDIA EDUKASI -->
         <div class="dropdown small-dropdown">
-        <a href="#" class="drop-btn">Media Edukasi <span class="arrow">^</span></a>
+        <button class="drop-btn">Media Edukasi <span class="arrow">^</span></button>
         <div class="dropdown-menu game-menu">
         <a href="#">Game Edukasi</a>
         <a href="#">Video Edukasi</a>
@@ -167,8 +167,6 @@ dropdowns.forEach(dropdown => {
 
   btn.addEventListener("click", (e) => {
     if (window.innerWidth <= 768) {
-      e.preventDefault();
-
       dropdown.classList.toggle("active");
 
       // tutup dropdown lain
