@@ -22,15 +22,19 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
 
       <nav class="nav-menu" id="navMenu">
+      <div class="menu-top">
+      <span>Menu</span>
+      <button class="close-menu" id="closeMenu">✕</button>
+    </div>
         <a href="index.html" >Beranda</a>
 
         <!-- MATERI -->
         <div class="dropdown">
-          <button class="drop-btn">Materi <span class="arrow">^</span></button>
+          <button class="drop-btn">Materi</button>
           <div class="dropdown-menu">
             <!-- SD -->
             <div class="submenu">
-              <span class="submenu-title">SD</span>
+              <div class="submenu-title">SD</div>
               <div class="submenu-list">
                 <a href="#">Kelas 1</a>
                 <a href="#">Kelas 2</a>
@@ -41,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
               </div>
             </div>
             <div class="submenu">
-              <span class="submenu-title">SMP</span>
+              <div class="submenu-title">SMP</div>
               <div class="submenu-list">
                 <a href="#">Kelas 7</a>
                 <a href="#">Kelas 8</a>
@@ -49,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
               </div>
             </div>
             <div class="submenu">
-              <span class="submenu-title">SMA</span>
+              <div class="submenu-title">SMA</div>
               <div class="submenu-list">
                 <a href="#">Kelas 10</a>
                 <a href="#">Kelas 11</a>
@@ -62,10 +66,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <!-- LATIHAN -->
         <div class="dropdown">
-          <button class="drop-btn">Soal-Soal <span class="arrow">^</span></button>
+          <button class="drop-btn">Bank Soal</button>
           <div class="dropdown-menu">
             <div class="submenu">
-              <span class="submenu-title">SD</span>
+              <div class="submenu-title">SD</div>
               <div class="submenu-list">
                 <a href="latihan.html?kelas=1">Kelas 1</a>
                 <a href="latihan.html?kelas=2">Kelas 2</a>
@@ -76,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
               </div>
             </div>
             <div class="submenu">
-              <span class="submenu-title">SMP</span>
+              <div class="submenu-title">SMP</div>
               <div class="submenu-list">
                 <a href="latihan.html?kelas=7">Kelas 7</a>
                 <a href="latihan.html?kelas=8">Kelas 8</a>
@@ -84,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
               </div>
             </div>
             <div class="submenu">
-              <span class="submenu-title">SMA</span>
+              <div class="submenu-title">SMA</div>
               <div class="submenu-list">
                 <a href="latihan.html?kelas=10">Kelas 10</a>
                 <a href="latihan.html?kelas=11">Kelas 11</a>
@@ -96,11 +100,11 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <!-- LATIHAN ONLINE -->
         <div class="dropdown">
-          <button class="drop-btn">Latihan Online <span class="arrow">^</span></button>
+          <button class="drop-btn">Latihan Online </button>
           <div class="dropdown-menu">
             <!-- SD -->
             <div class="submenu">
-              <span class="submenu-title">SD</span>
+              <div class="submenu-title">SD</div>
               <div class="submenu-list">
                 <a href="#">Kelas 1</a>
                 <a href="#">Kelas 2</a>
@@ -111,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
               </div>
             </div>
             <div class="submenu">
-              <span class="submenu-title">SMP</span>
+              <div class="submenu-title">SMP</div>
               <div class="submenu-list">
                 <a href="#">Kelas 7</a>
                 <a href="#">Kelas 8</a>
@@ -119,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
               </div>
             </div>
             <div class="submenu">
-              <span class="submenu-title">SMA</span>
+              <div class="submenu-title">SMA</div>
               <div class="submenu-list">
                 <a href="#">Kelas 10</a>
                 <a href="#">Kelas 11</a>
@@ -131,9 +135,9 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
 
         <!-- MEDIA EDUKASI -->
-        <div class="dropdown small-dropdown">
-        <button class="drop-btn">Media Edukasi <span class="arrow">^</span></button>
-        <div class="dropdown-menu game-menu">
+        <div class="dropdown">
+        <button class="drop-btn">Media Edukasi</button>
+        <div class="dropdown-menu">
         <a href="#">Game Edukasi</a>
         <a href="#">Video Edukasi</a>
         <a href="#">Laboratorium Virtual</a>
@@ -142,63 +146,31 @@ document.addEventListener("DOMContentLoaded", () => {
         <a href="#">Tentang Kami</a>
       </nav>
     </div>
-  <div class="menu-overlay" id="menuOverlay"></div>
 `;
 
 
   const hamburger = document.getElementById("hamburger");
   const navMenu = document.getElementById("navMenu");
-const overlay = document.getElementById("menuOverlay");
-hamburger?.addEventListener("click", () => {
-  hamburger.classList.toggle("active");
-    navMenu.classList.toggle("show");
-  overlay.classList.toggle("show");
-  });
-overlay?.addEventListener("click", () => {
-  hamburger.classList.remove("active");
+  const closeMenu = document.getElementById("closeMenu");
+  hamburger.onclick = () => {
+  navMenu.classList.add("show");
+};
+
+closeMenu.onclick = () => {
   navMenu.classList.remove("show");
-  overlay.classList.remove("show");
-});
+};
 // ===== DROPDOWN (LATIHAN & MEDIA EDUKASI) =====
 const dropdowns = document.querySelectorAll(".dropdown");
-
-dropdowns.forEach(dropdown => {
-  const btn = dropdown.querySelector(".drop-btn");
-
-  btn.addEventListener("click", (e) => {
-    if (window.innerWidth <= 768) {
-      e.stopPropagation();
-      dropdown.classList.toggle("active");
-
-      // tutup dropdown lain
-      dropdowns.forEach(d => {
-        if (d !== dropdown) d.classList.remove("active");
+dropdowns.forEach(drop => {
+  const btn = drop.querySelector(".drop-btn");
+  btn.onclick = () => {
+    if(window.innerWidth <= 768){
+      drop.classList.toggle("active");
+      dropdowns.forEach(d=>{
+        if(d!==drop) d.classList.remove("active");
       });
     }
-  });
-});
-document.querySelectorAll(".dropdown-menu").forEach(menu=>{
-  menu.addEventListener("click",(e)=>{
-    e.stopPropagation();
-  });
-});
-// ===== TUTUP MENU SAAT LINK DIKLIK (MOBILE) =====
-document.querySelectorAll(".dropdown-menu a").forEach(link => {
-  link.addEventListener("click", () => {
-    if (window.innerWidth <= 768) {
-      navMenu.classList.remove("show");
-      dropdowns.forEach(d => d.classList.remove("active"));
-      hamburger.classList.remove("active");
-    }
-  });
-});
-  document.querySelectorAll(".nav-menu > a:not(.drop-btn)").forEach(link=>{
-  link.addEventListener("click",()=>{
-    if(window.innerWidth <= 768){
-      navMenu.classList.remove("show");
-      hamburger.classList.remove("active");
-    }
-  });
+  };
 });
   
 });  
