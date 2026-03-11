@@ -72,6 +72,9 @@
 .hamburger.active span:nth-child(3){
   transform: rotate(-45deg) translate(6px,-6px);
 }
+.menu-top{
+  display:none;
+}
 /* ===== MENU ===== */
 .nav-menu{
   display:flex;
@@ -175,6 +178,12 @@ color:#333;
  font-size:24px;
 cursor:pointer;
   }
+.menu-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:10px;
+}
 
   .nav-menu{
     position:fixed;
