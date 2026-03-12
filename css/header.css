@@ -47,7 +47,7 @@
 
 /* HAMBURGER */
 .hamburger{
-  display:none;
+/*  display:none;*/
   flex-direction:column;
   gap:5px;
   cursor:pointer;
