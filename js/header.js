@@ -150,16 +150,25 @@ document.addEventListener("DOMContentLoaded", () => {
         <a href="#">Tentang Kami</a>
       </nav>
     </div>
+    <div class="menu-overlay" id="menuOverlay"></div>
 `;
 
 
   const hamburger = document.getElementById("hamburger");
   const navMenu = document.getElementById("navMenu");
   const closeMenu = document.getElementById("closeMenu");
+  const overlay = document.getElementById("menuOverlay");
+  
   hamburger.onclick = () => {
-  navMenu.classList.add("show");
+hamburger.classList.toggle("active");
+  navMenu.classList.toggle("show");
+    overlay.classList.toggle("show");
 };
-
+overlay.onclick = () => {
+  hamburger.classList.remove("active");
+  navMenu.classList.remove("show");
+  overlay.classList.remove("show");
+};
 closeMenu.onclick = () => {
   navMenu.classList.remove("show");
 };
