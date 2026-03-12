@@ -75,6 +75,14 @@
 .menu-top{
   display:none;
 }
+.close-menu{
+background:none;
+border:none;
+color:white;
+font-size:22px;
+cursor:pointer;
+}
+
 /* ===== MENU ===== */
 .nav-menu{
   display:flex;
@@ -175,6 +183,7 @@ color:#333;
   justify-content:space-between;
 }
   .hamburger{
+display:block;
  font-size:24px;
 cursor:pointer;
   }
@@ -206,12 +215,6 @@ overflow-y:auto;
   .nav-menu a{
     font-size:15px;
   }
-    .menu-top{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:10px;
-}
 
 .close-menu{
 background:none;
