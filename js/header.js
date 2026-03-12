@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <span></span>
         <span></span>
       </div>
+    <div class="menu-overlay" id="menuOverlay"></div>
 
       <nav class="nav-menu" id="navMenu">
       <div class="menu-top">
@@ -150,7 +151,6 @@ document.addEventListener("DOMContentLoaded", () => {
         <a href="#">Tentang Kami</a>
       </nav>
     </div>
-    <div class="menu-overlay" id="menuOverlay"></div>
 `;
 
 
