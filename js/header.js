@@ -160,9 +160,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const overlay = document.getElementById("menuOverlay");
   
   hamburger.onclick = () => {
+ overlay.classList.toggle("show");
 hamburger.classList.toggle("active");
   navMenu.classList.toggle("show");
-    overlay.classList.toggle("show");
 };
 overlay.onclick = () => {
   hamburger.classList.remove("active");
