@@ -171,6 +171,8 @@ overlay.onclick = () => {
 };
 closeMenu.onclick = () => {
   navMenu.classList.remove("show");
+  overlay.classList.remove("show");
+  hamburger.classList.remove("active");
 };
 // ===== DROPDOWN (LATIHAN & MEDIA EDUKASI) =====
 const dropdowns = document.querySelectorAll(".dropdown");
