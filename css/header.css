@@ -51,6 +51,8 @@
   flex-direction:column;
   gap:5px;
   cursor:pointer;
+    position:relative;
+  z-index:3000;
 }
 
 .hamburger span{
@@ -184,8 +186,6 @@ color:#333;
 }
   .hamburger{
 display:block;
- font-size:24px;
-cursor:pointer;
   }
 .menu-top{
   display:flex;
