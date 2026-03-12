@@ -48,6 +48,7 @@
 /* HAMBURGER */
 .hamburger{
 /*  display:none;*/
+    display:flex;
   flex-direction:column;
   gap:5px;
   cursor:pointer;
@@ -185,7 +186,7 @@ color:#333;
   justify-content:space-between;
 }
   .hamburger{
-display:block;
+display:flex;
   }
 .menu-top{
   display:flex;
