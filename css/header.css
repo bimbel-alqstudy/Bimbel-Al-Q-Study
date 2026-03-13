@@ -149,11 +149,13 @@ cursor:pointer;
 }
 
 /* HOVER DESKTOP */
+@media(min-width:769px){
 .dropdown:hover .dropdown-menu{
   opacity:1;
   visibility:visible;
   transform:translateY(0);
 }
+    }
 
 /* SUBMENU */
 .submenu-title{
