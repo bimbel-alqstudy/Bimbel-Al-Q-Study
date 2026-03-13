@@ -7,7 +7,8 @@
   background:var(--blue);
   backdrop-filter:blur(8px);
   color:white;
-        
+  position:relative;      
+    z-index:1000;      
     }
   
 .brand{
@@ -201,7 +202,6 @@ visibility:visible;
   flex-direction:row;
   align-items:center;
   justify-content:space-between;
-    z-index:1000;      
 }
   .hamburger{
 display:flex;
