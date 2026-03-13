@@ -24,9 +24,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
       <nav class="nav-menu" id="navMenu">
       <div class="menu-top">
-      <span>Menu</span>
-      <button class="close-menu" id="closeMenu">✕</button>
+      <div class="brand">
+      <img src="gambar/logo.png">
+      <span>Al-Q Study</span>
     </div>
+      <button class="close-menu" id="closeMenu">✕</button>
+      </div>
+       <div class="menu-content">
         <a href="index.html" >Beranda</a>
 
         <!-- MATERI -->
@@ -149,6 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         </div>
         <a href="#">Tentang Kami</a>
+       </div>
       </nav>
     </div>
 `;
