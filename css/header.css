@@ -91,10 +91,13 @@ cursor:pointer;
 /* ===== MENU ===== */
 .nav-menu{
   display:flex;
+    flex-direction:row;
   gap:28px;
   align-items:center;  
 }
-
+.menu-content{
+  display:contents;
+}
 .nav-menu a,
 .drop-btn{
   color:white;
