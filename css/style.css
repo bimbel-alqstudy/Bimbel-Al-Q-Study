@@ -58,7 +58,8 @@
   align-items:center;
   gap:22px;
   margin-bottom:6px;
-
+position:relative;
+  z-index:1;
 }
 
 .hero-brand img{
@@ -72,6 +73,8 @@ height:200px;
 
 .hero-title{
   line-height:1.18;
+    position:relative;
+  z-index:1;
 }
 
 .hero-title .line1{
@@ -374,6 +377,7 @@ box-shadow:0 14px 34px rgba(242,201,76,.45);
   }
 
 }
+
 
 
 
