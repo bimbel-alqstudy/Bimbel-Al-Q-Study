@@ -254,6 +254,10 @@ grid-template-columns:1fr;
 background:rgba(255,255,255,.05);
 padding:10px;
 margin-top:8px;
+/* reset efek desktop */
+opacity:1;
+visibility:visible;
+transform:none;      
   }
 
   .dropdown.active .dropdown-menu{
