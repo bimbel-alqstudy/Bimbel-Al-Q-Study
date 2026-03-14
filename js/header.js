@@ -2,10 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const header = document.getElementById("siteHeader");
 
   header.innerHTML = `
-      <div class="menu-overlay" id="menuOverlay"></div>
-
     <div class="navbar">
-
       <div class="brand">
         <img src="gambar/logo.png">
         <div class="brand-text">
@@ -170,12 +167,14 @@ document.addEventListener("DOMContentLoaded", () => {
 hamburger.classList.toggle("active");
   navMenu.classList.toggle("show");
 };
-overlay.onclick = () => {
-  hamburger.classList.remove("active");
-  navMenu.classList.remove("show");
-  overlay.classList.remove("show");
-};
-closeMenu.onclick = () => {
+overlay.addEventListener("click", (e) => {
+  if(!navMenu.contains(e.target)){
+    navMenu.classList.remove("show");
+    overlay.classList.remove("show");
+    hamburger.classList.remove("active");
+  }
+});
+  closeMenu.onclick = () => {
   navMenu.classList.remove("show");
   overlay.classList.remove("show");
   hamburger.classList.remove("active");
