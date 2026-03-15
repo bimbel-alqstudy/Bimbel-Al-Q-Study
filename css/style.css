@@ -293,7 +293,7 @@ box-shadow:0 14px 34px rgba(242,201,76,.45);
   max-width:950px; /* dipersempit */
   margin:auto;
   display:grid;
-  grid-template-columns:repeat(5, max-content);
+  grid-template-columns:repeat(6, max-content);
   justify-content:center;
   gap:14px;
 }
