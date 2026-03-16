@@ -37,7 +37,7 @@ function normalize(text) {
 }
 
 // ===== INIT TEKS HALAMAN =====
-judulKelas.textContent = kelasAktif ? `Latihan Kelas ${kelasAktif}` : "Latihan Soal";
+judulKelas.textContent = kelasAktif ? `Bank Soal Kelas ${kelasAktif}` : "Latihan Soal";
 
 // ===== FETCH DATA DARI SPREADSHEET =====
 fetch(API_URL)
