@@ -20,7 +20,9 @@
       box-sizing:border-box;
       font-family:'Segoe UI', Arial, sans-serif;
     }
-
+html{
+  scroll-behavior: smooth;
+}
     body{
       margin:0;
       background:linear-gradient(180deg, var(--blue), var(--green));
