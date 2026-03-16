@@ -1,0 +1,86 @@
+:root {
+      /* WARNA UTAMA (SESUI DESAIN) */
+      --blue:#085EC8;
+      --blue-light:#1E7FE6;
+      --green:#2ECC71;
+      --green-dark:#1FA463;
+        /* AKSEN GOLD (PRESTASI & KEJAYAAN) */
+      --gold:#F2C94C;
+      --gold-dark:#D4AF37;
+      --gold-soft:rgba(242,201,76,.25);
+
+      --bg-soft:#F4F8FF;
+      --text-dark:#1f2937;
+
+      --radius:16px;
+
+  --biru: #0b5ed7;
+  --hijau: #198754;
+  --emas: #d4af37;
+  --abu: #f5f7fa;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--abu);
+  color: #222;
+}
+
+
+/* HEADER HALAMAN */
+.page-header {
+  background: var(--abu);
+  padding: 8px 20px;
+  text-align: center;
+}
+
+.page-header h1 {
+  margin: 0 0 10px;
+  color: var(--biru);
+}
+
+.page-header p {
+  max-width: 700px;
+  margin: auto;
+  font-size: 14px;
+  color: #555;
+}
+
+/* KONTEN */
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 10px;
+}
+
+
+
+/* BREADCRUMB */
+.breadcrumb {
+  margin: 15px  0;
+  font-size: 14px;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: #1e88e5;
+}
+
+.breadcrumb a:hover {
+text-decoration: underline;
+}
+
+.breadcrumb span {
+ color: #777;
+  margin: 0 6px;
+}
+
+.breadcrumb .active {
+  color: #555;
+  font-weight: 500;
+}
