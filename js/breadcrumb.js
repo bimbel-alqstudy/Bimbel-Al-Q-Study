@@ -30,7 +30,7 @@ function renderBreadcrumb() {
   }
 
   html += `
-    <a href="latihan.html">Latihan</a>
+    <a href="latihan.html">Bank Soal</a>
     <span>›</span>
     <span class="active">Kelas ${kelas}</span>
   `;
