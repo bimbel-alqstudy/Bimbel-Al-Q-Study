@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
 
     <div class="footer-copyright">
-      © 2026 Bimbingan Belajar Al-Q Study. All Rights Reserved.
+      © 2026 Bimbingan Belajar Al-Q Study.
     </div>
   `;
 });
