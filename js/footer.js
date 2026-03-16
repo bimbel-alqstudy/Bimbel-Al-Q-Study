@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <ul>
           <li>
             <i class="fab fa-whatsapp"></i>
-            <a href="https://wa.me/6285604606502?text=Assalamualaikum.%20Saya%20ingin%20mendaftar%20les%20di%20Bimbel%20Al-Q%20Study." target="_blank" rel="noopener">
+            <a href="https://wa.me/6285604606502?text=Assalamualaikum.%20Saya%20ingin%20mendaftar%20les%20di%20Bimbel%20Al-Q%20Study.%0ANama:%20%0AKelas:%20%0ASekolah:%20" target="_blank" rel="noopener">
               085604606502
             </a>
           </li>
