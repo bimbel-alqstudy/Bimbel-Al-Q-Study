@@ -204,13 +204,21 @@ visibility:visible;
 }
 
 /* PANAH */
-.arrow{
-  font-size:10px;
-  transition:.3s;
+.arrow {
+  display: inline-block;
+  margin-left: 6px;
+  width: 6px;
+  height: 6px;
+  border-right: 2px solid white;
+  border-bottom: 2px solid white;
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
 }
-
 .dropdown:hover .arrow{
-  transform:rotate(180deg);
+  transform:rotate(225deg);
+}
+.dropdown.active .arrow {
+  transform: rotate(225deg);
 }
 
 /* MOBILE */
