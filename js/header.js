@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <!-- MATERI -->
         <div class="dropdown">
-          <button class="drop-btn">Materi <span class="arrow">^</span></button>
+          <button class="drop-btn">Materi <span class="arrow"></span></button>
           <div class="dropdown-menu">
             <!-- SD -->
             <div class="submenu">
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <!-- LATIHAN -->
         <div class="dropdown">
-          <button class="drop-btn">Bank Soal <span class="arrow">^</span></button>
+          <button class="drop-btn">Bank Soal <span class="arrow"></span></button>
           <div class="dropdown-menu">
             <div class="submenu">
               <div class="submenu-title">SD</div>
@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <!-- LATIHAN ONLINE -->
         <div class="dropdown">
-          <button class="drop-btn">Latihan Online <span class="arrow">^</span> </button>
+          <button class="drop-btn">Latihan Online <span class="arrow"></span> </button>
           <div class="dropdown-menu">
             <!-- SD -->
             <div class="submenu">
@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <!-- MEDIA EDUKASI -->
         <div class="dropdown">
-        <button class="drop-btn">Media Edukasi <span class="arrow">^</span></button>
+        <button class="drop-btn">Media Edukasi <span class="arrow"></span></button>
         <div class="dropdown-menu">
         <div class="submenu">
         <div class="submenu-list">
