@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <div class="menu-top">
       <div class="brand">
       <img src="gambar/logo.png">
-      <span>Al-Q Study</span>
+      <span>Al-Q Study  </span>
     </div>
       <button class="close-menu" id="closeMenu">✕</button>
       </div>
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <!-- MATERI -->
         <div class="dropdown">
-          <button class="drop-btn">Materi<span class="arrow">^</span></button>
+          <button class="drop-btn">Materi <span class="arrow">^</span></button>
           <div class="dropdown-menu">
             <!-- SD -->
             <div class="submenu">
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <!-- LATIHAN -->
         <div class="dropdown">
-          <button class="drop-btn">Bank Soal<span class="arrow">^</span></button>
+          <button class="drop-btn">Bank Soal <span class="arrow">^</span></button>
           <div class="dropdown-menu">
             <div class="submenu">
               <div class="submenu-title">SD</div>
