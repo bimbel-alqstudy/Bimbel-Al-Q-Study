@@ -29,11 +29,12 @@ document.addEventListener("DOMContentLoaded", () => {
       <button class="close-menu" id="closeMenu">✕</button>
       </div>
        <div class="menu-content">
-        <a href="index.html" >Beranda</a>
+        <a href="index.html"> <i data-lucide="home" class="icon"></i>Beranda</a>
 
         <!-- MATERI -->
         <div class="dropdown">
-          <button class="drop-btn">Materi <span class="arrow"></span></button>
+          <button class="drop-btn"><i data-lucide="book-open" class="icon"></i>
+          Materi <span class="arrow"></span></button>
           <div class="dropdown-menu">
             <!-- SD -->
             <div class="submenu">
@@ -69,7 +70,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <!-- LATIHAN -->
         <div class="dropdown">
-          <button class="drop-btn">Bank Soal <span class="arrow"></span></button>
+          <button class="drop-btn"><i data-lucide="folder-open" class="icon"></i>
+          Bank Soal <span class="arrow"></span></button>
           <div class="dropdown-menu">
             <div class="submenu">
               <div class="submenu-title">SD</div>
@@ -103,7 +105,8 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <!-- LATIHAN ONLINE -->
         <div class="dropdown">
-          <button class="drop-btn">Latihan Online <span class="arrow"></span> </button>
+          <button class="drop-btn"><i data-lucide="clipboard-check" class="icon"></i>
+          Latihan Online <span class="arrow"></span> </button>
           <div class="dropdown-menu">
             <!-- SD -->
             <div class="submenu">
@@ -139,7 +142,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         <!-- MEDIA EDUKASI -->
         <div class="dropdown">
-        <button class="drop-btn">Media Edukasi <span class="arrow"></span></button>
+        <button class="drop-btn"><i data-lucide="play-circle" class="icon"></i>
+        Media Edukasi <span class="arrow"></span></button>
         <div class="dropdown-menu">
         <div class="submenu">
         <div class="submenu-list">
@@ -150,7 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         </div>
         </div>
-        <a href="#">Tentang Kami</a>
+        <a href="#"><i data-lucide="info" class="icon"></i>Tentang Kami</a>
        </div>
       </nav>
     </div>
