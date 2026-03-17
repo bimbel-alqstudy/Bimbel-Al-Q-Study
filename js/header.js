@@ -159,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
       </nav>
     </div>
 `;
-
+lucide.createIcons();
 
   const hamburger = document.getElementById("hamburger");
   const navMenu = document.getElementById("navMenu");
