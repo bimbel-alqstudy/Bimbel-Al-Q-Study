@@ -90,6 +90,12 @@ line-height:1;
 }
 
 /* ===== MENU ===== */
+.icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
 .nav-menu{
   display:flex;
     flex-direction:row;
@@ -98,6 +104,12 @@ line-height:1;
 }
 .menu-content{
   display:contents;
+}
+.drop-btn,
+.menu-content a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 .nav-menu a,
 .drop-btn{
