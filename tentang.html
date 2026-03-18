@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bimbingan Belajar Al-Q Study | Tentang Kami</title>
+
+  <style>
+    body{
+      margin:0;
+      font-family:Arial, sans-serif;
+      line-height:1.6;
+      background:#f5f7fb;
+      color:#333;
+    }
+
+    section{
+      padding:60px 20px;
+      max-width:1100px;
+      margin:auto;
+    }
+
+    h1,h2{
+      text-align:center;
+      margin-bottom:20px;
+    }
+
+    /* HERO */
+    .hero{
+      background:linear-gradient(135deg,#4facfe,#00c6ff);
+      color:white;
+      text-align:center;
+      padding:80px 20px;
+    }
+
+    .hero h1{
+      font-size:36px;
+    }
+
+    .hero p{
+      font-size:18px;
+      margin-bottom:20px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:12px 20px;
+      background:white;
+      color:#007bff;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:bold;
+    }
+
+    /* TENTANG */
+    .tentang{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:30px;
+      align-items:center;
+    }
+
+    .tentang img{
+      width:100%;
+      border-radius:16px;
+    }
+
+    /* CARD */
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:20px;
+      margin-top:30px;
+    }
+
+    .card{
+      background:white;
+      padding:20px;
+      border-radius:16px;
+      text-align:center;
+      box-shadow:0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .card h3{
+      margin-bottom:10px;
+    }
+
+    /* CTA */
+    .cta{
+      text-align:center;
+      background:#007bff;
+      color:white;
+      border-radius:20px;
+    }
+
+    .cta .btn{
+      background:white;
+      color:#007bff;
+      margin-top:15px;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:768px){
+      .tentang{
+        grid-template-columns:1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Tentang Kami</h1>
+    <p>Platform belajar online untuk siswa Sekolah Dasar yang interaktif dan menyenangkan</p>
+    <a href="#" class="btn">Mulai Belajar</a>
+  </section>
+
+  <!-- TENTANG -->
+  <section>
+    <div class="tentang">
+      <img src="https://via.placeholder.com/500x300" alt="Belajar">
+      <div>
+        <h2>Siapa Kami?</h2>
+        <p>
+          Kami adalah platform bimbingan belajar online yang dirancang khusus untuk siswa Sekolah Dasar.
+          Kami membantu siswa memahami pelajaran dengan cara yang lebih mudah, interaktif, dan menyenangkan.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEUNGGULAN -->
+  <section>
+    <h2>Keunggulan Kami</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>📘 Materi Lengkap</h3>
+        <p>Materi sesuai kurikulum terbaru</p>
+      </div>
+      <div class="card">
+        <h3>📝 Latihan Interaktif</h3>
+        <p>Soal langsung dinilai otomatis</p>
+      </div>
+      <div class="card">
+        <h3>🎯 Sesuai Kurikulum</h3>
+        <p>Disusun berdasarkan standar pendidikan</p>
+      </div>
+      <div class="card">
+        <h3>📱 Fleksibel</h3>
+        <p>Bisa diakses dari HP maupun laptop</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISI MISI -->
+  <section>
+    <h2>Visi & Misi</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Visi</h3>
+        <p>Menjadi platform belajar SD terbaik dan terpercaya</p>
+      </div>
+      <div class="card">
+        <h3>Misi</h3>
+        <p>Menyediakan pembelajaran yang mudah, interaktif, dan menyenangkan</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2>Siap Mulai Belajar?</h2>
+    <p>Ayo bergabung dan tingkatkan prestasi belajar sekarang!</p>
+    <a href="#" class="btn">Daftar Sekarang</a>
+  </section>
+
+</body>
+</html>
