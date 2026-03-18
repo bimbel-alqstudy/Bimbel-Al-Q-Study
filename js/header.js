@@ -154,7 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         </div>
         </div>
-        <a href="#"><i data-lucide="info" class="icon"></i>Tentang Kami</a>
+        <a href="tentang.html"><i data-lucide="info" class="icon"></i>Tentang Kami</a>
        </div>
       </nav>
     </div>
