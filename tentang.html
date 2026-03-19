@@ -36,8 +36,8 @@
     }
 
     section{
-      padding:30px 20px;
-      max-width:1200px;
+      padding:30px 40px;
+      max-width:1300px;
       margin:auto;
     }
 
@@ -69,20 +69,15 @@
       text-align:justify;
       margin-bottom:20px;
     }
-   .hero p1{
-      font-size:18px;
-      text-align:left;
-      margin-bottom:20px;
-    }
-
     .btn{
-      display:inline-block;
-      padding:12px 20px;
-      background:white;
-      color:#007bff;
-      border-radius:8px;
-      text-decoration:none;
-      font-weight:bold;
+  background:linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color:#1f2937;
+  padding:14px 26px;
+  font-size:15px;
+  font-weight:700;
+  border-radius:12px;
+  text-decoration:none;
+  box-shadow:0 8px 20px rgba(0,0,0,.25);
     }
 
     /* TENTANG */
@@ -94,7 +89,7 @@
     }
 
     .tentang img{
-      width:100%;
+      width:75%;
       border-radius:16px;
     }
 
@@ -131,6 +126,19 @@
       color:#007bff;
       margin-top:15px;
     }
+/* ===== GOLD DIVIDER ===== */
+.section-divider{
+  width:100%;
+  height:3px;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    var(--gold),
+    transparent
+  );
+  margin:10px 0;
+  opacity:.85;
+}
 
     /* RESPONSIVE */
     @media(max-width:768px){
@@ -148,15 +156,23 @@
   <!-- HERO -->
   <section class="hero">
     <h1>Tentang Kami</h1>
-    <p1>Selamat Datang di Al-Q Study!</p1>
-<p1>Teman Setia Menuju Prestasi Gemilang.</p1> 
     <p>  Halo, Sahabat Al-Q!
 Selamat datang di platform belajar digital Bimbingan Belajar Al-Q Study. Kami hadir dengan satu misi sederhana: memastikan pengalaman belajar Kamu menjadi lebih mudah, terarah, dan menyenangkan.
-Di sini, Kamu bisa menjelajahi berbagai ringkasan materi yang disusun secara ringkas, mengunduh bank soal untuk persiapan ujian, hingga menguji kemampuan secara langsung lewat fitur latihan online. Kamu juga bisa belajar sambil bermain game yang menyenangkan. Ingat, setiap langkah kecil dalam belajar adalah investasi besar untuk masa depanmu.
 Belajar Menyenangkan, Prestasi Membanggakan! 
 Mari mulai petualangan belajarmu hari ini.  </p>
-    <a href="#" class="btn">Mulai Belajar</a>
+    <a href="index.html" class="btn">Mulai Belajar Online</a>
   </section>
+
+  <div class="section-divider"></div>
+
+<!-- ===== ORNAMEN GELOMBANG ===== -->
+<div style="background:linear-gradient(180deg, var(--blue), var(--green));">
+<svg viewBox="0 0 1440 50" preserveAspectRatio="none" style="width:100%; height:45px; display:block;">
+  <path fill="#2ECC71" fill-opacity="0.38"
+    d="M0,40 C120,70 240,10 360,20 480,30 600,80 720,75 840,70 960,30 1080,20 1200,10 1320,30 1440,40 L1440,0 L0,0 Z">
+  </path>
+</svg>
+</div>
 
   <!-- TENTANG -->
   <section>
@@ -167,8 +183,10 @@ Mari mulai petualangan belajarmu hari ini.  </p>
         <p>
 Bimbingan Belajar Al-Q Study adalah bimbingan belajar yang telah berpengalaman membimbing siswa siswi mulai dari SD hingga SMA.
 Bimbingan Belajar Al-Q Study kini hadir dalam platform digital. 
-          Al-Q Study adalah partner belajar digital yang mengubah cara pandangmu terhadap pelajaran. 
-          Kami percaya belajar bisa menyenangkan dan prestasi adalah hasil dari proses yang seru!         </p>
+Al-Q Study adalah partner belajar digital yang mengubah cara pandangmu terhadap pelajaran. 
+Di sini, Kamu bisa menjelajahi berbagai ringkasan materi yang disusun secara ringkas, mengunduh bank soal untuk persiapan ujian, hingga menguji kemampuan secara langsung lewat fitur latihan online. 
+          Kamu juga bisa belajar sambil bermain game yang menyenangkan. Ingat, setiap langkah kecil dalam belajar adalah investasi besar untuk masa depanmu.
+Kami percaya belajar bisa menyenangkan dan prestasi adalah hasil dari proses yang seru!         </p>
       </div>
     </div>
   </section>
