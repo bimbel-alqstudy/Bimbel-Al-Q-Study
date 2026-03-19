@@ -36,7 +36,7 @@
     }
 
     section{
-      padding:30px 40px;
+      padding:30px 60px;
       max-width:1300px;
       margin:auto;
     }
@@ -86,14 +86,14 @@ box-shadow:0 14px 34px rgba(242,201,76,.45);
     /* TENTANG */
     .tentang{
       display:grid;
-      grid-template-columns:1fr 1fr;
+      grid-template-columns:0.5fr 1fr;
       gap:30px;
       align-items:center;
     }
 
     .tentang img{
-width: 140px;
-height:200px;  
+width: 210px;
+height:300px;  
   margin-bottom: 4px;
   filter: drop-shadow(0 12px 30px rgba(0,0,0,0.3));
     }
@@ -107,7 +107,7 @@ height:200px;
     }
 
     .card{
-      background:white;
+      background:--green;
       padding:20px;
       border-radius:16px;
       text-align:center;
@@ -121,7 +121,13 @@ height:200px;
     /* CTA */
     .cta{
       text-align:center;
-      background:#007bff;
+      background:linear-gradient(
+    135deg,
+    #085EC8 0%,
+    #1E7FE6 45%,
+    var(--gold-soft) 65%,
+    #2ECC71 100%
+  );
       color:white;
       border-radius:20px;
     }
