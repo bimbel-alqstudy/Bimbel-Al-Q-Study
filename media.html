@@ -24,7 +24,7 @@
 <div class="container">
 
 <!-- Breadcrumb -->
-  <nav class="breadcrumb" id="breadcrumb"></nav>
+  <div id="breadcrumb" class="breadcrumb"></div>
 
 <!-- Judul -->
 <h1>Media Edukasi</h1>
@@ -71,6 +71,13 @@ Game edukasi, video edukasi, dan laboratorium virtual yang menarik untuk menamba
 
   <!-- FOOTER -->
 <footer id="siteFooter" class="footer"></footer>
+
+  document.addEventListener("DOMContentLoaded", () => {
+  renderBreadcrumb([
+    { label: "Beranda", link: "index.html" },
+    { label: "Media Edukasi"}
+  ]);
+});
 
 <script src="js/breadcrumb.js" defer></script>
 <script src="js/header.js"></script>
