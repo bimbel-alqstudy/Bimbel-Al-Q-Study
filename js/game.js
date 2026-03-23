@@ -20,7 +20,7 @@ item.className = "latihan-item";
 item.href = game.link;
 item.target = "_blank";
 item.innerHTML = `
-      <img src="icon-game.png" class="pdf-icon">
+      <img src="gambar/game3.png" class="pdf-icon">
 
       <div class="latihan-info">
         <h4>${game.judul}</h4>
