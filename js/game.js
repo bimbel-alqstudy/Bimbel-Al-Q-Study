@@ -15,18 +15,21 @@ function tampilkanGame(data) {
   data.sort((a, b) => new Date(b.tanggal) - new Date(a.tanggal));
 
   data.forEach(game => {
-    const card = document.createElement("div");
-    card.className = "card";
+const item = document.createElement("a");
+item.className = "latihan-item";
+item.href = game.link;
+item.target = "_blank";
+item.innerHTML = `
+      <img src="icon-game.png" class="pdf-icon">
 
-    card.innerHTML = `
-      <h3>${game.judul}</h3>
-      <p>${game.deskripsi}</p>
-      <small>${game.kategori} | ${game.sumber}</small>
-      <br><br>
-      <a href="${game.link}" target="_blank">Mainkan</a>
+      <div class="latihan-info">
+        <h4>${game.judul}</h4>
+        <span>${game.kategori} • ${game.sumber}</span>
+        <br>
+      <small>${game.deskripsi}</small>
+      </div>
     `;
-
-    container.appendChild(card);
+    container.appendChild(item);    
   });
 }
 let semuaGame = [];
