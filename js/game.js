@@ -3,6 +3,14 @@ let DATA_GAME = [];
 let filteredGame = [];
 let searchGame = "";
 
+function normalize(text) {
+  return text
+    .toLowerCase()
+    .normalize("NFD")                 // normalisasi unicode
+    .replace(/[\u0300-\u036f]/g, "")  // hapus karakter aneh
+    .replace(/\s+/g, " ")             // spasi ganda → tunggal
+    .trim();
+}
 fetch(API)
 .then(res => res.json())
 .then(data => {
