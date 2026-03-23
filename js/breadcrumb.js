@@ -1,42 +1,18 @@
-// ===== AMBIL PARAMETER KELAS =====
-const urlparams = new URLSearchParams(window.location.search);
-const kelas = parseInt(urlparams.get("kelas"));
-
-// ===== TENTUKAN JENJANG =====
-function getJenjangByKelas(kelas) {
-  if (kelas >= 1 && kelas <= 6) return { label: "SD", link: "sd.html" };
-  if (kelas >= 7 && kelas <= 9) return { label: "SMP", link: "smp.html" };
-  if (kelas >= 10 && kelas <= 12) return { label: "SMA", link: "sma.html" };
-  return null;
-}
-
-// ===== RENDER BREADCRUMB =====
-function renderBreadcrumb() {
+function renderBreadcrumb(items) {
   const container = document.getElementById("breadcrumb");
+
   if (!container) return;
 
-  const jenjang = getJenjangByKelas(kelas);
+  container.innerHTML = items.map((item, index) => {
+    const isLast = index === items.length - 1;
 
-  let html = `
-    <a href="index.html">Beranda</a>
-    <span>›</span>
-  `;
+    if (isLast) {
+      return `<span class="active">${item.label}</span>`;
+    }
 
-  if (jenjang) {
-    html += `
-      <a href="${jenjang.link}">${jenjang.label}</a>
+    return `
+      <a href="${item.link}">${item.label}</a>
       <span>›</span>
     `;
-  }
-
-  html += `
-    <a href="latihan.html">Bank Soal</a>
-    <span>›</span>
-    <span class="active">Kelas ${kelas}</span>
-  `;
-
-  container.innerHTML = html;
+  }).join("");
 }
-
-// ===== JALANKAN =====
-renderBreadcrumb();
