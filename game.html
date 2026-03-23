@@ -35,36 +35,15 @@ Kumpulan game edukasi yang menarik untuk meningkatkan semangat belajar.
 </div>
 </section>
 
-
-<!-- FILTER & SEARCH -->
-  <div class="container">
-<div class="filter-wrapper">
-  <div class="filter-group">
-    <label for="filterKategori">Kategori</label>
-    <select id="filterKategori">
-      <option value="all">Semua Kategori</option>
-    </select>
-  </div>
-
-  <div class="filter-group">
-    <label for="searchInput">Cari Game</label>
-    <input type="text" id="searchInput" placeholder="Ketik nama game ...">
-  </div>
-</div>
-</div>
-
-  
 <!-- DAFTAR LATIHAN -->
 <section class="latihan-section">
 <div class="container">
-
-
+  <button onclick="filterGame('Matematika')">Matematika</button>
+<button onclick="filterGame('IPA')">IPA</button>
+<button onclick="ambilGame()">Semua</button>
 <div id="daftarGame" class="latihan-list">
 <!-- Data latihan di-render oleh JavaScript -->
 </div>
-
-<!-- Pagination -->
-<div id="pagination" class="pagination"></div>
 
 </div>
 </section>
