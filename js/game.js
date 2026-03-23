@@ -3,7 +3,7 @@ let DATA_GAME = [];
 let filteredGame = [];
 let searchGame = "";
 
-fetch(API_GAME)
+fetch(API)
 .then(res => res.json())
 .then(data => {
 
@@ -86,7 +86,7 @@ function renderGame(data) {
     item.target = "_blank";
 
     item.innerHTML = `
-      <img src="gambar/game2.png" class="pdf-icon">
+      <img src="gambar/game3.png" class="pdf-icon">
 
       <div class="latihan-info">
         <h4>${game.judul}</h4>
