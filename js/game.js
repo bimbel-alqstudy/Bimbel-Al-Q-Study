@@ -2,6 +2,8 @@ const API = "https://script.google.com/macros/s/AKfycbyQ4WvL-J3ST5buBgqUkR5-jr4t
 let DATA_GAME = [];
 let filteredGame = [];
 let searchGame = "";
+const ITEMS_PER_PAGE = 5;
+let currentPageGame = 1;
 
 function normalize(text) {
   return text
@@ -71,24 +73,28 @@ function applyFilterGame() {
     const matchSearch =
       !searchGame ||
       item.judulNorm.includes(searchGame) ||
-      item.kategori.includes(searchGame);
-
+      item.kategori.includes(searchGame) || 
+      item.deskripsi.includes(searchGame);
+    
     return matchKategori && matchSearch;
   });
-
-  renderGame(filteredGame);
+currentPageGame = 1; 
+  renderGame();
 }
 
-function renderGame(data) {
+function renderGame() {
   const container = document.getElementById("daftarGame");
   container.innerHTML = "";
 
-  if (data.length === 0) {
+  if (filteredGame.length === 0) {
     container.innerHTML = "<p class='empty'>Game tidak ditemukan.</p>";
     return;
   }
-
-  data.forEach(game => {
+const start = (currentPageGame - 1) * ITEMS_PER_PAGE;
+  const end = start + ITEMS_PER_PAGE;
+  const pageItems = filteredGame.slice(start, end);
+  
+  pageItems.forEach(game => {
     const item = document.createElement("a");
     item.className = "latihan-item";
     item.href = game.link;
@@ -106,5 +112,53 @@ function renderGame(data) {
 
     container.appendChild(item);
   });
+  renderPaginationGame();
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
+const paginationGame = document.getElementById("paginationGame");
+
+function renderPaginationGame() {
+  paginationGame.innerHTML = "";
+
+  const totalPages = Math.ceil(filteredGame.length / ITEMS_PER_PAGE);
+  if (totalPages <= 1) return;
+
+  // tombol prev
+  const prev = document.createElement("button");
+  prev.textContent = "‹";
+  prev.disabled = currentPageGame === 1;
+  prev.onclick = () => {
+    currentPageGame--;
+    renderGame();
+  };
+  paginationGame.appendChild(prev);
+
+  // nomor halaman
+  for (let i = 1; i <= totalPages; i++) {
+    const btn = document.createElement("button");
+    btn.textContent = i;
+
+    if (i === currentPageGame) {
+      btn.classList.add("active");
+    }
+
+    btn.onclick = () => {
+      currentPageGame = i;
+      renderGame();
+    };
+
+    paginationGame.appendChild(btn);
+  }
+
+  // tombol next
+  const next = document.createElement("button");
+  next.textContent = "›";
+  next.disabled = currentPageGame === totalPages;
+  next.onclick = () => {
+    currentPageGame++;
+    renderGame();
+  };
+
+  paginationGame.appendChild(next);
+}
