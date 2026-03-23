@@ -162,3 +162,12 @@ function renderPaginationGame() {
 
   paginationGame.appendChild(next);
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  // isi nanti sesuai halaman
+  renderBreadcrumb([
+  { label: "Beranda", link: "index.html" },
+  { label: "Media Edukasi", link: "media.html" },
+  { label: "Game Edukasi" }
+]);
+});
