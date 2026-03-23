@@ -1,5 +1,4 @@
-const API = "https://script.google.com/macros/s/AKfycbyQ4WvL-J3ST5buBgqUkR5-jr4t0N2wWIrdvIG_1rfQZlDSVbnoB79yGi1gxiXZWLM6/exec
-?sheet=game";
+const API = "https://script.google.com/macros/s/AKfycbyQ4WvL-J3ST5buBgqUkR5-jr4t0N2wWIrdvIG_1rfQZlDSVbnoB79yGi1gxiXZWLM6/exec?sheet=game";
 
 async function ambilGame() {
   const res = await fetch(API);
@@ -30,8 +29,8 @@ function tampilkanGame(data) {
     container.appendChild(card);
   });
 }
-ambilGame();
 let semuaGame = [];
+ambilGame();
 
 function filterGame(kategori) {
   const hasil = semuaGame.filter(g => g.kategori === kategori);
