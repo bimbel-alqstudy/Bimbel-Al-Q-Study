@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -72,16 +71,18 @@ Game edukasi, video edukasi, dan laboratorium virtual yang menarik untuk menamba
   <!-- FOOTER -->
 <footer id="siteFooter" class="footer"></footer>
 
-  document.addEventListener("DOMContentLoaded", () => {
+<script src="js/header.js"></script>
+  <script src="js/footer.js"></script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script src="js/breadcrumb.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
   renderBreadcrumb([
     { label: "Beranda", link: "index.html" },
     { label: "Media Edukasi"}
   ]);
 });
-
-<script src="js/breadcrumb.js" defer></script>
-<script src="js/header.js"></script>
-  <script src="js/footer.js"></script>
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</script>
 </body>
 </html>
