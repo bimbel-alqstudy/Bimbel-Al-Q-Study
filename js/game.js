@@ -98,7 +98,7 @@ const start = (currentPageGame - 1) * ITEMS_PER_PAGE;
     const item = document.createElement("a");
     item.className = "latihan-item";
     item.href = game.link;
-
+    item.target = "_blank";
     item.innerHTML = `
       <img src="gambar/game3.png" class="pdf-icon">
 
