@@ -90,6 +90,8 @@ fetch(API)
 
 const filterKategori = document.getElementById("filterKategori");
 const searchInputGame = document.getElementById("searchGame");
+  const icon = iconKategori[game.kategori] || iconKategori.default;
+  const warna = warnaKategori[game.kategori] || warnaKategori.default;
 
 function initFilterKategori() {
   const kategoriSet = new Map();
@@ -138,8 +140,6 @@ currentPageGame = 1;
 
 function renderGame() {
   const container = document.getElementById("daftarMedia");
-  const icon = iconKategori[game.kategori] || iconKategori.default;
-  const warna = warnaKategori[game.kategori] || warnaKategori.default;
   container.innerHTML = "";
 
   if (filteredGame.length === 0) {
