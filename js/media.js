@@ -1,9 +1,36 @@
-const API = "https://script.google.com/macros/s/AKfycbyQ4WvL-J3ST5buBgqUkR5-jr4t0N2wWIrdvIG_1rfQZlDSVbnoB79yGi1gxiXZWLM6/exec?sheet=game";
+const params = new URLSearchParams(window.location.search);
+const type = params.get("type"); // game, video, laboratorium
+
+const API = `https://script.google.com/macros/s/AKfycbyQ4WvL-J3ST5buBgqUkR5-jr4t0N2wWIrdvIG_1rfQZlDSVbnoB79yGi1gxiXZWLM6/exec?sheet=${type}`;
+
 let DATA_GAME = [];
 let filteredGame = [];
 let searchGame = "";
 const ITEMS_PER_PAGE = 5;
 let currentPageGame = 1;
+
+const config = {
+  game: {
+    judul: "Game Edukasi",
+    deskripsi: "Belajar sambil bermain dengan berbagai game edukatif.",
+    sheet: "game"
+  },
+  video: {
+    judul: "Video Edukasi",
+    deskripsi: "Tonton video pembelajaran yang menarik dan mudah dipahami.",
+    sheet: "video"
+  },
+  laboratorium: {
+    judul: "Laboratorium Virtual",
+    deskripsi: "Lakukan percobaan secara virtual dengan simulasi interaktif.",
+    sheet: "laboratorium"
+  }
+};
+
+const halaman = config[type];
+
+document.getElementById("judulHalaman").textContent = halaman.judul;
+document.getElementById("deskripsiHalaman").textContent = halaman.deskripsi;
 
 function normalize(text) {
   return text
@@ -13,7 +40,7 @@ function normalize(text) {
     .replace(/\s+/g, " ")             // spasi ganda → tunggal
     .trim();
 }
-fetch(API)
+fetch(`data/${halaman.sheet}.json`)
 .then(res => res.json())
 .then(data => {
 
@@ -83,7 +110,7 @@ currentPageGame = 1;
 }
 
 function renderGame() {
-  const container = document.getElementById("daftarGame");
+  const container = document.getElementById("daftarMedia");
   container.innerHTML = "";
 
   if (filteredGame.length === 0) {
