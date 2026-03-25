@@ -53,7 +53,7 @@ const warnaKategori = {
   sd: "#8e44ad",
   smp: "#3498db",
   sma: "#2c3e50",
-  umum: "#7f8c8d"
+  umum: "#7f8c8d",
   default: "#7f8c8d"
 };
 document.getElementById("judulHalaman").textContent = halaman.judul;
