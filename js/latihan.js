@@ -43,9 +43,6 @@ judulKelas.textContent = kelasAktif ? `Bank Soal Kelas ${kelasAktif}` : "Latihan
 fetch(API_URL)
 .then(res => res.json())
 .then(data => {
-console.log("DATA RAW DARI API:");
-console.table(data);
-
 DATA_LATIHAN = data.map(item => ({
 kelas: parseInt(item.kelas),
 mapel: normalize(item.mapel),
@@ -55,11 +52,7 @@ judulNorm: normalize(item.judul),
 file: item.file,
 tanggal: new Date(item.tanggal)
 }));
-console.log("DATA SETELAH DIPARSE:");
-console.table(DATA_LATIHAN);
-
 DATA_LATIHAN.sort((a, b) => b.tanggal - a.tanggal);
-
 initFilterMapel();
 applyAllFilters();
 })
