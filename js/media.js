@@ -13,17 +13,23 @@ const config = {
   game: {
     judul: "Game Edukasi",
     deskripsi: "Belajar sambil bermain dengan berbagai game edukatif.",
-    sheet: "game"
+    sheet: "game",
+    icon: "gamepad-2",
+    warna: "#f39c12"
   },
   video: {
     judul: "Video Edukasi",
     deskripsi: "Tonton video pembelajaran yang menarik dan mudah dipahami.",
-    sheet: "video"
+    sheet: "video",
+    icon: "video",
+    warna: "#e74c3c"
   },
   laboratorium: {
     judul: "Laboratorium Virtual",
     deskripsi: "Lakukan percobaan secara virtual dengan simulasi interaktif.",
-    sheet: "laboratorium"
+    sheet: "laboratorium",
+    icon: "flask-conical",
+    warna: "#3498db"
   }
 };
 if (!config[type]) {
@@ -130,9 +136,10 @@ const start = (currentPageGame - 1) * ITEMS_PER_PAGE;
     item.href = game.link;
     item.target = "_blank";
     item.innerHTML = `
-      <img src="gambar/game3.png" class="pdf-icon">
-
-      <div class="latihan-info">
+  <div class="icon-media" style="color:${config[type].warna}">
+    <i data-lucide="${config[type].icon}"></i>
+  </div>
+        <div class="latihan-info">
         <h4>${game.judul}</h4>
         <span>${game.kategoriLabel} • ${game.sumber}</span>
          <br>
@@ -144,6 +151,7 @@ const start = (currentPageGame - 1) * ITEMS_PER_PAGE;
   });
   renderPaginationGame();
   window.scrollTo({ top: 0, behavior: "smooth" });
+  lucide.createIcons();
 }
 
 const paginationGame = document.getElementById("paginationGame");
