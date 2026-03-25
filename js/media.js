@@ -90,8 +90,6 @@ fetch(API)
 
 const filterKategori = document.getElementById("filterKategori");
 const searchInputGame = document.getElementById("searchGame");
-  const icon = iconKategori[game.kategori] || iconKategori.default;
-  const warna = warnaKategori[game.kategori] || warnaKategori.default;
 
 function initFilterKategori() {
   const kategoriSet = new Map();
@@ -151,6 +149,8 @@ const start = (currentPageGame - 1) * ITEMS_PER_PAGE;
   const pageItems = filteredGame.slice(start, end);
   
   pageItems.forEach(game => {
+      const icon = iconKategori[game.kategori] || iconKategori.default;
+  const warna = warnaKategori[game.kategori] || warnaKategori.default;
     const item = document.createElement("a");
     item.className = "latihan-item";
     item.href = game.link;
