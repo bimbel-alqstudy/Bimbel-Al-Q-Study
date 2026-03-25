@@ -3,7 +3,6 @@ const API_URL = "https://script.google.com/macros/s/AKfycbxYPhQxThs9qcs8YqqQVOw5
 // ===== AMBIL PARAMETER KELAS =====
 const params = new URLSearchParams(window.location.search);
 const kelasAktif = parseInt(params.get("kelas"));
-console.log("kelasAktif =", kelasAktif);
 
 // ===== ELEMEN DOM =====
 const judulKelas = document.getElementById("judulKelas");
