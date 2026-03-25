@@ -1,0 +1,229 @@
+:root {
+      /* WARNA UTAMA (SESUI DESAIN) */
+      --blue:#085EC8;
+      --blue-light:#1E7FE6;
+      --green:#2ECC71;
+      --green-dark:#1FA463;
+        /* AKSEN GOLD (PRESTASI & KEJAYAAN) */
+      --gold:#F2C94C;
+      --gold-dark:#D4AF37;
+      --gold-soft:rgba(242,201,76,.25);
+
+      --bg-soft:#F4F8FF;
+      --text-dark:#1f2937;
+
+      --radius:16px;
+
+  --biru: #0b5ed7;
+  --hijau: #198754;
+  --emas: #d4af37;
+  --abu: #f5f7fa;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--abu);
+  color: #222;
+}
+
+
+/* HEADER HALAMAN */
+.page-header {
+  background: var(--abu);
+  padding: 8px 20px;
+  text-align: center;
+}
+
+.page-header h1 {
+  margin: 0 0 10px;
+  color: var(--biru);
+}
+
+.page-header p {
+  max-width: 700px;
+  margin: auto;
+  font-size: 14px;
+  color: #555;
+}
+
+/* KONTEN */
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 10px;
+}
+
+/* FILTER */
+.filter-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.filter-group label {
+  font-size: 13px;
+  color: #555;
+}
+
+.filter-group select,
+.filter-group input {
+  height: 38px;
+  max-width: 300px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+
+/* LIST LATIHAN */
+.latihan-list {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.latihan-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: #ffffff;
+  border-left: 4px solid #1e88e5; /* biru */
+  border-radius: 8px;
+  text-decoration: none;
+  color: #222;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.latihan-item:hover {
+  transform: translateX(6px);
+  background: #f1f8ff;
+  border-left-color: #2e7d32; /* hijau */
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.pdf-icon {
+  width: 28px;
+  height: auto;
+}
+.latihan-info {
+  flex: 1;
+  min-width: 0;
+}
+.latihan-info h4 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+line-height: 1.25;
+}
+
+.latihan-info span {
+  font-size: 12px;
+  color: #777;
+}
+@media (max-width: 768px) {
+  .latihan-item {
+    padding: 9px 12px;
+  }
+
+  .pdf-icon {
+    width: 26px;
+  }
+}
+
+/* RESPONSIF */
+@media (max-width: 768px) {
+
+  .latihan-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .latihan-aksi {
+    margin-top: 8px;
+  }
+}
+
+/* BREADCRUMB */
+.breadcrumb {
+  margin: 15px  0;
+  font-size: 14px;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: #1e88e5;
+}
+
+.breadcrumb a:hover {
+text-decoration: underline;
+}
+
+.breadcrumb span {
+ color: #777;
+  margin: 0 6px;
+}
+
+.breadcrumb .active {
+  color: #555;
+  font-weight: 500;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.pagination button {
+  padding: 6px 12px;
+  border: none;
+  background: #e0e0e0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.pagination button.active {
+  background: #1e88e5;
+  color: white;
+  font-weight: bold;
+}
+
+.pagination button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+#search {
+  width: 100%;
+  max-width: 300px;
+}
+
+/* ===== GOLD DIVIDER ===== */
+.section-divider{
+  width:100%;
+  height:3px;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    var(--gold),
+    transparent
+  );
+  margin:10px 0;
+  opacity:.85;
+}
