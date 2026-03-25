@@ -38,6 +38,24 @@ if (!config[type]) {
 }
 const halaman = config[type];
 
+const iconKategori = {
+  matematika: "calculator",
+  ipa: "flask-conical",
+  sd: "pencil",
+  smp: "book",
+  sma: "graduation-cap",
+  umum: "brain",
+  default: "file"
+};
+const warnaKategori = {
+  matematika: "#f39c12",
+  ipa: "#27ae60",
+  sd: "#8e44ad",
+  smp: "#3498db",
+  sma: "#2c3e50",
+  umum: "#7f8c8d"
+  default: "#7f8c8d"
+};
 document.getElementById("judulHalaman").textContent = halaman.judul;
 document.getElementById("deskripsiHalaman").textContent = halaman.deskripsi;
 
@@ -120,6 +138,8 @@ currentPageGame = 1;
 
 function renderGame() {
   const container = document.getElementById("daftarMedia");
+  const icon = iconKategori[game.kategori] || iconKategori.default;
+  const warna = warnaKategori[game.kategori] || warnaKategori.default;
   container.innerHTML = "";
 
   if (filteredGame.length === 0) {
@@ -136,10 +156,10 @@ const start = (currentPageGame - 1) * ITEMS_PER_PAGE;
     item.href = game.link;
     item.target = "_blank";
     item.innerHTML = `
-  <div class="icon-media" style="color:${config[type].warna}">
-    <i data-lucide="${config[type].icon}"></i>
-  </div>
-        <div class="latihan-info">
+    <div class="icon-media" style="color:${warna}">
+    <i data-lucide="${icon}"></i>
+    </div>
+  <div class="latihan-info">
         <h4>${game.judul}</h4>
         <span>${game.kategoriLabel} • ${game.sumber}</span>
          <br>
