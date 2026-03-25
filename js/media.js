@@ -26,7 +26,10 @@ const config = {
     sheet: "laboratorium"
   }
 };
-
+if (!config[type]) {
+  document.getElementById("judulHalaman").textContent = "Halaman tidak ditemukan";
+  throw new Error("Type tidak valid");
+}
 const halaman = config[type];
 
 document.getElementById("judulHalaman").textContent = halaman.judul;
@@ -40,7 +43,7 @@ function normalize(text) {
     .replace(/\s+/g, " ")             // spasi ganda → tunggal
     .trim();
 }
-fetch(`data/${halaman.sheet}.json`)
+fetch(API)
 .then(res => res.json())
 .then(data => {
 
@@ -101,7 +104,7 @@ function applyFilterGame() {
       !searchGame ||
       item.judulNorm.includes(searchGame) ||
       item.kategori.includes(searchGame) || 
-      item.deskripsi.includes(searchGame);
+      normalize(item.deskripsi).includes(searchGame);
     
     return matchKategori && matchSearch;
   });
@@ -195,6 +198,6 @@ document.addEventListener("DOMContentLoaded", () => {
   renderBreadcrumb([
   { label: "Beranda", link: "index.html" },
   { label: "Media Edukasi", link: "media.html" },
-  { label: "Game Edukasi" }
+  { label: halaman.judul }
 ]);
 });
