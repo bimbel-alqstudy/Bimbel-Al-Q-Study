@@ -62,6 +62,16 @@ const warnaKategori = {
   default: "#7f8c8d"
 };
 
+function getKategori(mapel) {
+  if (mapel.includes("matematika")) return "matematika";
+  if (mapel.includes("ipa")) return "ipa";
+  if (mapel.includes("indonesia")) return "indonesia";
+  if (mapel.includes("inggris")) return "inggris";
+  if (mapel.includes("agama")) return "agama";
+  if (mapel.includes("jawa")) return "jawa";
+  return "default";
+}
+
 function formatTanggal(tgl) {
   return new Date(tgl).toLocaleDateString("id-ID", {
     day: "numeric",
@@ -177,8 +187,9 @@ const end = start + ITEMS_PER_PAGE;
 const pageItems = filteredData.slice(start, end);
 
 pageItems.forEach(item => {
-const icon = iconKategori[item.mapel] || iconKategori.default;
-const warna = warnaKategori[item.mapel] || warnaKategori.default;
+const kategori = getKategori(item.mapel);  
+const icon = iconKategori[item.kategori] || iconKategori.default;
+const warna = warnaKategori[item.kategori] || warnaKategori.default;
 const a = document.createElement("a");
 a.href = `viewer.html?file=${encodeURIComponent(item.embedlink)}&judul=${encodeURIComponent(item.judul)}`;  a.rel = "noopener noreferrer";
 a.className = "latihan-item";
