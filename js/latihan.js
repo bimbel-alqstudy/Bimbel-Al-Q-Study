@@ -204,6 +204,9 @@ a.innerHTML = `
 `;
 latihanList.appendChild(a);
 });
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  lucide.createIcons();
+
 }
 
 
