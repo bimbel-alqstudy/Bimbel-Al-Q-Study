@@ -13,23 +13,17 @@ const config = {
   game: {
     judul: "Game Edukasi",
     deskripsi: "Belajar sambil bermain dengan berbagai game edukatif.",
-    sheet: "game",
-    icon: "gamepad-2",
-    warna: "#f39c12"
+    sheet: "game"
   },
   video: {
     judul: "Video Edukasi",
     deskripsi: "Tonton video pembelajaran yang menarik dan mudah dipahami.",
-    sheet: "video",
-    icon: "video",
-    warna: "#e74c3c"
+    sheet: "video"
   },
   laboratorium: {
     judul: "Laboratorium Virtual",
     deskripsi: "Lakukan percobaan secara virtual dengan simulasi interaktif.",
-    sheet: "laboratorium",
-    icon: "flask-conical",
-    warna: "#3498db"
+    sheet: "laboratorium"
   }
 };
 if (!config[type]) {
