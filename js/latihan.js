@@ -71,6 +71,12 @@ function getKategori(mapel) {
   if (mapel.includes("jawa")) return "jawa";
   return "default";
 }
+function getJenjang(kelas) {
+  if (kelas >= 1 && kelas <= 6) return "SD";
+  if (kelas >= 7 && kelas <= 9) return "SMP";
+  if (kelas >= 10 && kelas <= 12) return "SMA";
+  return "";
+}
 
 function formatTanggal(tgl) {
   return new Date(tgl).toLocaleDateString("id-ID", {
@@ -246,9 +252,7 @@ function render() {
 }
 
 function initBreadcrumb() {
-  if (DATA_LATIHAN.length === 0) return;
-
-  const jenjang = DATA_LATIHAN[0].jenjangLabel;
+  const jenjang = getJenjang(kelasAktif);
 
   renderBreadcrumb([
     { label: "Beranda", link: "index.html" },
