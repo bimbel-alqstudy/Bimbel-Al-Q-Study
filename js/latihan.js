@@ -1,23 +1,66 @@
-const API_URL = "https://script.google.com/macros/s/AKfycbxYPhQxThs9qcs8YqqQVOw5Xrt6b7kHDeyRc9da0-iXiBLGVDJt8OtHgLUXiW2FDjJJ9w/exec";
-
 // ===== AMBIL PARAMETER KELAS =====
 const params = new URLSearchParams(window.location.search);
 const kelasAktif = parseInt(params.get("kelas"));
+const type = params.get("type"); 
+
+const API = `https://script.google.com/macros/s/AKfycbyQ4WvL-J3ST5buBgqUkR5-jr4t0N2wWIrdvIG_1rfQZlDSVbnoB79yGi1gxiXZWLM6/exec?sheet=${type}`;
 
 // ===== ELEMEN DOM =====
-const judulKelas = document.getElementById("judulKelas");
+const judulKelas = document.getElementById("judulHalaman");
 const latihanList = document.getElementById("latihanList");
 const paginationEl = document.getElementById("pagination");
 const filterMapel = document.getElementById("filterMapel");
 const searchInput = document.getElementById("searchInput");
 
-const ITEMS_PER_PAGE = 10;
+const ITEMS_PER_PAGE = 5;
 
 // ===== STATE =====
 let DATA_LATIHAN = [];
 let filteredData = [];
 let currentPage = 1;
 let searchQuery = "";
+
+const config = {
+  materi: {
+    judul: `Kumpulan Materi Pelajaran Kelas ${kelasAktif}`,
+    deskripsi: "Kumpulan materi pelajaran yang bisa dibaca dan diunduh.",
+    sheet: "materi"
+  },
+  latihan: {
+    judul: `Bank Soal Kelas ${kelasAktif}`,
+    deskripsi: "Kumpulan soal latihan yang bisa dibaca dan diunduh.",
+    sheet: "latihan"
+  },
+  tryout: {
+    judul: `Latihan Online Kelas ${kelasAktif}`,
+    deskripsi: "Latihan online untuk menguji pemahaman materi secara langsung.",
+    sheet: "tryout"
+  }
+};
+if (!config[type]) {
+  document.getElementById("judulHalaman").textContent = "Halaman tidak ditemukan";
+  throw new Error("Type tidak valid");
+}
+
+const halaman = config[type];
+const iconKategori = {
+  matematika: "calculator",
+  ipa: "flask-conical",
+  indonesia: "pencil",
+  agama: "book",
+  inggris: "graduation-cap",
+  jawa: "brain",
+  default: "file"
+};
+const warnaKategori = {
+  matematika: "#f39c12",
+  ipa: "#27ae60",
+  indonesia: "#8e44ad",
+  agama: "#3498db",
+  inggris: "#2c3e50",
+  jawa: "#7f8c8d",
+  default: "#7f8c8d"
+};
 
 function formatTanggal(tgl) {
   return new Date(tgl).toLocaleDateString("id-ID", {
@@ -36,19 +79,25 @@ function normalize(text) {
 }
 
 // ===== INIT TEKS HALAMAN =====
-judulKelas.textContent = kelasAktif ? `Bank Soal Kelas ${kelasAktif}` : "Latihan Soal";
+document.getElementById("judulHalaman").textContent = halaman.judul;
+document.getElementById("deskripsiHalaman").textContent = halaman.deskripsi;
 
 // ===== FETCH DATA DARI SPREADSHEET =====
 fetch(API_URL)
 .then(res => res.json())
 .then(data => {
 DATA_LATIHAN = data.map(item => ({
+jenjang: normalize(item.jenjang),
+jenjangLabel: item.jenjang,  
 kelas: parseInt(item.kelas),
 mapel: normalize(item.mapel),
 mapelLabel: item.mapel,
+babLabel: item.bab,
+bab: normalize(item.bab),
 judul: item.judul,
 judulNorm: normalize(item.judul),
-file: item.file,
+embedlink: item.embedlink,
+downloadlink: item.downloadlink,  
 tanggal: new Date(item.tanggal)
 }));
 DATA_LATIHAN.sort((a, b) => b.tanggal - a.tanggal);
@@ -103,7 +152,8 @@ function applyAllFilters() {
     const matchSearch =
       !searchQuery ||
       item.judulNorm.includes(searchQuery) ||
-      item.mapel.includes(searchQuery);
+      item.mapel.includes(searchQuery) ||
+      item.bab.includes(searchQuery);
 
     return matchKelas && matchMapel && matchSearch;
   });
@@ -114,30 +164,32 @@ function applyAllFilters() {
 
 // ===== RENDER LIST =====
 function renderList() {
+latihanList = document.getElementById("latihanList");
 latihanList.innerHTML = "";
-
 
 if (filteredData.length === 0) {
 latihanList.innerHTML = "<p class='empty'>Latihan tidak ditemukan.</p>";
 return;
 }
 
-
 const start = (currentPage - 1) * ITEMS_PER_PAGE;
 const end = start + ITEMS_PER_PAGE;
 const pageItems = filteredData.slice(start, end);
 
-
 pageItems.forEach(item => {
+const icon = iconKategori[item.kategori] || iconKategori.default;
+const warna = warnaKategori[item.kategori] || warnaKategori.default;
 const a = document.createElement("a");
-a.href = item.file;
+a.href = item.embedlink;
 a.target = "_blank";
   a.rel = "noopener noreferrer";
 a.className = "latihan-item";
 a.innerHTML = `
-<img src="gambar/pdf.png" class="pdf-icon" alt="PDF">
+<div class="icon-media" style="color:${warna}">
+    <i data-lucide="${icon}"></i>
+    </div>
 <div class="latihan-info">
-<h4 class="judul">${item.mapelLabel} - ${item.judul}</h4>
+<h4 class="judul">${item.mapelLabel} • ${item.babLabel} - ${item.judul}</h4>
 <span class="tanggal">${formatTanggal(item.tanggal)}</span>
 </div>
 `;
