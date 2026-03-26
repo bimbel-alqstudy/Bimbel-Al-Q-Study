@@ -232,3 +232,12 @@ function render() {
   renderList();
   renderPagination();
 }
+document.addEventListener("DOMContentLoaded", () => {
+  // isi nanti sesuai halaman
+  renderBreadcrumb([
+  { label: "Beranda", link: "index.html" },
+  { label: ${DATA_LATIHAN.jenjang}, link: "${DATA_LATIHAN.jenjang}.html" },
+{ label: ${kelasAktif}, link: "kelas.html?kelas=kelasAktif" },
+  { label: halaman.judul }
+]);
+});
