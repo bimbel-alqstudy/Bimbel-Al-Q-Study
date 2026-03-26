@@ -1,7 +1,7 @@
 // ===== AMBIL PARAMETER KELAS =====
 const params = new URLSearchParams(window.location.search);
 const kelasAktif = parseInt(params.get("kelas"));
-const type = params.get("type"); 
+const type = params.get("type") || "latihan"; 
 
 const API = `https://script.google.com/macros/s/AKfycbyQ4WvL-J3ST5buBgqUkR5-jr4t0N2wWIrdvIG_1rfQZlDSVbnoB79yGi1gxiXZWLM6/exec?sheet=${type}`;
 
@@ -83,7 +83,7 @@ document.getElementById("judulHalaman").textContent = halaman.judul;
 document.getElementById("deskripsiHalaman").textContent = halaman.deskripsi;
 
 // ===== FETCH DATA DARI SPREADSHEET =====
-fetch(API_URL)
+fetch(API)
 .then(res => res.json())
 .then(data => {
 DATA_LATIHAN = data.map(item => ({
@@ -103,6 +103,7 @@ tanggal: new Date(item.tanggal)
 DATA_LATIHAN.sort((a, b) => b.tanggal - a.tanggal);
 initFilterMapel();
 applyAllFilters();
+initBreadcrumb();  
 })
 .catch(err => {
 latihanList.innerHTML = "<p class='empty'>Gagal memuat data.</p>";
@@ -164,7 +165,6 @@ function applyAllFilters() {
 
 // ===== RENDER LIST =====
 function renderList() {
-latihanList = document.getElementById("latihanList");
 latihanList.innerHTML = "";
 
 if (filteredData.length === 0) {
@@ -177,12 +177,10 @@ const end = start + ITEMS_PER_PAGE;
 const pageItems = filteredData.slice(start, end);
 
 pageItems.forEach(item => {
-const icon = iconKategori[item.kategori] || iconKategori.default;
-const warna = warnaKategori[item.kategori] || warnaKategori.default;
+const icon = iconKategori[item.mapel] || iconKategori.default;
+const warna = warnaKategori[item.mapel] || warnaKategori.default;
 const a = document.createElement("a");
-a.href = item.embedlink;
-a.target = "_blank";
-  a.rel = "noopener noreferrer";
+a.href = `viewer.html?file=${encodeURIComponent(item.embedlink)}&judul=${encodeURIComponent(item.judul)}`;  a.rel = "noopener noreferrer";
 a.className = "latihan-item";
 a.innerHTML = `
 <div class="icon-media" style="color:${warna}">
@@ -232,12 +230,16 @@ function render() {
   renderList();
   renderPagination();
 }
-document.addEventListener("DOMContentLoaded", () => {
-  // isi nanti sesuai halaman
+
+function initBreadcrumb() {
+  if (DATA_LATIHAN.length === 0) return;
+
+  const jenjang = DATA_LATIHAN[0].jenjangLabel;
+
   renderBreadcrumb([
-  { label: "Beranda", link: "index.html" },
-  { label: ${DATA_LATIHAN.jenjang}, link: ${DATA_LATIHAN.jenjang}.html },
-{ label: ${kelasAktif}, link: "kelas.html?kelas=kelasAktif" },
-  { label: halaman.judul }
-]);
-});
+    { label: "Beranda", link: "index.html" },
+    { label: jenjang, link: `${jenjang.toLowerCase()}.html` },
+    { label: `Kelas ${kelasAktif}`, link: `kelas.html?kelas=${kelasAktif}` },
+    { label: halaman.judul }
+  ]);
+}
