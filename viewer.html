@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Viewer PDF</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .header {
+      padding: 15px;
+      background: #2c3e50;
+      color: white;
+      font-size: 18px;
+    }
+
+    iframe {
+      width: 100%;
+      height: calc(100vh - 60px);
+      border: none;
+    }
+
+    .error {
+      padding: 20px;
+      text-align: center;
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+<div class="header" id="judul"></div>
+
+<iframe id="pdfViewer"></iframe>
+
+<div class="error" id="error" style="display:none;">
+  Gagal memuat PDF.
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+
+const file = params.get("file");
+const judul = params.get("judul");
+
+const viewer = document.getElementById("pdfViewer");
+const judulEl = document.getElementById("judul");
+const errorEl = document.getElementById("error");
+
+if (file) {
+  viewer.src = file;
+  judulEl.textContent = decodeURIComponent(judul || "Dokumen");
+} else {
+  viewer.style.display = "none";
+  errorEl.style.display = "block";
+}
+</script>
+
+</body>
+</html>
