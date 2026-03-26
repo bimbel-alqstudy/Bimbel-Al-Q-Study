@@ -33,7 +33,9 @@
 </head>
 <body>
 
-<div class="header" id="judul"></div>
+<div class="header" id="judul">
+<a id="downloadBtn" target="_blank">Download</a>  
+</div>
 
 <iframe id="pdfViewer"></iframe>
 
@@ -58,6 +60,13 @@ if (file) {
   viewer.style.display = "none";
   errorEl.style.display = "block";
 }
+
+const downloadBtn = document.getElementById("downloadBtn");
+
+if (file) {
+  const fileId = file.split("/d/")[1].split("/")[0];
+  downloadBtn.href = `https://drive.google.com/uc?export=download&id=${fileId}`;
+}  
 </script>
 
 </body>
