@@ -152,7 +152,7 @@ const params = new URLSearchParams(window.location.search);
 
 const file = params.get("file");
 const judul = params.get("judul");
-
+const download = params.get("download");
 const viewer = document.getElementById("pdfViewer");
 const judulEl = document.getElementById("judul");
 const judulToolbar = document.getElementById("judulToolbar");
@@ -170,10 +170,10 @@ if (file) {
   viewer.src = file;
 
   // ambil file ID
-  const fileId = file.split("/d/")[1].split("/")[0];
+//  const fileId = file.split("/d/")[1].split("/")[0];
 
   // tombol download
-  downloadBtn.href = `https://drive.google.com/uc?export=download&id=${fileId}`;
+  downloadBtn.href = download;
 
   // buka di tab baru (preview)
   openTab.href = file;
