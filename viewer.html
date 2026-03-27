@@ -130,7 +130,6 @@ Kumpulan materi pelajaran, bank soal, dan latihan online untuk siswa Sekolah Das
 <script src="js/breadcrumb.js"></script>
   <script src="js/footer.js"></script>
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 
   <script>
 const params = new URLSearchParams(window.location.search);
@@ -140,16 +139,13 @@ const judul = params.get("judul");
 const download = params.get("download");
 const viewer = document.getElementById("pdfViewer");
 const judulEl = document.getElementById("judul");
-const judulToolbar = document.getElementById("judulToolbar");
 const downloadBtn = document.getElementById("downloadBtn");
-const openTab = document.getElementById("openTab");
 
 if (file) {
   const decodedJudul = decodeURIComponent(judul || "Dokumen");
 
   // tampilkan judul
   judulEl.textContent = decodedJudul;
-  judulToolbar.textContent = decodedJudul;
 
   // set iframe (WAJIB pakai preview)
   viewer.src = file;
@@ -159,10 +155,6 @@ if (file) {
 
   // tombol download
   downloadBtn.href = download;
-
-  // buka di tab baru (preview)
-  openTab.href = file;
-
 } else {
   viewer.style.display = "none";
 }    
