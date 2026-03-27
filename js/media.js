@@ -12,18 +12,15 @@ let currentPageGame = 1;
 const config = {
   game: {
     judul: "Game Edukasi",
-    deskripsi: "Belajar sambil bermain dengan berbagai game edukatif.",
-    sheet: "game"
+    deskripsi: "Belajar sambil bermain dengan berbagai game edukatif."
   },
   video: {
     judul: "Video Edukasi",
-    deskripsi: "Tonton video pembelajaran yang menarik dan mudah dipahami.",
-    sheet: "video"
+    deskripsi: "Tonton video pembelajaran yang menarik dan mudah dipahami."
   },
   laboratorium: {
     judul: "Laboratorium Virtual",
-    deskripsi: "Lakukan percobaan secara virtual dengan simulasi interaktif.",
-    sheet: "laboratorium"
+    deskripsi: "Lakukan percobaan secara virtual dengan simulasi interaktif."
   }
 };
 if (!config[type]) {
