@@ -22,6 +22,16 @@
       text-align: center;
       color: red;
     }
+  .btn-download {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 14px;
+  background: #27ae60;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+}
+  height: calc(100vh - 180px);
   </style>
 </head>
 <body>
@@ -42,16 +52,21 @@
 <p class="page-desc">
 Kumpulan materi pelajaran, bank soal, dan latihan online untuk siswa Sekolah Dasar (SD).
 </p>
-<a id="downloadBtn" target="_blank">Download</a>  
+<a id="downloadBtn" class="btn-download" target="_blank">
+  <i class="fa-solid fa-download"></i> Download PDF
+</a>
 </div>
 </section>
 
+  <div class="container">
 <iframe id="pdfViewer"></iframe>
-
 <div class="error" id="error" style="display:none;">
   Gagal memuat PDF.
 </div>
-  <div class="section-divider"></div>
+ <a href="javascript:history.back()" class="btn-back">← Kembali</a>   
+</div>
+
+    <div class="section-divider"></div>
 
 <!-- ===== ORNAMEN GELOMBANG ===== -->
 <div style="background:linear-gradient(180deg, var(--blue), var(--green));">
@@ -90,10 +105,38 @@ if (file) {
 
 const downloadBtn = document.getElementById("downloadBtn");
 
-if (file) {
-  const fileId = file.split("/d/")[1].split("/")[0];
+let fileId = "";
+if (file && file.includes("/d/")) {
+  fileId = file.split("/d/")[1].split("/")[0];
+}
+
+if (fileId) {
   downloadBtn.href = `https://drive.google.com/uc?export=download&id=${fileId}`;
 }  
+const kelas = params.get("kelas");
+const type = params.get("type");
+
+function getJenjang(kelas) {
+  if (kelas >= 1 && kelas <= 6) return "SD";
+  if (kelas >= 7 && kelas <= 9) return "SMP";
+  if (kelas >= 10 && kelas <= 12) return "SMA";
+  return "";
+}
+
+const jenjang = getJenjang(parseInt(kelas));
+const typeLabel = {
+  materi: "Materi",
+  latihan: "Bank Soal",
+  tryout: "Latihan Online"
+};
+const labelType = typeLabel[type] || "Halaman";  
+renderBreadcrumb([
+  { label: "Beranda", link: "index.html" },
+  { label: jenjang, link: `${jenjang.toLowerCase()}.html` },
+  { label: `Kelas ${kelas}`, link: `kelas.html?kelas=${kelas}` },
+  { label: labelType, link: `latihan.html?kelas=${kelas}&type=${type}` },
+  { label: decodeURIComponent(judul || "Dokumen") }
+]);
 </script>
 
 </body>
