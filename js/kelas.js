@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const jenjang = getJenjang(kelasAktif);
   renderBreadcrumb([
     { label: "Beranda", link: "index.html" },
-    { label: jenjang, link:`jenjang.html`},
-    { label: `kelas ${kelasAktif}`},
+    {  label: jenjang, link: `${jenjang}.html`},
+    { label: `kelas ${kelasAktif}`}
   ]);
 });
