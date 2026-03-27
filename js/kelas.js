@@ -19,3 +19,10 @@ tryoutKelas.textContent = kelasAktif ? `Latihan online untuk kelas ${kelasAktif}
 document.getElementById("matericard").href = `latihan.html?kelas=${kelasAktif}&type=materi`;
 document.getElementById("latihancard").href = `latihan.html?kelas=${kelasAktif}&type=latihan`;
 document.getElementById("tryoutcard").href = `latihan.html?kelas=${kelasAktif}&type=tryout`;
+document.addEventListener("DOMContentLoaded", () => {
+  renderBreadcrumb([
+    { label: "Beranda", link: "index.html" },
+    { label: "SD"},
+    { label: `kelas ${kelasAktif}`},
+  ]);
+});
