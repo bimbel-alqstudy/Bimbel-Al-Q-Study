@@ -40,28 +40,28 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="submenu">
               <div class="submenu-title">SD</div>
               <div class="submenu-list">
-                <a href="#">Kelas 1</a>
-                <a href="#">Kelas 2</a>
-                <a href="#">Kelas 3</a>
-                <a href="#">Kelas 4</a>
-                <a href="#">Kelas 5</a>
-                <a href="#">Kelas 6</a>
+                <a href="latihan.html?kelas=1&type=materi">Kelas 1</a>
+                <a href="latihan.html?kelas=2&type=materi">Kelas 2</a>
+                <a href="latihan.html?kelas=3&type=materi">Kelas 3</a>
+                <a href="latihan.html?kelas=4&type=materi">Kelas 4</a>
+                <a href="latihan.html?kelas=5&type=materi">Kelas 5</a>
+                <a href="latihan.html?kelas=6&type=materi">Kelas 6</a>
               </div>
             </div>
             <div class="submenu">
               <div class="submenu-title">SMP</div>
               <div class="submenu-list">
-                <a href="#">Kelas 7</a>
-                <a href="#">Kelas 8</a>
-                <a href="#">Kelas 9</a>
+                <a href="latihan.html?kelas=7&type=materi">Kelas 7</a>
+                <a href="latihan.html?kelas=8&type=materi">Kelas 8</a>
+                <a href="latihan.html?kelas=9&type=materi">Kelas 9</a>
               </div>
             </div>
             <div class="submenu">
               <div class="submenu-title">SMA</div>
               <div class="submenu-list">
-                <a href="#">Kelas 10</a>
-                <a href="#">Kelas 11</a>
-                <a href="#">Kelas 12</a>
+                <a href="latihan.html?kelas=10&type=materi">Kelas 10</a>
+                <a href="latihan.html?kelas=11&type=materi">Kelas 11</a>
+                <a href="latihan.html?kelas=12&type=materi">Kelas 12</a>
               </div>
             </div>
 
@@ -76,28 +76,28 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="submenu">
               <div class="submenu-title">SD</div>
               <div class="submenu-list">
-                <a href="latihan.html?kelas=1">Kelas 1</a>
-                <a href="latihan.html?kelas=2">Kelas 2</a>
-                <a href="latihan.html?kelas=3">Kelas 3</a>
-                <a href="latihan.html?kelas=4">Kelas 4</a>
-                <a href="latihan.html?kelas=5">Kelas 5</a>
-                <a href="latihan.html?kelas=6">Kelas 6</a>
+                <a href="latihan.html?kelas=1&type=latihan">Kelas 1</a>
+                <a href="latihan.html?kelas=2&type=latihan">Kelas 2</a>
+                <a href="latihan.html?kelas=3&type=latihan">Kelas 3</a>
+                <a href="latihan.html?kelas=4&type=latihan">Kelas 4</a>
+                <a href="latihan.html?kelas=5&type=latihan">Kelas 5</a>
+                <a href="latihan.html?kelas=6&type=latihan">Kelas 6</a>
               </div>
             </div>
             <div class="submenu">
               <div class="submenu-title">SMP</div>
               <div class="submenu-list">
-                <a href="latihan.html?kelas=7">Kelas 7</a>
-                <a href="latihan.html?kelas=8">Kelas 8</a>
-                <a href="latihan.html?kelas=9">Kelas 9</a>
+                <a href="latihan.html?kelas=7&type=latihan">Kelas 7</a>
+                <a href="latihan.html?kelas=8&type=latihan">Kelas 8</a>
+                <a href="latihan.html?kelas=9&type=latihan">Kelas 9</a>
               </div>
             </div>
             <div class="submenu">
               <div class="submenu-title">SMA</div>
               <div class="submenu-list">
-                <a href="latihan.html?kelas=10">Kelas 10</a>
-                <a href="latihan.html?kelas=11">Kelas 11</a>
-                <a href="latihan.html?kelas=12">Kelas 12</a>
+                <a href="latihan.html?kelas=10&type=latihan">Kelas 10</a>
+                <a href="latihan.html?kelas=11&type=latihan">Kelas 11</a>
+                <a href="latihan.html?kelas=12&type=latihan">Kelas 12</a>
               </div>
             </div>
             
@@ -112,28 +112,28 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="submenu">
               <div class="submenu-title">SD</div>
               <div class="submenu-list">
-                <a href="#">Kelas 1</a>
-                <a href="#">Kelas 2</a>
-                <a href="#">Kelas 3</a>
-                <a href="#">Kelas 4</a>
-                <a href="#">Kelas 5</a>
-                <a href="#">Kelas 6</a>
+                <a href="latihan.html?kelas=1&type=tryout">Kelas 1</a>
+                <a href="latihan.html?kelas=2&type=tryout">Kelas 2</a>
+                <a href="latihan.html?kelas=3&type=tryout">Kelas 3</a>
+                <a href="latihan.html?kelas=4&type=tryout">Kelas 4</a>
+                <a href="latihan.html?kelas=5&type=tryout">Kelas 5</a>
+                <a href="latihan.html?kelas=6&type=tryout">Kelas 6</a>
               </div>
             </div>
             <div class="submenu">
               <div class="submenu-title">SMP</div>
               <div class="submenu-list">
-                <a href="#">Kelas 7</a>
-                <a href="#">Kelas 8</a>
-                <a href="#">Kelas 9</a>
+                <a href="latihan.html?kelas=7&type=tryout">Kelas 7</a>
+                <a href="latihan.html?kelas=8&type=tryout">Kelas 8</a>
+                <a href="latihan.html?kelas=9&type=tryout">Kelas 9</a>
               </div>
             </div>
             <div class="submenu">
               <div class="submenu-title">SMA</div>
               <div class="submenu-list">
-                <a href="#">Kelas 10</a>
-                <a href="#">Kelas 11</a>
-                <a href="#">Kelas 12</a>
+                <a href="latihan.html?kelas=10&type=tryout">Kelas 10</a>
+                <a href="latihan.html?kelas=11&type=tryout">Kelas 11</a>
+                <a href="latihan.html?kelas=12&type=tryout">Kelas 12</a>
               </div>
             </div>
 
@@ -147,9 +147,9 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="dropdown-menu">
         <div class="submenu">
         <div class="submenu-list">
-        <a href="#">Game Edukasi</a>
-        <a href="#">Video Edukasi</a>
-        <a href="#">Laboratorium Virtual</a>
+        <a href="listmedia.html?type=game">Game Edukasi</a>
+        <a href="listmedia.html?type=video">Video Edukasi</a>
+        <a href="listmedia.html?type=laboratorium">Laboratorium Virtual</a>
         </div>
         </div>
         </div>
