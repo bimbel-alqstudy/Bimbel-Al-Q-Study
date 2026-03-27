@@ -207,7 +207,11 @@ const kategori = getKategori(item.mapel);
 const icon = iconKategori[kategori] || iconKategori.default;
 const warna = warnaKategori[kategori] || warnaKategori.default;
 const a = document.createElement("a");
-a.href = `viewer.html?file=${encodeURIComponent(item.embedlink)}
+const fileId = item.embedlink.split("/d/")[1].split("/")[0];
+
+const directLink = `https://drive.google.com/uc?export=download&id=${fileId}`;
+
+a.href = `viewer.html?file=${encodeURIComponent(directLink)}
 &judul=${encodeURIComponent(item.judul)}
 &kelas=${kelasAktif}
 &type=${type}`;
