@@ -207,7 +207,11 @@ const kategori = getKategori(item.mapel);
 const icon = iconKategori[kategori] || iconKategori.default;
 const warna = warnaKategori[kategori] || warnaKategori.default;
 const a = document.createElement("a");
-a.href = `viewer.html?file=${encodeURIComponent(item.embedlink)}&judul=${encodeURIComponent(item.judul)}`;  a.rel = "noopener noreferrer";
+a.href = `viewer.html?file=${encodeURIComponent(item.embedlink)}
+&judul=${encodeURIComponent(item.judul)}
+&kelas=${kelasAktif}
+&type=${type}`;
+a.rel = "noopener noreferrer";
 a.className = "latihan-item";
 a.innerHTML = `
 <div class="icon-media" style="color:${warna}">
