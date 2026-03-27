@@ -194,8 +194,8 @@ const pageItems = filteredData.slice(start, end);
 
 pageItems.forEach(item => {
 const kategori = getKategori(item.mapel);  
-const icon = iconKategori[item.kategori] || iconKategori.default;
-const warna = warnaKategori[item.kategori] || warnaKategori.default;
+const icon = iconKategori[kategori] || iconKategori.default;
+const warna = warnaKategori[kategori] || warnaKategori.default;
 const a = document.createElement("a");
 a.href = `viewer.html?file=${encodeURIComponent(item.embedlink)}&judul=${encodeURIComponent(item.judul)}`;  a.rel = "noopener noreferrer";
 a.className = "latihan-item";
@@ -256,7 +256,7 @@ function initBreadcrumb() {
 
   renderBreadcrumb([
     { label: "Beranda", link: "index.html" },
-    { label: jenjang, link: `${jenjang.toLowerCase()}.html` },
+    { label: jenjang, link: `${jenjang}.html` },
     { label: `Kelas ${kelasAktif}`, link: `kelas.html?kelas=${kelasAktif}` },
     { label: halaman.judul }
   ]);
