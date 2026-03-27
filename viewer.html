@@ -13,6 +13,7 @@
 <style>
 canvas {
   width: 100%;
+  height: calc(100vh - 180px);
   display: block;
 }
     .error {
@@ -29,7 +30,6 @@ canvas {
   border-radius: 6px;
   text-decoration: none;
 }
-  height: calc(100vh - 180px);
   </style>
 </head>
 <body>
@@ -57,7 +57,7 @@ Kumpulan materi pelajaran, bank soal, dan latihan online untuk siswa Sekolah Das
 </section>
 
   <div class="container">
-<iframe id="pdfViewer"></iframe>
+<canvas id="pdfCanvas"></canvas>
 <div class="error" id="error" style="display:none;">
   Gagal memuat PDF.
 </div>
@@ -91,7 +91,11 @@ const file = params.get("file");
 const judul = params.get("judul");
 
 const canvas = document.getElementById("pdfCanvas");
-const ctx = canvas.getContext("2d");
+if (!canvas) {
+  console.error("Canvas tidak ditemukan");
+} else {
+  const ctx = canvas.getContext("2d");
+}
 const judulEl = document.getElementById("judul");
 const errorEl = document.getElementById("error");
 
