@@ -209,9 +209,11 @@ const warna = warnaKategori[kategori] || warnaKategori.default;
 const a = document.createElement("a");
 const fileId = item.embedlink.split("/d/")[1].split("/")[0];
 
-const directLink = `https://drive.google.com/uc?export=download&id=${fileId}`;
+const previewLink = `https://drive.google.com/file/d/${fileId}/preview`;
+const downloadLink = `https://drive.google.com/uc?export=download&id=${fileId}`;
 
-a.href = `viewer.html?file=${encodeURIComponent(directLink)}
+a.href = `viewer.html?file=${encodeURIComponent(previewLink)}
+&download=${encodeURIComponent(downloadLink)}
 &judul=${encodeURIComponent(item.judul)}
 &kelas=${kelasAktif}
 &type=${type}`;
