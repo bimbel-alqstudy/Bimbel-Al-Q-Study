@@ -24,17 +24,17 @@ const config = {
   materi: {
     judul: `Kumpulan Materi Pelajaran Kelas ${kelasAktif}`,
     deskripsi: "Kumpulan materi pelajaran yang bisa dibaca dan diunduh.",
-    sheet: "materi"
+    label: "Materi"  
   },
   latihan: {
     judul: `Bank Soal Kelas ${kelasAktif}`,
     deskripsi: "Kumpulan soal latihan yang bisa dibaca dan diunduh.",
-    sheet: "latihan"
+    label: "Bank Soal"
   },
   tryout: {
     judul: `Latihan Online Kelas ${kelasAktif}`,
     deskripsi: "Latihan online untuk menguji pemahaman materi secara langsung.",
-    sheet: "tryout"
+    label: "Latihan Online"
   }
 };
 if (!config[type]) {
@@ -184,7 +184,7 @@ function renderList() {
 latihanList.innerHTML = "";
 
 if (filteredData.length === 0) {
-latihanList.innerHTML = "<p class='empty'>Latihan tidak ditemukan.</p>";
+latihanList.innerHTML = "<p class='empty'>Data tidak ditemukan.</p>";
 return;
 }
 
@@ -258,6 +258,6 @@ function initBreadcrumb() {
     { label: "Beranda", link: "index.html" },
     { label: jenjang, link: `${jenjang}.html` },
     { label: `Kelas ${kelasAktif}`, link: `kelas.html?kelas=${kelasAktif}` },
-    { label: halaman.judul }
+    { label: halaman.label }
   ]);
 }
