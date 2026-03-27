@@ -11,12 +11,10 @@
     <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/SD.css">
 <style>
-    iframe {
-      width: 100%;
-      height: calc(100vh - 60px);
-      border: none;
-    }
-
+canvas {
+  width: 100%;
+  display: block;
+}
     .error {
       padding: 20px;
       text-align: center;
@@ -84,35 +82,53 @@ Kumpulan materi pelajaran, bank soal, dan latihan online untuk siswa Sekolah Das
 <script src="js/breadcrumb.js"></script>
   <script src="js/footer.js"></script>
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 
-<script>
+  <script>
 const params = new URLSearchParams(window.location.search);
 
 const file = params.get("file");
 const judul = params.get("judul");
 
-const viewer = document.getElementById("pdfViewer");
+const canvas = document.getElementById("pdfCanvas");
+const ctx = canvas.getContext("2d");
 const judulEl = document.getElementById("judul");
 const errorEl = document.getElementById("error");
 
 if (file) {
-  viewer.src = file;
   judulEl.textContent = decodeURIComponent(judul || "Dokumen");
+
+  // 🔥 WAJIB: set worker
+  pdfjsLib.GlobalWorkerOptions.workerSrc =
+    "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+
+  // 🔥 Load PDF
+  pdfjsLib.getDocument(file).promise
+    .then(pdf => {
+      return pdf.getPage(1);
+    })
+    .then(page => {
+      const viewport = page.getViewport({ scale: 1.5 });
+
+      canvas.height = viewport.height;
+      canvas.width = viewport.width;
+
+      const renderContext = {
+        canvasContext: ctx,
+        viewport: viewport
+      };
+
+      return page.render(renderContext).promise;
+    })
+    .catch(err => {
+      console.error(err);
+      errorEl.style.display = "block";
+    });
+
 } else {
-  viewer.style.display = "none";
   errorEl.style.display = "block";
 }
-
-const downloadBtn = document.getElementById("downloadBtn");
-
-let fileId = "";
-if (file && file.includes("/d/")) {
-  fileId = file.split("/d/")[1].split("/")[0];
-}
-
-if (fileId) {
-  downloadBtn.href = `https://drive.google.com/uc?export=download&id=${fileId}`;
-}  
+    
 const kelas = params.get("kelas");
 const type = params.get("type");
 
