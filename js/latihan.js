@@ -43,25 +43,32 @@ if (!config[type]) {
 }
 
 const halaman = config[type];
+
 const iconKategori = {
   matematika: "calculator",
   ipa: "flask-conical",
-  indonesia: "pencil",
-  agama: "book",
-  inggris: "graduation-cap",
+  indonesia: "book-open",
+  inggris: "globe",
   jawa: "brain",
+  ips: "map",
+  pancasila: "scale",
+  seni: "palette",
+  agama: "book",
   default: "file"
 };
+
 const warnaKategori = {
   matematika: "#f39c12",
   ipa: "#27ae60",
   indonesia: "#8e44ad",
-  agama: "#3498db",
-  inggris: "#2c3e50",
+  inggris: "#2980b9",
   jawa: "#7f8c8d",
-  default: "#7f8c8d"
+  ips: "#16a085",
+  pancasila: "#c0392b",
+  seni: "#e67e22",
+  agama: "#2ecc71",
+  default: "#95a5a6"
 };
-
 function getKategori(mapel) {
   if (mapel.includes("matematika")) return "matematika";
   if (mapel.includes("ipa")) return "ipa";
@@ -69,6 +76,9 @@ function getKategori(mapel) {
   if (mapel.includes("inggris")) return "inggris";
   if (mapel.includes("agama")) return "agama";
   if (mapel.includes("jawa")) return "jawa";
+  if (mapel.includes("ips")) return "ips";
+  if (mapel.includes("pancasila")) return "pancasila";
+  if (mapel.includes("seni")) return "seni";
   return "default";
 }
 function getJenjang(kelas) {
