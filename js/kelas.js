@@ -16,6 +16,6 @@ deskripsiKelas.textContent = kelasAktif ? `Kumpulan materi pelajaran, bank soal,
 materiKelas.textContent = kelasAktif ? `Kumpulan materi pelajaran untuk kelas ${kelasAktif}` : "Kumpulan materi pelajaran";
 latihanKelas.textContent = kelasAktif ? `Bank soal untuk kelas ${kelasAktif}` : "Bank soal";
 tryoutKelas.textContent = kelasAktif ? `Latihan online untuk kelas ${kelasAktif}` : "Latihan online";
-document.getElementById("matericard").href = `materi.html?kelas=${kelasAktif}&type=materi`;
+document.getElementById("matericard").href = `latihan.html?kelas=${kelasAktif}&type=materi`;
 document.getElementById("latihancard").href = `latihan.html?kelas=${kelasAktif}&type=latihan`;
-document.getElementById("tryoutcard").href = `tryout.html?kelas=${kelasAktif}&type=tryout`;
+document.getElementById("tryoutcard").href = `latihan.html?kelas=${kelasAktif}&type=tryout`;
