@@ -25,6 +25,10 @@
   border-radius: 6px;
   text-decoration: none;
 }
+.btn-download:hover {
+  opacity: 0.85;
+}
+
   .pdf-container {
   max-width: 1000px;
   margin: 20px auto;
@@ -103,7 +107,6 @@ iframe {
 <div class="pdf-container">
 <div class="pdf-toolbar">
 <div class="right">
-  <button id="btnPrint">Print</button>
   <button id="btnFullscreen">Fullscreen</button>
       <a id="downloadBtn" class="btn-download" target="_blank">
         <i class="fa-solid fa-download"></i>Download
@@ -166,20 +169,7 @@ if (file) {
   viewer.style.display = "none";
 }    
 
-const btnPrint = document.getElementById("btnPrint");
 const btnFullscreen = document.getElementById("btnFullscreen");
-
-// 🖨️ PRINT
-if (btnPrint) {
-  btnPrint.addEventListener("click", () => {
-    if (viewer && viewer.contentWindow) {
-      viewer.contentWindow.focus();
-      viewer.contentWindow.print();
-    } else {
-      alert("Tidak bisa mencetak file ini");
-    }
-  });
-}
 
 // 🔲 FULLSCREEN
 if (btnFullscreen) {
