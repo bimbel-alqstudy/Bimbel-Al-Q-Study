@@ -59,14 +59,20 @@
   font-size: 14px;
 }
 
-.btn-back {
-  background: transparent;
-  border: none;
+.pdf-toolbar button {
+  margin-left: 10px;
+  background: #3498db;
+  padding: 6px 10px;
+  border-radius: 5px;
   color: white;
-  font-size: 18px;
+  border: none;
   cursor: pointer;
+  font-size: 14px;
 }
 
+.pdf-toolbar button:hover {
+  opacity: 0.85;
+}
 iframe {
   width: 100%;
   height: 180vh;
@@ -89,10 +95,6 @@ iframe {
 <!-- Judul -->
 <h1 id="judul"></h1>
 
-<!-- Deskripsi -->
-<p class="page-desc">
-Kumpulan materi pelajaran, bank soal, dan latihan online untuk siswa Sekolah Dasar (SD).
-</p>
 </div>
 </section>
 
@@ -101,6 +103,8 @@ Kumpulan materi pelajaran, bank soal, dan latihan online untuk siswa Sekolah Das
 <div class="pdf-container">
 <div class="pdf-toolbar">
 <div class="right">
+  <button id="btnPrint">Print</button>
+  <button id="btnFullscreen">Fullscreen</button>
       <a id="downloadBtn" class="btn-download" target="_blank">
         <i class="fa-solid fa-download"></i>Download
       </a>
@@ -161,6 +165,48 @@ if (file) {
 } else {
   viewer.style.display = "none";
 }    
+
+const btnPrint = document.getElementById("btnPrint");
+const btnFullscreen = document.getElementById("btnFullscreen");
+const viewer = document.getElementById("pdfViewer");
+
+// 🖨️ PRINT
+if (btnPrint) {
+  btnPrint.addEventListener("click", () => {
+    if (viewer && viewer.contentWindow) {
+      viewer.contentWindow.focus();
+      viewer.contentWindow.print();
+    } else {
+      alert("Tidak bisa mencetak file ini");
+    }
+  });
+}
+
+// 🔲 FULLSCREEN
+if (btnFullscreen) {
+  btnFullscreen.addEventListener("click", () => {
+    const container = document.querySelector(".pdf-container");
+
+    if (!document.fullscreenElement) {
+      container.requestFullscreen();
+    } else {
+      document.exitFullscreen();
+    }
+  });
+}
+
+btnFullscreen.addEventListener("click", () => {
+  const container = document.querySelector(".pdf-container");
+
+  if (!document.fullscreenElement) {
+    container.requestFullscreen();
+    btnFullscreen.textContent = "Exit Fullscreen";
+  } else {
+    document.exitFullscreen();
+    btnFullscreen.textContent = "Fullscreen";
+  }
+});
+    
 const kelas = params.get("kelas");
 const type = params.get("type");
 
