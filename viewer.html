@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Bimbingan Belajar Al-Q Study | Viewer PDF</title>
+  <title>Bimbingan Belajar Al-Q Study</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="shortcut icon" href="gambar/logo.png" type="image/x-icon">
@@ -155,19 +155,21 @@ iframe {
 
   <script>
 const params = new URLSearchParams(window.location.search);
-
+const mapel = params.get("mapel");
+const bab = params.get("bab");
 const file = params.get("file");
 const judul = params.get("judul");
 const download = params.get("download");
 const viewer = document.getElementById("pdfViewer");
 const judulEl = document.getElementById("judul");
 const downloadBtn = document.getElementById("downloadBtn");
-
+const fullJudul = `${mapel || ""} - ${bab || ""} - ${judul || "Dokumen"}`;
+    
 if (file) {
-  const decodedJudul = decodeURIComponent(judul || "Dokumen");
+//  const decodedJudul = decodeURIComponent(judul || "Dokumen");
 
   // tampilkan judul
-  judulEl.textContent = decodedJudul;
+  judulEl.textContent = fullJudul;
 
   // set iframe (WAJIB pakai preview)
   viewer.src = file;
