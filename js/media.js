@@ -1,8 +1,7 @@
 const params = new URLSearchParams(window.location.search);
 const type = params.get("type"); // game, video, laboratorium
 
-const API = `https://script.google.com/macros/s/AKfycbyQ4WvL-J3ST5buBgqUkR5-jr4t0N2wWIrdvIG_1rfQZlDSVbnoB79yGi1gxiXZWLM6/exec?sheet=${type}`;
-
+const API = `https://script.google.com/macros/s/AKfycby0X0Th-zSjoQaWS55jPcbKdPPCI9nEWyJPiOBKqHc4ywWx3tP2Hw3KlRlztntBieRf/exec?sheet=${type}`;
 let DATA_GAME = [];
 let filteredGame = [];
 let searchGame = "";
