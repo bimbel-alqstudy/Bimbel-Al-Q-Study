@@ -3,7 +3,7 @@ const params = new URLSearchParams(window.location.search);
 const kelasAktif = parseInt(params.get("kelas"));
 const type = params.get("type") || "latihan"; 
 
-const API = `https://script.google.com/macros/s/AKfycby0X0Th-zSjoQaWS55jPcbKdPPCI9nEWyJPiOBKqHc4ywWx3tP2Hw3KlRlztntBieRf/exec?type=${type}`;
+const API = `https://script.google.com/macros/s/AKfycby0X0Th-zSjoQaWS55jPcbKdPPCI9nEWyJPiOBKqHc4ywWx3tP2Hw3KlRlztntBieRf/exec?type=${type}&kelas=${kelasAktif}`;
 
 // ===== ELEMEN DOM =====
 const judulKelas = document.getElementById("judulHalaman");
@@ -141,12 +141,10 @@ function initFilterMapel() {
   const mapelMap = new Map();
 
   DATA_LATIHAN.forEach(item => {
-    if (item.kelas === kelasAktif) {
       mapelMap.set(
         item.mapel,        // normalized (value)
         item.mapelLabel    // asli (label)
       );
-    }
   });
 
   filterMapel.innerHTML = `<option value="all">Semua Mata Pelajaran</option>`;
@@ -172,7 +170,6 @@ function applyAllFilters() {
   const selectedMapel = filterMapel.value;
 
   filteredData = DATA_LATIHAN.filter(item => {
-    const matchKelas = item.kelas === kelasAktif;
     const matchMapel =
       selectedMapel === "all" || item.mapel === selectedMapel;
 
@@ -182,7 +179,7 @@ function applyAllFilters() {
       item.mapel.includes(searchQuery) ||
       item.bab.includes(searchQuery);
 
-    return matchKelas && matchMapel && matchSearch;
+    return matchMapel && matchSearch;
   });
 
   currentPage = 1;
