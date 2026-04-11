@@ -109,6 +109,7 @@ function normalize(text) {
 }
 
 // ===== INIT TEKS HALAMAN =====
+initBreadcrumb();  
 document.getElementById("judulHalaman").textContent = halaman.judul;
 document.getElementById("deskripsiHalaman").textContent = halaman.deskripsi;
 
@@ -133,7 +134,6 @@ tanggal: new Date(item.tanggal)
 DATA_LATIHAN.sort((a, b) => b.tanggal - a.tanggal);
 initFilterMapel();
 applyAllFilters();
-initBreadcrumb();  
 })
 .catch(err => {
 latihanList.innerHTML = "<p class='empty'>Gagal memuat data.</p>";
