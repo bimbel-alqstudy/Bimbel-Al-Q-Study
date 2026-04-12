@@ -208,7 +208,11 @@ const kategori = getKategori(item.mapel);
 const icon = iconKategori[kategori] || iconKategori.default;
 const warna = warnaKategori[kategori] || warnaKategori.default;
 const a = document.createElement("a");
-  
+if (type === "tryout") {
+  // 👉 langsung pakai link quizizz
+  a.href = item.embedlink;
+  a.target = "_blank"; // buka di tab baru
+} else {  
 const fileId = item.embedlink.split("/d/")[1].split("/")[0];
 const previewLink = `https://drive.google.com/file/d/${fileId}/preview`;
 const downloadLink = `https://drive.google.com/uc?export=download&id=${fileId}`;
@@ -220,6 +224,7 @@ a.href = `${viewer}?file=${encodeURIComponent(previewLink)}
 &judul=${encodeURIComponent(item.judul)}
 &kelas=${kelasAktif}
 &type=${type}`;
+}  
 a.rel = "noopener noreferrer";
 a.className = "latihan-item";
 a.innerHTML = `
