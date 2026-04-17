@@ -1,0 +1,73 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f6f9;
+  margin: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+#info {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.soal {
+  background: white;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.opsi label {
+  display: block;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.opsi input {
+  margin-right: 10px;
+}
+
+.opsi label:hover {
+  background: #f1f1f1;
+}
+
+.benar {
+  background: #d4edda !important;
+}
+
+.salah {
+  background: #f8d7da !important;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background: #28a745;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #218838;
+}
+
+#hasil {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
