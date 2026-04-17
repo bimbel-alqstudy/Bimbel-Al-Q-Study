@@ -210,9 +210,22 @@ const icon = iconKategori[kategori] || iconKategori.default;
 const warna = warnaKategori[kategori] || warnaKategori.default;
 const a = document.createElement("a");
 if (type === "tryout") {
-  // 👉 langsung pakai link quizizz
-  a.href = item.embedlink;
-  a.target = "_blank"; // buka di tab baru
+ if (item.mode === "external") {
+    // 👉 buka platform luar (Quizizz, Google Form, dll)
+    a.href = item.embedlink;
+    a.target = "_blank";
+
+  } else if (item.mode === "internal") {
+    // 👉 buka CBT internal
+    const viewer = "viewertryout.html";
+
+    a.href = `${viewer}?id=${encodeURIComponent(item.id)}
+    &mapel=${encodeURIComponent(item.mapelLabel)}
+    &bab=${encodeURIComponent(item.babLabel)}
+    &judul=${encodeURIComponent(item.judul)}
+    &kelas=${kelasAktif}
+    &type=${type}`;
+  }
 } else {  
 const fileId = item.embedlink.split("/d/")[1].split("/")[0];
 const previewLink = `https://drive.google.com/file/d/${fileId}/preview`;
