@@ -118,18 +118,19 @@ fetch(API)
 .then(res => res.json())
 .then(data => {
 DATA_LATIHAN = data.map(item => ({
-jenjang: normalize(item.jenjang),
-jenjangLabel: item.jenjang,  
-kelas: parseInt(item.kelas),
-mapel: normalize(item.mapel),
-mapelLabel: item.mapel,
-babLabel: item.bab,
-bab: normalize(item.bab),
-judul: item.judul,
-judulNorm: normalize(item.judul),
-embedlink: item.embedlink,
-downloadlink: item.downloadlink,  
-tanggal: new Date(item.tanggal)
+jenjang: normalize(item.jenjang || ""),
+jenjangLabel: item.jenjang || "",  
+kelas: item.kelas ? parseInt(item.kelas) : null,
+mapel: normalize(item.mapel || ""),
+mapelLabel: item.mapel || "",
+babLabel: item.bab || "",
+bab: normalize(item.bab || ""),
+judul: item.judul || "",
+judulNorm: normalize(item.judul || ""),
+embedlink: item.embedlink || "",
+downloadlink: item.downloadlink || null,
+mode: item.mode || "internal",  
+tanggal: item.tanggal ? new Date(item.tanggal) : new Date(0)
 }));
 DATA_LATIHAN.sort((a, b) => b.tanggal - a.tanggal);
 initFilterMapel();
