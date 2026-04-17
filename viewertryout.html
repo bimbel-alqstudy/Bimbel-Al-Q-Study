@@ -2,136 +2,34 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Bimbingan Belajar Al-Q Study</title>
+  <title>Bimbingan Belajar Al-Q Study || Latihan Online</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="shortcut icon" href="gambar/logo.png" type="image/x-icon">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/footer.css">
-  <link rel="stylesheet" href="css/SD.css">
-<style>
-    .error {
-      padding: 20px;
-      text-align: center;
-      color: red;
-    }
-  .btn-download {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 8px 14px;
-  background: #27ae60;
-  color: white;
-  border-radius: 6px;
-  text-decoration: none;
-}
-.btn-download:hover {
-  opacity: 0.85;
-}
-
-  .pdf-container {
-  max-width: 1000px;
-  margin: 20px auto;
-  background: #f5f6fa;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;  
-}
-
-.pdf-toolbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #2c3e50;
-  color: white;
-  padding: 10px 15px;
-}
-
-.pdf-toolbar .left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.pdf-toolbar .right a {
-  margin-left: 10px;
-  background: #27ae60;
-  padding: 6px 10px;
-  border-radius: 5px;
-  color: white;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-.pdf-toolbar button {
-  margin-left: 10px;
-  background: #3498db;
-  padding: 6px 10px;
-  border-radius: 5px;
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.pdf-toolbar button:hover {
-  opacity: 0.85;
-}
-iframe {
-  width: 100%;
-  height: 180vh;
-  border: none;
-  background: #fff;
-}
-.pdf-container:fullscreen {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.pdf-container:fullscreen iframe {
-  flex: 1;
-  height: 100%;
-}  
-  </style>
+  <link rel="stylesheet" href="css/cbt.css">
 </head>
-<body>
+
+  <body>
 <div class="menu-overlay" id="menuOverlay"></div>
 <header id="siteHeader"></header>
 
 <!-- HEADER HALAMAN -->
-<section class="page-header">
 <div class="container">
 
 <!-- Breadcrumb -->
   <nav class="breadcrumb" id="breadcrumb"></nav>
 
 <!-- Judul -->
-<h1 id="judul"></h1>
-
-</div>
-</section>
-
-  <div class="container">
-    
-<div class="pdf-container">
-<div class="pdf-toolbar">
-<div class="right">
-  <button id="btnFullscreen">Fullscreen</button>
-      <a id="downloadBtn" class="btn-download" target="_blank">
-        <i class="fa-solid fa-download"></i>Download
-      </a>
-    </div>
-</div>    
-    <!-- Viewer -->
-  <iframe id="pdfViewer"></iframe>
-
-</div>    
-<div class="error" id="error" style="display:none;">
-  Gagal memuat PDF.
-</div> 
+<h1 id="judul">Latihan Online</h1>
+<div id="info">
+    <span>Jumlah soal: <b id="jumlahSoal"></b></span>
+  </div>
+  <div id="quiz"></div>
+  <button id="btnSubmit">Submit</button>
+  <div id="hasil"></div>
 </div>
 
     <div class="section-divider"></div>
@@ -152,94 +50,7 @@ iframe {
 <script src="js/breadcrumb.js"></script>
   <script src="js/footer.js"></script>
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-
-  <script>
-const params = new URLSearchParams(window.location.search);
-const mapel = params.get("mapel");
-const bab = params.get("bab");
-const file = params.get("file");
-const judul = params.get("judul");
-const download = params.get("download");
-const viewer = document.getElementById("pdfViewer");
-const judulEl = document.getElementById("judul");
-const downloadBtn = document.getElementById("downloadBtn");
-const parts = [mapel, bab, judul].filter(Boolean);
-const fullJudul = parts.join(" - ");    
-if (file) {
-//  const decodedJudul = decodeURIComponent(judul || "Dokumen");
-
-  // tampilkan judul
-  judulEl.textContent = fullJudul;
-
-  // set iframe (WAJIB pakai preview)
-  viewer.src = file;
-
-  // ambil file ID
-//  const fileId = file.split("/d/")[1].split("/")[0];
-
-  // tombol download
-  downloadBtn.href = download;
-} else {
-  viewer.style.display = "none";
-}    
-
-const btnFullscreen = document.getElementById("btnFullscreen");
-
-// 🔲 FULLSCREEN
-if (btnFullscreen) {
-  btnFullscreen.addEventListener("click", () => {
-    const container = document.querySelector(".pdf-container");
-
-    if (!document.fullscreenElement) {
-      container.requestFullscreen();
-    } else {
-      document.exitFullscreen();
-    }
-  });
-}
-
-btnFullscreen.addEventListener("click", () => {
-  const container = document.querySelector(".pdf-container");
-
-  if (!document.fullscreenElement) {
-    container.requestFullscreen();
-  } else {
-    document.exitFullscreen();
-  }
-});
-document.addEventListener("fullscreenchange", () => {
-  if (!document.fullscreenElement) {
-    btnFullscreen.textContent = "Fullscreen";
-  } else {
-    btnFullscreen.textContent = "Exit Fullscreen";
-  }
-});
-    
-const kelas = params.get("kelas");
-const type = params.get("type");
-
-function getJenjang(kelas) {
-  if (kelas >= 1 && kelas <= 6) return "SD";
-  if (kelas >= 7 && kelas <= 9) return "SMP";
-  if (kelas >= 10 && kelas <= 12) return "SMA";
-  return "";
-}
-
-const jenjang = getJenjang(parseInt(kelas));
-const typeLabel = {
-  materi: "Materi",
-  latihan: "Bank Soal",
-  tryout: "Latihan Online"
-};
-const labelType = typeLabel[type] || "Halaman";  
-renderBreadcrumb([
-  { label: "Beranda", link: "index.html" },
-  { label: jenjang, link: `${jenjang.toLowerCase()}.html` },
-  { label: `Kelas ${kelas}`, link: `kelas.html?kelas=${kelas}` },
-  { label: labelType, link: `latihan.html?kelas=${kelas}&type=${type}` },
-  { label: fullJudul || "Dokumen" }
-]);
-</script>
+<script src="cbt.js"></script>
 
 </body>
 </html>
