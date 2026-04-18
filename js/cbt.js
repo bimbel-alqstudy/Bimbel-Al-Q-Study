@@ -1,7 +1,9 @@
 const params = new URLSearchParams(window.location.search);
-const kelasAktif = parseInt(params.get("kelas"));
+const kelas = parseInt(params.get("kelas"));
 const type = params.get("type") || "latihan"; 
-const id = params.get("id") ; 
+const id = params.get("id"); 
+const judul = params.get("judul"); 
+const bab = params.get("bab"); 
 
 const API_SOAL = `https://script.google.com/macros/s/AKfycby0X0Th-zSjoQaWS55jPcbKdPPCI9nEWyJPiOBKqHc4ywWx3tP2Hw3KlRlztntBieRf/exec?type=${type}&id=${id}`;
 
