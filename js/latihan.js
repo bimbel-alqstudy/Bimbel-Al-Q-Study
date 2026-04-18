@@ -118,6 +118,7 @@ fetch(API)
 .then(res => res.json())
 .then(data => {
 DATA_LATIHAN = data.map(item => ({
+id: item.id,   
 jenjang: normalize(item.jenjang || ""),
 jenjangLabel: item.jenjang || "",  
 kelas: item.kelas ? parseInt(item.kelas) : null,
@@ -210,7 +211,7 @@ const icon = iconKategori[kategori] || iconKategori.default;
 const warna = warnaKategori[kategori] || warnaKategori.default;
 const a = document.createElement("a");
 if (type === "tryout") {
- if (item.mode === "external") {
+ if (item.mode === "eksternal") {
     // 👉 buka platform luar (Quizizz, Google Form, dll)
     a.href = item.embedlink;
     a.target = "_blank";
@@ -220,10 +221,6 @@ if (type === "tryout") {
     const viewer = "viewertryout.html";
 
     a.href = `${viewer}?id=${encodeURIComponent(item.id)}
-    &mapel=${encodeURIComponent(item.mapelLabel)}
-    &bab=${encodeURIComponent(item.babLabel)}
-    &judul=${encodeURIComponent(item.judul)}
-    &kelas=${kelasAktif}
     &type=${type}`;
   }
 } else {  
