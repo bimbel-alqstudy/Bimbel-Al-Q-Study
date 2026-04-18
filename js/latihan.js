@@ -221,6 +221,10 @@ if (type === "tryout") {
     const viewer = "viewertryout.html";
 
     a.href = `${viewer}?id=${encodeURIComponent(item.id)}
+    &mapel=${encodeURIComponent(item.mapelLabel)}
+    &bab=${encodeURIComponent(item.babLabel)}
+    &judul=${encodeURIComponent(item.judul)}
+    &kelas=${kelasAktif}
     &type=${type}`;
   }
 } else {  
