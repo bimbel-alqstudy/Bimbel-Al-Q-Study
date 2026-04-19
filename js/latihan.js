@@ -225,7 +225,7 @@ if (type === "tryout") {
     &bab=${encodeURIComponent(item.babLabel)}
     &judul=${encodeURIComponent(item.judul)}
     &kelas=${kelasAktif}
-    &type=${type}`;
+    &type=soal`;
   }
 } else {  
 const fileId = item.embedlink.split("/d/")[1].split("/")[0];
