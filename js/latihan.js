@@ -220,12 +220,7 @@ if (type === "tryout") {
     // 👉 buka CBT internal
     const viewer = "viewertryout.html";
 
-    a.href = `${viewer}?id=${encodeURIComponent(item.id)}
-    &mapel=${encodeURIComponent(item.mapelLabel)}
-    &bab=${encodeURIComponent(item.babLabel)}
-    &judul=${encodeURIComponent(item.judul)}
-    &kelas=${kelasAktif}
-    &type=soal`;
+    a.href = `${viewer}?id=${encodeURIComponent(item.id)}&mapel=${encodeURIComponent(item.mapelLabel)}&bab=${encodeURIComponent(item.babLabel)}&judul=${encodeURIComponent(item.judul)}&kelas=${kelasAktif}&type=soal`;
   }
 } else {  
 const fileId = item.embedlink.split("/d/")[1].split("/")[0];
