@@ -1,4 +1,13 @@
+console.log("=== DEBUG PARAMETER ===");
+console.log("Full URL:", window.location.href);
+
 const params = new URLSearchParams(window.location.search);
+
+console.log("id:", params.get("id"));
+console.log("type:", params.get("type"));
+console.log("kelas:", params.get("kelas"));
+console.log("======================");
+
 const kelas = parseInt(params.get("kelas"));
 const type = params.get("type") || "latihan"; 
 const id = params.get("id"); 
