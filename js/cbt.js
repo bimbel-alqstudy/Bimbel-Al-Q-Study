@@ -4,9 +4,10 @@ const type = params.get("type") || "latihan";
 const id = params.get("id"); 
 const judul = params.get("judul"); 
 const bab = params.get("bab"); 
-
+console.log("ID:", id);
+console.log("TYPE:", type);
 const API_SOAL = `https://script.google.com/macros/s/AKfycby0X0Th-zSjoQaWS55jPcbKdPPCI9nEWyJPiOBKqHc4ywWx3tP2Hw3KlRlztntBieRf/exec?type=${type}&id=${id}`;
-
+console.log("API:", API_SOAL);
 // ===== CONTOH DATA (nanti ganti dari API kamu) =====
 fetch(API_SOAL)
   .then(res => res.json())
