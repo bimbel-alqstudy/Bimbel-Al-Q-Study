@@ -40,7 +40,7 @@ fetch(API_SOAL)
     item.gambar_c,
     item.gambar_d
   ],
-        jawaban: item["opsi_" + item.jawaban.toLowerCase()]
+        jawaban: item.jawaban.toUpperCase()
       });
     });
 
@@ -67,19 +67,20 @@ function renderSoal() {
     html += `<div class="opsi">`;
 
     q.opsi.forEach((opsi, i) => {
-      html += `
-        <label>
-          <input type="radio" name="soal${index}" value="${opsi}">
-          ${opsi ? opsi : ""}
-      `;
+  const huruf = String.fromCharCode(65 + i);
 
-      // ✅ GAMBAR OPSI
-      if (q.gambar_opsi && q.gambar_opsi[i]) {
-        html += `<br><img src="${q.gambar_opsi[i]}" class="img-opsi">`;
-      }
+  html += `
+    <label>
+      <input type="radio" name="soal${index}" value="${huruf}">
+      ${huruf}. ${opsi}
+  `;
 
-      html += `</label>`;
-    });
+  if (q.gambar_opsi && q.gambar_opsi[i]) {
+    html += `<br><img src="${q.gambar_opsi[i]}" class="img-opsi">`;
+  }
+
+  html += `</label>`;
+});
 
     html += `</div></div>`;
     quiz.innerHTML += html;
