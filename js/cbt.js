@@ -1,22 +1,26 @@
-console.log("=== DEBUG PARAMETER ===");
-console.log("Full URL:", window.location.href);
-
 const params = new URLSearchParams(window.location.search);
-
-console.log("id:", params.get("id"));
-console.log("type:", params.get("type"));
-console.log("kelas:", params.get("kelas"));
-console.log("======================");
 
 const kelas = parseInt(params.get("kelas"));
 const type = params.get("type") || "latihan"; 
 const id = params.get("id"); 
+const mapel = params.get("mapel") || "Matematika";
 const judul = params.get("judul"); 
 const bab = params.get("bab"); 
-console.log("ID:", id);
-console.log("TYPE:", type);
+const subJudulEl = document.getElementById("subJudul");
+
+let teks = "";
+
+// Format: Mapel - Bab - Judul
+if (mapel && bab && judul) {
+  teks = `${mapel} - Bab ${bab} - ${judul}`;
+} else if (mapel && judul) {
+  teks = `${mapel} - ${judul}`;
+} else {
+  teks = judul || "";
+}
+
+subJudulEl.textContent = teks;
 const API_SOAL = `https://script.google.com/macros/s/AKfycby0X0Th-zSjoQaWS55jPcbKdPPCI9nEWyJPiOBKqHc4ywWx3tP2Hw3KlRlztntBieRf/exec?type=${type}&id=${id}`;
-console.log("API:", API_SOAL);
 // ===== CONTOH DATA (nanti ganti dari API kamu) =====
 let soal = [];
 fetch(API_SOAL)
