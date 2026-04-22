@@ -77,7 +77,7 @@ h1 {
   background: #f8d7da !important;
 }
 
-button {
+.btn-cbt {
   width: 100%;
   padding: 12px;
   font-size: 16px;
@@ -88,7 +88,7 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.btn-cbt:hover {
   background: #218838;
 }
 
