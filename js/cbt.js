@@ -12,7 +12,7 @@ let teks = "";
 
 // Format: Mapel - Bab - Judul
 if (mapel && bab && judul) {
-  teks = `${mapel} - Bab ${bab} - ${judul}`;
+  teks = `${mapel} - ${bab} - ${judul}`;
 } else if (mapel && judul) {
   teks = `${mapel} - ${judul}`;
 } else {
