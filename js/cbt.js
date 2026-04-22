@@ -127,6 +127,10 @@ document.getElementById("btnSubmit").addEventListener("click", () => {
 
   const nilai = Math.round((skor / soal.length) * 100);
   document.getElementById("hasil").textContent = "Nilai kamu: " + nilai;
-
+// 🔒 Kunci semua jawaban
+document.querySelectorAll('input[type="radio"]').forEach(input => {
+  input.disabled = true;
+});
+  document.getElementById("btnSubmit").disabled = true;
   window.scrollTo(0, document.body.scrollHeight);
 });
