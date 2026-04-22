@@ -71,7 +71,7 @@ function renderSoal() {
 
   html += `
     <label>
-      <input type="radio" name="soal${index}" value="${huruf}">
+      <input type="radio" name="soal${index}" value="${huruf}" onclick="hapusBorder(${index})">
       ${huruf}. ${opsi}
   `;
 
@@ -90,17 +90,22 @@ function renderSoal() {
 document.getElementById("btnSubmit").addEventListener("click", () => {
   let skor = 0;
   let belumJawab = false;
-
+let firstUnanswered = null;
   soal.forEach((q, index) => {
     const selected = document.querySelector(`input[name="soal${index}"]:checked`);
     const soalDiv = document.getElementById(`soal-${index}`);
 
-    if (!selected) {
-      belumJawab = true;
-      soalDiv.style.border = "2px solid red";
-      return;
-    }
-
+if (!selected) {
+  belumJawab = true;
+  soalDiv.style.border = "2px solid red";
+   if (firstUnanswered === null) {
+    firstUnanswered = soalDiv;
+  }
+  return;
+} else {
+  // ✅ HAPUS border jika sudah dijawab
+  soalDiv.style.border = "";
+}
     const labels = soalDiv.querySelectorAll("label");
 
     labels.forEach(label => {
@@ -120,11 +125,16 @@ document.getElementById("btnSubmit").addEventListener("click", () => {
     }
   });
 
-  if (belumJawab) {
-    alert("Masih ada soal yang belum dijawab!");
-    return;
+if (belumJawab) {
+  alert("Masih ada soal yang belum dijawab!");
+
+  // 🔽 Scroll ke soal pertama yang kosong
+  if (firstUnanswered) {
+    firstUnanswered.scrollIntoView({ behavior: "smooth", block: "center" });
   }
 
+  return;
+}
   const nilai = Math.round((skor / soal.length) * 100);
   document.getElementById("hasil").textContent = "Nilai kamu: " + nilai;
 // 🔒 Kunci semua jawaban
@@ -134,3 +144,8 @@ document.querySelectorAll('input[type="radio"]').forEach(input => {
   document.getElementById("btnSubmit").disabled = true;
   window.scrollTo(0, document.body.scrollHeight);
 });
+
+function hapusBorder(index) {
+  const soalDiv = document.getElementById(`soal-${index}`);
+  soalDiv.style.border = "";
+}
