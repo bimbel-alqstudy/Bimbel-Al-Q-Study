@@ -41,6 +41,14 @@ h1 {
   text-align: center;
 }
 
+#subJudul {
+  text-align: center;
+  margin-top: -10px;
+  margin-bottom: 20px;
+  color: #666;
+  font-size: 14px;
+}
+
 #info {
   text-align: center;
   margin-bottom: 20px;
