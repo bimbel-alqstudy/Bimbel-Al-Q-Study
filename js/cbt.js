@@ -6,10 +6,12 @@ const id = params.get("id");
 const mapel = params.get("mapel") || "Matematika";
 const judul = params.get("judul"); 
 const bab = params.get("bab"); 
+const JudulEl = document.getElementById("JudulHalaman");
 const subJudulEl = document.getElementById("subJudul");
 
-let teks = "";
+JudulEl.textContent = `Latihan Online Kelas ${kelas}`;
 
+let teks = "";
 // Format: Mapel - Bab - Judul
 if (mapel && bab && judul) {
   teks = `${mapel} - ${bab} - ${judul}`;
@@ -18,8 +20,8 @@ if (mapel && bab && judul) {
 } else {
   teks = judul || "";
 }
-
 subJudulEl.textContent = teks;
+
 const API_SOAL = `https://script.google.com/macros/s/AKfycby0X0Th-zSjoQaWS55jPcbKdPPCI9nEWyJPiOBKqHc4ywWx3tP2Hw3KlRlztntBieRf/exec?type=${type}&id=${id}`;
 // ===== CONTOH DATA (nanti ganti dari API kamu) =====
 let soal = [];
