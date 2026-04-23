@@ -229,15 +229,9 @@ function getJenjang(kelas) {
 }
 
 const jenjang = getJenjang(parseInt(kelas));
-const typeLabel = {
-  materi: "Materi",
-  latihan: "Bank Soal",
-  tryout: "Latihan Online"
-};
-const labelType = typeLabel[type] || "Halaman";  
-renderBreadcrumb([
+    renderBreadcrumb([
   { label: "Beranda", link: "index.html" },
-  { label: jenjang, link: `${jenjang.toLowerCase()}.html` },
+  { label: jenjang, link: `${jenjang}.html` },
   { label: `Kelas ${kelas}`, link: `kelas.html?kelas=${kelas}` },
   { label: "Bank Soal", link: `latihan.html?kelas=${kelas}&type=${type}` },
   { label: fullJudul || "Dokumen" }
