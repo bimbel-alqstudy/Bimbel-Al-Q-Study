@@ -110,6 +110,7 @@ iframe {
 
 <!-- Judul -->
 <h1 id="judul"></h1>
+<h1 id="subjudul"></h1>
 
 </div>
 </section>
@@ -155,6 +156,7 @@ iframe {
 
   <script>
 const params = new URLSearchParams(window.location.search);
+const kelas = params.get("kelas");
 const mapel = params.get("mapel");
 const bab = params.get("bab");
 const file = params.get("file");
@@ -162,6 +164,7 @@ const judul = params.get("judul");
 const download = params.get("download");
 const viewer = document.getElementById("pdfViewer");
 const judulEl = document.getElementById("judul");
+const subjudulEl = document.getElementById("subjudul");
 const downloadBtn = document.getElementById("downloadBtn");
 const parts = [mapel, bab, judul].filter(Boolean);
 const fullJudul = parts.join(" - ");    
@@ -169,7 +172,8 @@ if (file) {
 //  const decodedJudul = decodeURIComponent(judul || "Dokumen");
 
   // tampilkan judul
-  judulEl.textContent = fullJudul;
+  judulEl.textContent = `Soal Latihan Kelas ${kelas}`
+  subjudulEl.textContent = fullJudul;
 
   // set iframe (WAJIB pakai preview)
   viewer.src = file;
@@ -215,7 +219,6 @@ document.addEventListener("fullscreenchange", () => {
   }
 });
     
-const kelas = params.get("kelas");
 const type = params.get("type");
 
 function getJenjang(kelas) {
@@ -236,7 +239,7 @@ renderBreadcrumb([
   { label: "Beranda", link: "index.html" },
   { label: jenjang, link: `${jenjang.toLowerCase()}.html` },
   { label: `Kelas ${kelas}`, link: `kelas.html?kelas=${kelas}` },
-  { label: labelType, link: `latihan.html?kelas=${kelas}&type=${type}` },
+  { label: "Bank Soal", link: `latihan.html?kelas=${kelas}&type=${type}` },
   { label: fullJudul || "Dokumen" }
 ]);
 </script>
