@@ -218,9 +218,7 @@ if (type === "tryout") {
 
   } else if (item.mode === "internal") {
     // 👉 buka CBT internal
-    const viewer = "viewertryout.html";
-
-    a.href = `${viewer}?id=${encodeURIComponent(item.id)}&mapel=${encodeURIComponent(item.mapelLabel)}&bab=${encodeURIComponent(item.babLabel)}&judul=${encodeURIComponent(item.judul)}&kelas=${kelasAktif}&type=soal`;
+    a.href = `viewertryout.html?id=${encodeURIComponent(item.id)}&jenjang=${encodeURIComponent(item.jenjangLabel)}&mapel=${encodeURIComponent(item.mapelLabel)}&bab=${encodeURIComponent(item.babLabel)}&judul=${encodeURIComponent(item.judul)}&kelas=${kelasAktif}`;
   }
 } else {  
 const fileId = item.embedlink.split("/d/")[1].split("/")[0];
