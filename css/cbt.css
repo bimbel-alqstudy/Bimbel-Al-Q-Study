@@ -31,6 +31,31 @@ body {
   color: #222;
 }
 
+/* BREADCRUMB */
+.breadcrumb {
+  margin: 15px  0;
+  font-size: 14px;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: #1e88e5;
+}
+
+.breadcrumb a:hover {
+text-decoration: underline;
+}
+
+.breadcrumb span {
+ color: #777;
+  margin: 0 6px;
+}
+
+.breadcrumb .active {
+  color: #555;
+  font-weight: 500;
+}
+
 .container {
   max-width: 800px;
   margin: auto;
