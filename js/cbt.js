@@ -1,7 +1,7 @@
 const params = new URLSearchParams(window.location.search);
 
 const kelas = parseInt(params.get("kelas"));
-const type = params.get("type") || "latihan"; 
+const jenjang = params.get("jenjang") || "SD"; 
 const id = params.get("id"); 
 const mapel = params.get("mapel") || "Matematika";
 const judul = params.get("judul"); 
@@ -21,8 +21,15 @@ if (mapel && bab && judul) {
   teks = judul || "";
 }
 subJudulEl.textContent = teks;
+renderBreadcrumb([
+  { label: "Beranda", link: "index.html" },
+  { label: jenjang, link: `${jenjang}.html` },
+  { label: `Kelas ${kelas}`, link: `kelas.html?kelas=${kelas}` },
+  { label: "Latihan Online", link: `latihan.html?type=tryout&kelas=${kelas}` },
+  { label: teks || "Latihan" }
+]);
 
-const API_SOAL = `https://script.google.com/macros/s/AKfycby0X0Th-zSjoQaWS55jPcbKdPPCI9nEWyJPiOBKqHc4ywWx3tP2Hw3KlRlztntBieRf/exec?type=${type}&id=${id}`;
+const API_SOAL = `https://script.google.com/macros/s/AKfycby0X0Th-zSjoQaWS55jPcbKdPPCI9nEWyJPiOBKqHc4ywWx3tP2Hw3KlRlztntBieRf/exec?type=soal&id=${id}`;
 // ===== CONTOH DATA (nanti ganti dari API kamu) =====
 let soal = [];
 fetch(API_SOAL)
