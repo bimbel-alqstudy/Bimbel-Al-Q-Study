@@ -178,3 +178,26 @@ input:disabled {
   font-weight: bold;
   cursor: pointer;
 }
+
+/* MODE TERKUNCI TOTAL */
+#quiz.locked label {
+  pointer-events: none;   /* ❌ tidak bisa klik */
+  cursor: default;        /* ❌ hilangkan tangan */
+}
+
+#quiz.locked .img-soal,
+#quiz.locked .img-opsi {
+  pointer-events: none;   /* ❌ tidak bisa klik */
+  cursor: default;        /* ❌ hilangkan tangan */
+}
+
+/* ❌ hilangkan efek hover kalau ada */
+#quiz.locked label:hover {
+  background: none !important;
+  transform: none !important;
+}
+
+/* opsional: sedikit efek visual */
+#quiz.locked {
+  opacity: 0.95;
+}
