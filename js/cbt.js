@@ -171,7 +171,7 @@ document.getElementById("btnSubmit").addEventListener("click", () => {
   document.querySelectorAll('input[type="radio"]').forEach(input => {
     input.disabled = true;
   });
-
+document.getElementById("quiz").classList.add("locked");
   document.getElementById("btnSubmit").disabled = true;
 isSubmitted = true;
   window.scrollTo(0, document.body.scrollHeight);
