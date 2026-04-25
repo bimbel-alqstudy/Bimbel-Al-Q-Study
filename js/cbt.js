@@ -32,6 +32,7 @@ renderBreadcrumb([
 const API_SOAL = `https://script.google.com/macros/s/AKfycby0X0Th-zSjoQaWS55jPcbKdPPCI9nEWyJPiOBKqHc4ywWx3tP2Hw3KlRlztntBieRf/exec?type=soal&id=${id}`;
 // ===== CONTOH DATA (nanti ganti dari API kamu) =====
 let soal = [];
+let isSubmitted = false;
 fetch(API_SOAL)
   .then(res => res.json())
   .then(data => {
@@ -172,7 +173,7 @@ document.getElementById("btnSubmit").addEventListener("click", () => {
   });
 
   document.getElementById("btnSubmit").disabled = true;
-
+isSubmitted = true;
   window.scrollTo(0, document.body.scrollHeight);
 });
 
@@ -189,11 +190,12 @@ function aktifkanZoomGambar() {
   document.querySelectorAll(".img-soal, .img-opsi").forEach(img => {
     img.style.cursor = "pointer";
 
-    img.addEventListener("click", function () {
-      modal.style.display = "block";
-      modalImg.src = this.src;
-    });
-  });
+img.addEventListener("click", function () {
+  if (isSubmitted) return; // ❌ blok kalau sudah submit
+  modal.style.display = "block";
+  modalImg.src = this.src;
+});
+});
 
   // tombol close
   closeBtn.onclick = function () {
