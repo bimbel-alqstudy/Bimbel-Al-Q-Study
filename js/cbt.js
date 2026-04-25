@@ -58,6 +58,7 @@ fetch(API_SOAL)
     });
 
     renderSoal();
+    aktifkanZoomGambar();
   });
 // ===== RENDER SOAL =====
 function renderSoal() {
@@ -174,7 +175,35 @@ document.getElementById("btnSubmit").addEventListener("click", () => {
 
   window.scrollTo(0, document.body.scrollHeight);
 });
+
 function hapusBorder(index) {
   const soalDiv = document.getElementById(`soal-${index}`);
   soalDiv.style.border = "";
+}
+
+function aktifkanZoomGambar() {
+  const modal = document.getElementById("imageModal");
+  const modalImg = document.getElementById("modalImg");
+  const closeBtn = document.querySelector(".image-modal .close");
+
+  document.querySelectorAll(".img-soal, .img-opsi").forEach(img => {
+    img.style.cursor = "pointer";
+
+    img.addEventListener("click", function () {
+      modal.style.display = "block";
+      modalImg.src = this.src;
+    });
+  });
+
+  // tombol close
+  closeBtn.onclick = function () {
+    modal.style.display = "none";
+  };
+
+  // klik luar gambar
+  modal.onclick = function (e) {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  };
 }
