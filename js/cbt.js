@@ -32,6 +32,8 @@ renderBreadcrumb([
 const API_SOAL = `https://script.google.com/macros/s/AKfycby0X0Th-zSjoQaWS55jPcbKdPPCI9nEWyJPiOBKqHc4ywWx3tP2Hw3KlRlztntBieRf/exec?type=soal&id=${id}`;
 // ===== CONTOH DATA (nanti ganti dari API kamu) =====
 let soal = [];
+let durasi = 60 * 60; // 30 menit (dalam detik)
+let timerInterval;
 let isSubmitted = false;
 fetch(API_SOAL)
   .then(res => res.json())
@@ -60,6 +62,7 @@ fetch(API_SOAL)
 
     renderSoal();
     aktifkanZoomGambar();
+    mulaiTimer();
   });
 // ===== RENDER SOAL =====
 function renderSoal() {
@@ -173,8 +176,9 @@ document.getElementById("btnSubmit").addEventListener("click", () => {
   });
 document.getElementById("quiz").classList.add("locked");
   document.getElementById("btnSubmit").disabled = true;
-isSubmitted = true;
-  window.scrollTo(0, document.body.scrollHeight);
+clearInterval(timerInterval);
+isSubmitted = true;  
+window.scrollTo(0, document.body.scrollHeight);
 });
 
 function hapusBorder(index) {
@@ -208,4 +212,69 @@ img.addEventListener("click", function () {
       modal.style.display = "none";
     }
   };
+}
+
+function mulaiTimer() {
+  const timerEl = document.getElementById("timer");
+
+  timerInterval = setInterval(() => {
+    let menit = Math.floor(durasi / 60);
+    let detik = durasi % 60;
+
+    timerEl.textContent =
+      String(menit).padStart(2, "0") + ":" +
+      String(detik).padStart(2, "0");
+
+    durasi--;
+
+    // ⏰ waktu habis
+    if (durasi < 0) {
+      clearInterval(timerInterval);
+
+      alert("Waktu habis! Jawaban akan dikumpulkan.");
+
+      autoSubmit();
+    }
+  }, 1000);
+}
+
+function autoSubmit() {
+  if (isSubmitted) return;
+
+  isSubmitted = true;
+
+  let skor = 0;
+
+  soal.forEach((q, index) => {
+    const selected = document.querySelector(`input[name="soal${index}"]:checked`);
+    const soalDiv = document.getElementById(`soal-${index}`);
+    const labels = soalDiv.querySelectorAll("label");
+
+    labels.forEach(label => {
+      const input = label.querySelector("input");
+
+      if (input.value === q.jawaban) {
+        label.classList.add("benar");
+      }
+
+      if (input.checked && input.value !== q.jawaban) {
+        label.classList.add("salah");
+      }
+    });
+
+    if (selected && selected.value === q.jawaban) {
+      skor++;
+    }
+  });
+
+  const nilai = Math.round((skor / soal.length) * 100);
+  document.getElementById("hasil").textContent = "Nilai kamu: " + nilai;
+
+  // 🔒 lock total
+  document.querySelectorAll('input[type="radio"]').forEach(input => {
+    input.disabled = true;
+  });
+
+  document.getElementById("quiz").classList.add("locked");
+  document.getElementById("btnSubmit").disabled = true;
 }
