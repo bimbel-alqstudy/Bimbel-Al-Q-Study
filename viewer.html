@@ -223,21 +223,26 @@ document.addEventListener("fullscreenchange", () => {
   }
 });
     
-const type = params.get("type");
-
 function getJenjang(kelas) {
   if (kelas >= 1 && kelas <= 6) return "SD";
   if (kelas >= 7 && kelas <= 9) return "SMP";
   if (kelas >= 10 && kelas <= 12) return "SMA";
   return "";
 }
-
 const jenjang = getJenjang(parseInt(kelas));
+
+function getLabel(type) {
+  if (type==="materi") return "Materi";
+  if (type==="latihan") return "Bank Soal";
+  return "";
+}
+const jenjang = getJenjang(parseInt(kelas));
+const Label = getLabel(type);    
     renderBreadcrumb([
   { label: "Beranda", link: "index.html" },
   { label: jenjang, link: `${jenjang}.html` },
   { label: `Kelas ${kelas}`, link: `kelas.html?kelas=${kelas}` },
-  { label: "Bank Soal", link: `latihan.html?kelas=${kelas}&type=${type}` },
+  { label: Label, link: `latihan.html?kelas=${kelas}&type=${type}` },
   { label: fullJudul || "Dokumen" }
 ]);
 </script>
