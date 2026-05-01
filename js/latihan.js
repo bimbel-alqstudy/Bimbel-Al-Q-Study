@@ -43,11 +43,6 @@ if (!config[type]) {
 }
 
 const halaman = config[type];
-const viewerPage = {
-  materi: "viewermateri.html",
-  latihan: "viewerlatihan.html",
-  tryout: "viewertryout.html"
-};
 const iconKategori = {
   matematika: "calculator",
   ipa: "flask-conical",
@@ -224,8 +219,7 @@ if (type === "tryout") {
 const fileId = item.embedlink.split("/d/")[1].split("/")[0];
 const previewLink = `https://drive.google.com/file/d/${fileId}/preview`;
 const downloadLink = `https://drive.google.com/uc?export=download&id=${fileId}`;
-const viewer = viewerPage[type] || "viewer.html";
-a.href = `${viewer}?file=${encodeURIComponent(previewLink)}
+a.href = `viewer.html?file=${encodeURIComponent(previewLink)}
 &download=${encodeURIComponent(downloadLink)}
 &mapel=${encodeURIComponent(item.mapelLabel)}
 &bab=${encodeURIComponent(item.babLabel)}
