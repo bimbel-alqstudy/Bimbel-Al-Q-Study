@@ -206,15 +206,6 @@ if (btnFullscreen) {
   });
 }
 
-btnFullscreen.addEventListener("click", () => {
-  const container = document.querySelector(".pdf-container");
-
-  if (!document.fullscreenElement) {
-    container.requestFullscreen();
-  } else {
-    document.exitFullscreen();
-  }
-});
 document.addEventListener("fullscreenchange", () => {
   if (!document.fullscreenElement) {
     btnFullscreen.textContent = "Fullscreen";
