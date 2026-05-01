@@ -156,6 +156,7 @@ iframe {
 
   <script>
 const params = new URLSearchParams(window.location.search);
+const type = params.get("type");
 const kelas = params.get("kelas");
 const mapel = params.get("mapel");
 const bab = params.get("bab");
@@ -172,7 +173,10 @@ if (file) {
 //  const decodedJudul = decodeURIComponent(judul || "Dokumen");
 
   // tampilkan judul
-  judulEl.textContent = `Soal Latihan Kelas ${kelas}`
+  if (type==="materi" ){
+  judulEl.textContent = `Bank Soal Kelas ${kelas}`;
+  } else {  judulEl.textContent = `Soal Latihan Kelas ${kelas}`;
+}
   subjudulEl.textContent = fullJudul;
 
   // set iframe (WAJIB pakai preview)
