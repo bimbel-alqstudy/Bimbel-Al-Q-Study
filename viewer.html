@@ -1,240 +1,142 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Bimbingan Belajar Al-Q Study</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PDF Viewer</title>
 
-  <link rel="shortcut icon" href="gambar/logo.png" type="image/x-icon">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/footer.css">
-  <link rel="stylesheet" href="css/SD.css">
 <style>
-    .error {
-      padding: 20px;
-      text-align: center;
-      color: red;
-    }
-  .btn-download {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 8px 14px;
-  background: #27ae60;
-  color: white;
-  border-radius: 6px;
-  text-decoration: none;
-}
-.btn-download:hover {
-  opacity: 0.85;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
 }
 
-  .pdf-container {
-  max-width: 1000px;
-  margin: 20px auto;
-  background: #f5f6fa;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;  
-}
-
-.pdf-toolbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.toolbar {
   background: #2c3e50;
   color: white;
-  padding: 10px 15px;
-}
-
-.pdf-toolbar .left {
+  padding: 10px;
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.pdf-toolbar .right a {
-  margin-left: 10px;
-  background: #27ae60;
+.toolbar button {
   padding: 6px 10px;
-  border-radius: 5px;
-  color: white;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-.pdf-toolbar button {
-  margin-left: 10px;
-  background: #3498db;
-  padding: 6px 10px;
-  border-radius: 5px;
-  color: white;
   border: none;
+  background: #3498db;
+  color: white;
   cursor: pointer;
-  font-size: 14px;
+  border-radius: 5px;
 }
 
-.pdf-toolbar button:hover {
+.toolbar button:hover {
   opacity: 0.85;
 }
-iframe {
-  width: 100%;
-  height: 180vh;
-  border: none;
-  background: #fff;
-}
-.pdf-container:fullscreen {
-  width: 100%;
-  height: 100vh;
+
+#pdf-container {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  padding: 15px;
 }
 
-.pdf-container:fullscreen iframe {
-  flex: 1;
-  height: 100%;
-}  
-  </style>
+canvas {
+  background: white;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+</style>
 </head>
 <body>
-<div class="menu-overlay" id="menuOverlay"></div>
-<header id="siteHeader"></header>
 
-<!-- HEADER HALAMAN -->
-<section class="page-header">
-<div class="container">
+<div class="toolbar">
+  <button id="prev">⬅ Prev</button>
+  <span id="pageInfo">Page 1</span>
+  <button id="next">Next ➡</button>
 
-<!-- Breadcrumb -->
-  <nav class="breadcrumb" id="breadcrumb"></nav>
+  <button id="zoomOut">➖</button>
+  <button id="zoomIn">➕</button>
 
-<!-- Judul -->
-<h1 id="judul"></h1>
-<h1 id="subjudul"></h1>
-
-</div>
-</section>
-
-  <div class="container">
-    
-<div class="pdf-container">
-<div class="pdf-toolbar">
-<div class="right">
-  <button id="btnFullscreen">Fullscreen</button>
-      <a id="downloadBtn" class="btn-download" target="_blank">
-        <i class="fa-solid fa-download"></i>Download
-      </a>
-    </div>
-</div>    
-    <!-- Viewer -->
-  <iframe id="pdfViewer"></iframe>
-
-</div>    
-<div class="error" id="error" style="display:none;">
-  Gagal memuat PDF.
-</div> 
+  <button id="fullscreen">Fullscreen</button>
 </div>
 
-    <div class="section-divider"></div>
-
-<!-- ===== ORNAMEN GELOMBANG ===== -->
-<div style="background:linear-gradient(180deg, var(--blue), var(--green));">
-<svg viewBox="0 0 1440 50" preserveAspectRatio="none" style="width:100%; height:45px; display:block;">
-  <path fill="#2ECC71" fill-opacity="0.38"
-    d="M0,40 C120,70 240,10 360,20 480,30 600,80 720,75 840,70 960,30 1080,20 1200,10 1320,30 1440,40 L1440,0 L0,0 Z">
-  </path>
-</svg>
+<div id="pdf-container">
+  <canvas id="pdf-canvas"></canvas>
 </div>
 
-  <!-- FOOTER -->
-<footer id="siteFooter" class="footer"></footer>
+<!-- PDF.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 
-  <script src="js/header.js"></script>
-<script src="js/breadcrumb.js"></script>
-  <script src="js/footer.js"></script>
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<script>
+const urlParams = new URLSearchParams(window.location.search);
+const file = urlParams.get("file"); // URL PDF langsung
 
-  <script>
-const params = new URLSearchParams(window.location.search);
-const type = params.get("type");
-const kelas = params.get("kelas");
-const mapel = params.get("mapel");
-const bab = params.get("bab");
-const file = params.get("file");
-const judul = params.get("judul");
-const download = params.get("download");
-const viewer = document.getElementById("pdfViewer");
-const judulEl = document.getElementById("judul");
-const subjudulEl = document.getElementById("subjudul");
-const downloadBtn = document.getElementById("downloadBtn");
-const parts = [mapel, bab, judul].filter(Boolean);
-const fullJudul = parts.join(" - ");    
-if (file) {
-//  const decodedJudul = decodeURIComponent(judul || "Dokumen");
+const pdfjsLib = window['pdfjs-dist/build/pdf'];
+pdfjsLib.GlobalWorkerOptions.workerSrc =
+  "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
 
-  // tampilkan judul
-  if (type==="materi" ){
-  judulEl.textContent = `Materi Pelajaran Kelas ${kelas}`;
-  } else {  judulEl.textContent = `Soal Latihan Kelas ${kelas}`;
-}
-  subjudulEl.textContent = fullJudul;
+let pdfDoc = null;
+let pageNum = 1;
+let scale = 1.2;
+const canvas = document.getElementById("pdf-canvas");
+const ctx = canvas.getContext("2d");
 
-  // set iframe (WAJIB pakai preview)
-  viewer.src = file;
+function renderPage(num) {
+  pdfDoc.getPage(num).then(page => {
+    const viewport = page.getViewport({ scale });
 
-  // ambil file ID
-//  const fileId = file.split("/d/")[1].split("/")[0];
+    canvas.height = viewport.height;
+    canvas.width = viewport.width;
 
-  // tombol download
-  downloadBtn.href = download;
-} else {
-  viewer.style.display = "none";
-}    
+    const renderContext = {
+      canvasContext: ctx,
+      viewport: viewport
+    };
 
-const btnFullscreen = document.getElementById("btnFullscreen");
+    page.render(renderContext);
 
-// 🔲 FULLSCREEN
-if (btnFullscreen) {
-  btnFullscreen.addEventListener("click", () => {
-    const container = document.querySelector(".pdf-container");
-
-    if (!document.fullscreenElement) {
-      container.requestFullscreen();
-    } else {
-      document.exitFullscreen();
-    }
+    document.getElementById("pageInfo").textContent =
+      `Page ${num} / ${pdfDoc.numPages}`;
   });
 }
 
-document.addEventListener("fullscreenchange", () => {
-  if (!document.fullscreenElement) {
-    btnFullscreen.textContent = "Fullscreen";
-  } else {
-    btnFullscreen.textContent = "Exit Fullscreen";
-  }
+pdfjsLib.getDocument(file).promise.then(pdf => {
+  pdfDoc = pdf;
+  renderPage(pageNum);
 });
-    
-function getJenjang(kelas) {
-  if (kelas >= 1 && kelas <= 6) return "SD";
-  if (kelas >= 7 && kelas <= 9) return "SMP";
-  if (kelas >= 10 && kelas <= 12) return "SMA";
-  return "";
-}
-const jenjang = getJenjang(parseInt(kelas));
 
-function getLabel(type) {
-  if (type==="materi") return "Materi";
-  if (type==="latihan") return "Bank Soal";
-  return "";
-}
-const Label = getLabel(type);    
-    renderBreadcrumb([
-  { label: "Beranda", link: "index.html" },
-  { label: jenjang, link: `${jenjang}.html` },
-  { label: `Kelas ${kelas}`, link: `kelas.html?kelas=${kelas}` },
-  { label: Label, link: `latihan.html?kelas=${kelas}&type=${type}` },
-  { label: fullJudul || "Dokumen" }
-]);
+// Navigasi
+document.getElementById("prev").onclick = () => {
+  if (pageNum <= 1) return;
+  pageNum--;
+  renderPage(pageNum);
+};
+
+document.getElementById("next").onclick = () => {
+  if (pageNum >= pdfDoc.numPages) return;
+  pageNum++;
+  renderPage(pageNum);
+};
+
+// Zoom
+document.getElementById("zoomIn").onclick = () => {
+  scale += 0.2;
+  renderPage(pageNum);
+};
+
+document.getElementById("zoomOut").onclick = () => {
+  if (scale <= 0.6) return;
+  scale -= 0.2;
+  renderPage(pageNum);
+};
+
+// Fullscreen
+document.getElementById("fullscreen").onclick = () => {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+  } else {
+    document.exitFullscreen();
+  }
+};
 </script>
 
 </body>
